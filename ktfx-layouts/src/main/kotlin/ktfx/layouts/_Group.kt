@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.group(): Group = group() { }
+public fun NodeContainer.group(): Group = group() {}
 
 /**
  * Create a [Group] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.group(): Group = group() { }
  * @return the control created.
  */
 public inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxGroup()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxGroup()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Un
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit):
-        Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxGroup()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.group(
+    configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit
+): Group {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxGroup()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.group(configuration: (@KtfxLayoutDslMarker KtfxG
  * @return the styled control created.
  */
 public fun styledGroup(vararg styleClass: String, id: String? = null): Group =
-        styledGroup(styleClass = *styleClass, id = id) { }
+    styledGroup(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Group] to this container.
@@ -67,7 +68,7 @@ public fun styledGroup(vararg styleClass: String, id: String? = null): Group =
  * @return the styled control added.
  */
 public fun NodeContainer.styledGroup(vararg styleClass: String, id: String? = null): Group =
-        styledGroup(styleClass = *styleClass, id = id) { }
+    styledGroup(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Group] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledGroup(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit,
 ): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxGroup()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxGroup()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledGroup(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit,
 ): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxGroup()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxGroup()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

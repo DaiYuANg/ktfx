@@ -6,20 +6,20 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 
 abstract class BaseMediaViewTest {
-    private lateinit var media: MediaView
+  private lateinit var media: MediaView
 
-    abstract fun MediaView.callOnError(action: (MediaErrorEvent) -> Unit)
+  abstract fun MediaView.callOnError(action: (MediaErrorEvent) -> Unit)
 
-    @BeforeTest
-    fun start() {
-        initToolkit()
-        media = MediaView()
-    }
+  @BeforeTest
+  fun start() {
+    initToolkit()
+    media = MediaView()
+  }
 
-    @Test
-    fun onError() {
-        // TODO: create fake event
-        // media.callOnError { assertFakeMediaErrorEvent(it) }
-        // media.onError.handle(fakeMediaErrorEventOf())
-    }
+  @Test
+  fun onError() {
+    // TODO: create fake event
+    // media.callOnError { assertFakeMediaErrorEvent(it) }
+    // media.onError.handle(fakeMediaErrorEventOf())
+  }
 }

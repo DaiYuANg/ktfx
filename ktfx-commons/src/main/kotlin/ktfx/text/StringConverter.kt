@@ -7,8 +7,8 @@ import javafx.util.StringConverter
 /**
  * Builds new string converter.
  *
- * @param builderAction configure [StringConverterBuilder.toString]
- *   and [StringConverterBuilder.fromString].
+ * @param builderAction configure [StringConverterBuilder.toString] and
+ *   [StringConverterBuilder.fromString].
  * @return configured string converter.
  * @see kotlin.text.buildString
  */
@@ -18,26 +18,26 @@ inline fun <T> buildStringConverter(
 
 /** Receiver for `buildStringConverter` block. */
 class StringConverterBuilder<T> {
-    private var toString: (T?) -> String = { it?.toString() ?: "" }
-    private var fromString: (String) -> T? = { null }
+  private var toString: (T?) -> String = { it?.toString() ?: "" }
+  private var fromString: (String) -> T? = { null }
 
-    /** Convert the object to String. */
-    fun toString(listener: (T?) -> String) {
-        toString = listener
-    }
+  /** Convert the object to String. */
+  fun toString(listener: (T?) -> String) {
+    toString = listener
+  }
 
-    /** Convert String back to object. */
-    fun fromString(listener: (String) -> T?) {
-        fromString = listener
-    }
+  /** Convert String back to object. */
+  fun fromString(listener: (String) -> T?) {
+    fromString = listener
+  }
 
-    /** Create to native builder. */
-    fun build(): StringConverter<T> =
-        object : StringConverter<T>() {
-            override fun toString(any: T?): String = toString(any)
+  /** Create to native builder. */
+  fun build(): StringConverter<T> =
+      object : StringConverter<T>() {
+        override fun toString(any: T?): String = toString(any)
 
-            override fun fromString(string: String): T? = fromString(string)
-        }
+        override fun fromString(string: String): T? = fromString(string)
+      }
 }
 
 /** Converts the object provided into its string form. */

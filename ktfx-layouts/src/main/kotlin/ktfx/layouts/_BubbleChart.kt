@@ -28,12 +28,12 @@ public fun <X, Y> NodeContainer.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-): BubbleChart<X, Y> = bubbleChart(x = x, y = y, data = data) { }
+): BubbleChart<X, Y> = bubbleChart(x = x, y = y, data = data) {}
 
 /**
  * Create a [BubbleChart] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun <X, Y> bubbleChart(
@@ -42,16 +42,16 @@ public inline fun <X, Y> bubbleChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit,
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BubbleChart<X, Y>(x, y, data)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BubbleChart<X, Y>(x, y, data)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [BubbleChart] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun <X, Y> NodeContainer.bubbleChart(
@@ -60,17 +60,17 @@ public inline fun <X, Y> NodeContainer.bubbleChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit,
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BubbleChart<X, Y>(x, y, data)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BubbleChart<X, Y>(x, y, data)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [BubbleChart].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun <X, Y> styledBubbleChart(
@@ -79,14 +79,14 @@ public fun <X, Y> styledBubbleChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
-        id) { }
+): BubbleChart<X, Y> =
+    styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [BubbleChart] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun <X, Y> NodeContainer.styledBubbleChart(
@@ -95,15 +95,15 @@ public fun <X, Y> NodeContainer.styledBubbleChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
-        id) { }
+): BubbleChart<X, Y> =
+    styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [BubbleChart] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun <X, Y> styledBubbleChart(
@@ -114,20 +114,20 @@ public inline fun <X, Y> styledBubbleChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit,
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BubbleChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BubbleChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [BubbleChart] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun <X, Y> NodeContainer.styledBubbleChart(
@@ -138,10 +138,10 @@ public inline fun <X, Y> NodeContainer.styledBubbleChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit,
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BubbleChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BubbleChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

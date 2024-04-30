@@ -26,12 +26,12 @@ public fun NodeContainer.line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-): Line = line(centerX = centerX, centerY = centerY, endX = endX, endY = endY) { }
+): Line = line(centerX = centerX, centerY = centerY, endX = endX, endY = endY) {}
 
 /**
  * Create a [Line] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun line(
@@ -41,16 +41,16 @@ public inline fun line(
     endY: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Line).() -> Unit,
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Line(centerX, centerY, endX, endY)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Line(centerX, centerY, endX, endY)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Line] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.line(
@@ -60,17 +60,17 @@ public inline fun NodeContainer.line(
     endY: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Line).() -> Unit,
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Line(centerX, centerY, endX, endY)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Line(centerX, centerY, endX, endY)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Line].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledLine(
@@ -80,14 +80,20 @@ public fun styledLine(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
-        *styleClass, id = id) { }
+): Line =
+    styledLine(
+        centerX = centerX,
+        centerY = centerY,
+        endX = endX,
+        endY = endY,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Add a styled [Line] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledLine(
@@ -97,15 +103,21 @@ public fun NodeContainer.styledLine(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
-        *styleClass, id = id) { }
+): Line =
+    styledLine(
+        centerX = centerX,
+        centerY = centerY,
+        endX = endX,
+        endY = endY,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Create a styled [Line] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledLine(
@@ -117,20 +129,20 @@ public inline fun styledLine(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Line).() -> Unit,
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Line(centerX, centerY, endX, endY)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Line(centerX, centerY, endX, endY)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Line] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledLine(
@@ -142,10 +154,10 @@ public inline fun NodeContainer.styledLine(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Line).() -> Unit,
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Line(centerX, centerY, endX, endY)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Line(centerX, centerY, endX, endY)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

@@ -6,6 +6,6 @@ import javafx.event.ActionEvent
 import kotlinx.coroutines.Dispatchers
 
 class AnimationTest : BaseAnimationTest() {
-    override fun Animation.callOnFinished(action: (ActionEvent) -> Unit) =
-        onFinished(Dispatchers.Unconfined) { action(it) }
+  override fun Animation.callOnFinished(action: (ActionEvent) -> Unit) =
+      onFinished(Dispatchers.Unconfined) { action(it) }
 }

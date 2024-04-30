@@ -25,12 +25,12 @@ public fun NodeContainer.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
-): Slider = slider(min = min, max = max, value = value) { }
+): Slider = slider(min = min, max = max, value = value) {}
 
 /**
  * Create a [Slider] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun slider(
@@ -39,16 +39,16 @@ public inline fun slider(
     `value`: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit,
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Slider(min, max, value)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Slider(min, max, value)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Slider] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.slider(
@@ -57,17 +57,17 @@ public inline fun NodeContainer.slider(
     `value`: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit,
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Slider(min, max, value)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Slider(min, max, value)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Slider].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledSlider(
@@ -76,13 +76,13 @@ public fun styledSlider(
     `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
+): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Slider] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledSlider(
@@ -91,14 +91,14 @@ public fun NodeContainer.styledSlider(
     `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
+): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Slider] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledSlider(
@@ -109,20 +109,20 @@ public inline fun styledSlider(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit,
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Slider(min, max, value)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Slider(min, max, value)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Slider] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledSlider(
@@ -133,10 +133,10 @@ public inline fun NodeContainer.styledSlider(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit,
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Slider(min, max, value)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Slider(min, max, value)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

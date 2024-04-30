@@ -13,31 +13,30 @@ import com.jfoenix.transitions.JFXAnimationTimer
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 
 val CoroutinesFactory.Companion.JFoenix: CoroutinesFactory
-    get() =
-        CoroutinesFactory(
-            "thirdparty/jfoenix-coroutines/src/main/kotlin",
-            "ktfx.jfoenix.coroutines",
-            "JfoenixCoroutinesKt",
-        ).apply { initJFoenix() }
+  get() =
+      CoroutinesFactory(
+              "thirdparty/jfoenix-coroutines/src/main/kotlin",
+              "ktfx.jfoenix.coroutines",
+              "JfoenixCoroutinesKt",
+          )
+          .apply { initJFoenix() }
 
 fun ListenerFactory.initJFoenix() {
-    // com.jfoenix.controls
-    (JFXAutoCompletePopup::class.name.parameterizedBy(T)) {
-        "setSelectionHandler" {
-            action(JFXAutoCompleteEvent::class.name.parameterizedBy(T))
-        }
-    }
-    JFXDecorator::class { "setOnCloseButtonAction" { action(*emptyArray()) } }
-    JFXDialog::class {
-        "setOnDialogClosed" { action<JFXDialogEvent>() }
-        "setOnDialogOpened" { action<JFXDialogEvent>() }
-    }
-    JFXDrawer::class {
-        "setOnDrawerClosed" { action<JFXDrawerEvent>() }
-        "setOnDrawerClosing" { action<JFXDrawerEvent>() }
-        "setOnDrawerOpened" { action<JFXDrawerEvent>() }
-        "setOnDrawerOpening" { action<JFXDrawerEvent>() }
-    }
-    // com.jfoenix.transitions
-    JFXAnimationTimer::class { "setOnFinished" { action(*emptyArray()) } }
+  // com.jfoenix.controls
+  (JFXAutoCompletePopup::class.name.parameterizedBy(T)) {
+    "setSelectionHandler" { action(JFXAutoCompleteEvent::class.name.parameterizedBy(T)) }
+  }
+  JFXDecorator::class { "setOnCloseButtonAction" { action(*emptyArray()) } }
+  JFXDialog::class {
+    "setOnDialogClosed" { action<JFXDialogEvent>() }
+    "setOnDialogOpened" { action<JFXDialogEvent>() }
+  }
+  JFXDrawer::class {
+    "setOnDrawerClosed" { action<JFXDrawerEvent>() }
+    "setOnDrawerClosing" { action<JFXDrawerEvent>() }
+    "setOnDrawerOpened" { action<JFXDrawerEvent>() }
+    "setOnDrawerOpening" { action<JFXDrawerEvent>() }
+  }
+  // com.jfoenix.transitions
+  JFXAnimationTimer::class { "setOnFinished" { action(*emptyArray()) } }
 }

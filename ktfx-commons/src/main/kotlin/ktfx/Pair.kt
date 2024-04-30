@@ -5,16 +5,16 @@ package ktfx
 /**
  * Returns the key component of the pair.
  *
- * This method allows to use destructuring declarations when working with pairs
- *   (e.g.: `val (first, second) = myPair`).
+ * This method allows to use destructuring declarations when working with pairs (e.g.: `val (first,
+ * second) = myPair`).
  */
 inline operator fun <F, S> javafx.util.Pair<F, S>.component1(): F? = key
 
 /**
  * Returns the value component of the pair.
  *
- * This method allows to use destructuring declarations when working with pairs
- *   (e.g.: `val (first, second) = myPair`).
+ * This method allows to use destructuring declarations when working with pairs (e.g.: `val (first,
+ * second) = myPair`).
  */
 inline operator fun <F, S> javafx.util.Pair<F, S>.component2(): S? = value
 

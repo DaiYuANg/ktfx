@@ -47,7 +47,8 @@ public inline fun label(
  *
  * @return the control added.
  */
-public inline fun NodeContainer.label(
+@OptIn(ExperimentalContracts::class)
+inline fun NodeContainer.label(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Label).() -> Unit,
@@ -65,7 +66,7 @@ public inline fun NodeContainer.label(
  *
  * @return the styled control created.
  */
-public fun styledLabel(
+fun styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -79,7 +80,7 @@ public fun styledLabel(
  *
  * @return the styled control added.
  */
-public fun NodeContainer.styledLabel(
+fun NodeContainer.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -94,7 +95,7 @@ public fun NodeContainer.styledLabel(
  *
  * @return the styled control created.
  */
-public inline fun styledLabel(
+inline fun styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -117,7 +118,7 @@ public inline fun styledLabel(
  *
  * @return the styled control added.
  */
-public inline fun NodeContainer.styledLabel(
+inline fun NodeContainer.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

@@ -11,27 +11,23 @@ import kotlin.test.assertTrue
 
 @Ignore
 class MouseEventTest : InputTest() {
-    @Test
-    fun isLeftClick() =
-        assertTrue {
-            mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, PRIMARY, 1).isLeftClick()
-        }
+  @Test
+  fun isLeftClick() = assertTrue {
+    mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, PRIMARY, 1).isLeftClick()
+  }
 
-    @Test
-    fun isRightClick() =
-        assertTrue {
-            mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, SECONDARY, 1).isRightClick()
-        }
+  @Test
+  fun isRightClick() = assertTrue {
+    mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, SECONDARY, 1).isRightClick()
+  }
 
-    @Test
-    fun isMiddleClick() =
-        assertTrue {
-            mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, MIDDLE, 1).isMiddleClick()
-        }
+  @Test
+  fun isMiddleClick() = assertTrue {
+    mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, MIDDLE, 1).isMiddleClick()
+  }
 
-    @Test
-    fun isDoubleClick() =
-        assertTrue {
-            mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, PRIMARY, 2).isDoubleClick()
-        }
+  @Test
+  fun isDoubleClick() = assertTrue {
+    mouseEventOf(MOUSE_CLICKED, sceneMouseX, sceneMouseY, PRIMARY, 2).isDoubleClick()
+  }
 }

@@ -22,68 +22,72 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 public fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null): MediaView =
-        mediaView(mediaPlayer = mediaPlayer) { }
+    mediaView(mediaPlayer = mediaPlayer) {}
 
 /**
  * Create a [MediaView] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@KtfxLayoutDslMarker
-        MediaView).() -> Unit): MediaView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = MediaView(mediaPlayer)
-    child.configuration()
-    return child
+public inline fun mediaView(
+    mediaPlayer: MediaPlayer? = null,
+    configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit
+): MediaView {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = MediaView(mediaPlayer)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [MediaView] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null,
-        configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit): MediaView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = MediaView(mediaPlayer)
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.mediaView(
+    mediaPlayer: MediaPlayer? = null,
+    configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit
+): MediaView {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = MediaView(mediaPlayer)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [MediaView].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
-): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = *styleClass, id = id) { }
+): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [MediaView] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
-): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = *styleClass, id = id) { }
+): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [MediaView] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledMediaView(
@@ -92,20 +96,20 @@ public inline fun styledMediaView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit,
 ): MediaView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = MediaView(mediaPlayer)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = MediaView(mediaPlayer)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [MediaView] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledMediaView(
@@ -114,10 +118,10 @@ public inline fun NodeContainer.styledMediaView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit,
 ): MediaView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = MediaView(mediaPlayer)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = MediaView(mediaPlayer)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

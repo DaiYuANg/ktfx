@@ -15,13 +15,13 @@ import javafx.scene.shape.PathElement
  */
 @Suppress("ktlint:rulebook:rename-uncommon-generics")
 interface Container<C> {
-    /**
-     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
-     *
-     * @param child child to add.
-     * @return the child added.
-     */
-    fun <T : C> addChild(child: T): T
+  /**
+   * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+   *
+   * @param child child to add.
+   * @return the child added.
+   */
+  fun <T : C> addChild(child: T): T
 }
 
 /**

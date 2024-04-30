@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.menuBar(): MenuBar = menuBar() { }
+public fun NodeContainer.menuBar(): MenuBar = menuBar() {}
 
 /**
  * Create a [MenuBar] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.menuBar(): MenuBar = menuBar() { }
  * @return the control created.
  */
 public inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuBar()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuBar()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.menuBar(configuration: (@KtfxLayoutDslMarker
-        KtfxMenuBar).() -> Unit): MenuBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuBar()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.menuBar(
+    configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit
+): MenuBar {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuBar()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.menuBar(configuration: (@KtfxLayoutDslMarker
  * @return the styled control created.
  */
 public fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
-        styledMenuBar(styleClass = *styleClass, id = id) { }
+    styledMenuBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [MenuBar] to this container.
@@ -67,7 +68,7 @@ public fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar
  * @return the styled control added.
  */
 public fun NodeContainer.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
-        styledMenuBar(styleClass = *styleClass, id = id) { }
+    styledMenuBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [MenuBar] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledMenuBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit,
 ): MenuBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuBar()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuBar()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledMenuBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit,
 ): MenuBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuBar()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuBar()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

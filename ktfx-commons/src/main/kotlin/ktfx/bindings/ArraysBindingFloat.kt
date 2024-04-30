@@ -37,9 +37,9 @@ inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): Float
  * @see forEach
  */
 inline fun ObservableFloatArray.forEachBinding(action: (FloatBinding) -> Unit) {
-    for (index in 0 until size()) {
-        action(Bindings.floatValueAt(this, index))
-    }
+  for (index in 0 until size()) {
+    action(Bindings.floatValueAt(this, index))
+  }
 }
 
 /**
@@ -48,7 +48,7 @@ inline fun ObservableFloatArray.forEachBinding(action: (FloatBinding) -> Unit) {
  * @see forEachIndexed
  */
 inline fun ObservableFloatArray.forEachBindingIndexed(action: (index: Int, FloatBinding) -> Unit) {
-    for (index in 0 until size()) {
-        action(index, Bindings.floatValueAt(this, index))
-    }
+  for (index in 0 until size()) {
+    action(index, Bindings.floatValueAt(this, index))
+  }
 }

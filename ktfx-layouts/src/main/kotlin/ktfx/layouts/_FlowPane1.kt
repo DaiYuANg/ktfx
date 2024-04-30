@@ -23,13 +23,15 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.flowPane(orientation: Orientation = HORIZONTAL, gap: Double = 0.0):
-        FlowPane = flowPane(orientation = orientation, gap = gap) { }
+public fun NodeContainer.flowPane(
+    orientation: Orientation = HORIZONTAL,
+    gap: Double = 0.0
+): FlowPane = flowPane(orientation = orientation, gap = gap) {}
 
 /**
  * Create a [FlowPane] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun flowPane(
@@ -37,16 +39,16 @@ public inline fun flowPane(
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit,
 ): FlowPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxFlowPane(orientation, gap)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxFlowPane(orientation, gap)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [FlowPane] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.flowPane(
@@ -54,17 +56,17 @@ public inline fun NodeContainer.flowPane(
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit,
 ): FlowPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxFlowPane(orientation, gap)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxFlowPane(orientation, gap)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [FlowPane].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledFlowPane(
@@ -72,14 +74,14 @@ public fun styledFlowPane(
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): FlowPane = styledFlowPane(orientation = orientation, gap = gap, styleClass = *styleClass, id =
-        id) { }
+): FlowPane =
+    styledFlowPane(orientation = orientation, gap = gap, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [FlowPane] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledFlowPane(
@@ -87,15 +89,15 @@ public fun NodeContainer.styledFlowPane(
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): FlowPane = styledFlowPane(orientation = orientation, gap = gap, styleClass = *styleClass, id =
-        id) { }
+): FlowPane =
+    styledFlowPane(orientation = orientation, gap = gap, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [FlowPane] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledFlowPane(
@@ -105,20 +107,20 @@ public inline fun styledFlowPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit,
 ): FlowPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxFlowPane(orientation, gap)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxFlowPane(orientation, gap)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [FlowPane] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledFlowPane(
@@ -128,10 +130,10 @@ public inline fun NodeContainer.styledFlowPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit,
 ): FlowPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxFlowPane(orientation, gap)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxFlowPane(orientation, gap)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

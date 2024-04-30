@@ -21,13 +21,15 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.radioMenuItem(text: String? = null, graphic: Node? = null):
-        RadioMenuItem = radioMenuItem(text = text, graphic = graphic) { }
+public fun MenuItemContainer.radioMenuItem(
+    text: String? = null,
+    graphic: Node? = null
+): RadioMenuItem = radioMenuItem(text = text, graphic = graphic) {}
 
 /**
  * Create a [RadioMenuItem] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun radioMenuItem(
@@ -35,16 +37,16 @@ public inline fun radioMenuItem(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
 ): RadioMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RadioMenuItem(text, graphic)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RadioMenuItem(text, graphic)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [RadioMenuItem] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun MenuItemContainer.radioMenuItem(
@@ -52,17 +54,17 @@ public inline fun MenuItemContainer.radioMenuItem(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
 ): RadioMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RadioMenuItem(text, graphic)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RadioMenuItem(text, graphic)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [RadioMenuItem].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledRadioMenuItem(
@@ -70,14 +72,14 @@ public fun styledRadioMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id
-        = id) { }
+): RadioMenuItem =
+    styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [RadioMenuItem] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun MenuItemContainer.styledRadioMenuItem(
@@ -85,15 +87,15 @@ public fun MenuItemContainer.styledRadioMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id
-        = id) { }
+): RadioMenuItem =
+    styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [RadioMenuItem] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledRadioMenuItem(
@@ -103,20 +105,20 @@ public inline fun styledRadioMenuItem(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
 ): RadioMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RadioMenuItem(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RadioMenuItem(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [RadioMenuItem] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun MenuItemContainer.styledRadioMenuItem(
@@ -126,10 +128,10 @@ public inline fun MenuItemContainer.styledRadioMenuItem(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
 ): RadioMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RadioMenuItem(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RadioMenuItem(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

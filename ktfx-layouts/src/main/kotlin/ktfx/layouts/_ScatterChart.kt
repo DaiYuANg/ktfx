@@ -28,12 +28,12 @@ public fun <X, Y> NodeContainer.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-): ScatterChart<X, Y> = scatterChart(x = x, y = y, data = data) { }
+): ScatterChart<X, Y> = scatterChart(x = x, y = y, data = data) {}
 
 /**
  * Create a [ScatterChart] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun <X, Y> scatterChart(
@@ -42,16 +42,16 @@ public inline fun <X, Y> scatterChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit,
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ScatterChart<X, Y>(x, y, data)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ScatterChart<X, Y>(x, y, data)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [ScatterChart] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun <X, Y> NodeContainer.scatterChart(
@@ -60,17 +60,17 @@ public inline fun <X, Y> NodeContainer.scatterChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit,
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ScatterChart<X, Y>(x, y, data)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ScatterChart<X, Y>(x, y, data)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [ScatterChart].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun <X, Y> styledScatterChart(
@@ -79,14 +79,14 @@ public fun <X, Y> styledScatterChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ScatterChart<X, Y> = styledScatterChart(x = x, y = y, data = data, styleClass = *styleClass, id =
-        id) { }
+): ScatterChart<X, Y> =
+    styledScatterChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ScatterChart] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun <X, Y> NodeContainer.styledScatterChart(
@@ -95,15 +95,15 @@ public fun <X, Y> NodeContainer.styledScatterChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): ScatterChart<X, Y> = styledScatterChart(x = x, y = y, data = data, styleClass = *styleClass, id =
-        id) { }
+): ScatterChart<X, Y> =
+    styledScatterChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ScatterChart] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun <X, Y> styledScatterChart(
@@ -114,20 +114,20 @@ public inline fun <X, Y> styledScatterChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit,
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ScatterChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ScatterChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [ScatterChart] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun <X, Y> NodeContainer.styledScatterChart(
@@ -138,10 +138,10 @@ public inline fun <X, Y> NodeContainer.styledScatterChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit,
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ScatterChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ScatterChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

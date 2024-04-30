@@ -22,71 +22,76 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS):
-        ProgressIndicator = progressIndicator(progress = progress) { }
+public fun NodeContainer.progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS
+): ProgressIndicator = progressIndicator(progress = progress) {}
 
 /**
  * Create a [ProgressIndicator] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
-        configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressIndicator(progress)
-    child.configuration()
-    return child
+public inline fun progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
+): ProgressIndicator {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressIndicator(progress)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [ProgressIndicator] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
-        configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressIndicator(progress)
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
+): ProgressIndicator {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressIndicator(progress)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [ProgressIndicator].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = *styleClass, id =
-        id) { }
+): ProgressIndicator =
+    styledProgressIndicator(progress = progress, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ProgressIndicator] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = *styleClass, id =
-        id) { }
+): ProgressIndicator =
+    styledProgressIndicator(progress = progress, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ProgressIndicator] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledProgressIndicator(
@@ -95,20 +100,20 @@ public inline fun styledProgressIndicator(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit,
 ): ProgressIndicator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressIndicator(progress)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressIndicator(progress)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [ProgressIndicator] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledProgressIndicator(
@@ -117,10 +122,10 @@ public inline fun NodeContainer.styledProgressIndicator(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit,
 ): ProgressIndicator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressIndicator(progress)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressIndicator(progress)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

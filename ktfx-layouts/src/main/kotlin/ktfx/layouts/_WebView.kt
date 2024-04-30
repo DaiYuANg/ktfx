@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.webView(): WebView = webView() { }
+public fun NodeContainer.webView(): WebView = webView() {}
 
 /**
  * Create a [WebView] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.webView(): WebView = webView() { }
  * @return the control created.
  */
 public inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = WebView()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = WebView()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Un
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit):
-        WebView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = WebView()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.webView(
+    configuration: (@KtfxLayoutDslMarker WebView).() -> Unit
+): WebView {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = WebView()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.webView(configuration: (@KtfxLayoutDslMarker Web
  * @return the styled control created.
  */
 public fun styledWebView(vararg styleClass: String, id: String? = null): WebView =
-        styledWebView(styleClass = *styleClass, id = id) { }
+    styledWebView(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [WebView] to this container.
@@ -67,7 +68,7 @@ public fun styledWebView(vararg styleClass: String, id: String? = null): WebView
  * @return the styled control added.
  */
 public fun NodeContainer.styledWebView(vararg styleClass: String, id: String? = null): WebView =
-        styledWebView(styleClass = *styleClass, id = id) { }
+    styledWebView(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [WebView] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledWebView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WebView).() -> Unit,
 ): WebView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = WebView()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = WebView()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledWebView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WebView).() -> Unit,
 ): WebView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = WebView()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = WebView()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

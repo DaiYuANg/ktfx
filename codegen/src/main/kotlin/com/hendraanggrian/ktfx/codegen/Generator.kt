@@ -12,17 +12,17 @@ import com.hendraanggrian.ktfx.codegen.layouts.LayoutsFactory
 import com.hendraanggrian.ktfx.codegen.layouts.LayoutsWriter
 
 object Generator {
-    @JvmStatic
-    fun main(args: Array<String>) {
-        if (true) {
-            LayoutsWriter.write(LayoutsFactory.JavaFx)
-            LayoutsWriter.write(LayoutsFactory.ControlsFx)
-            LayoutsWriter.write(LayoutsFactory.JFoenix)
-        }
-        if (true) {
-            CoroutinesWriter.write(CoroutinesFactory.JavaFx)
-            CoroutinesWriter.write(CoroutinesFactory.ControlsFx)
-            CoroutinesWriter.write(CoroutinesFactory.JFoenix)
-        }
+  @JvmStatic
+  fun main(args: Array<String>) {
+    if (true) {
+      LayoutsWriter.write(LayoutsFactory.JavaFx)
+      LayoutsWriter.write(LayoutsFactory.ControlsFx)
+      LayoutsWriter.write(LayoutsFactory.JFoenix)
     }
+    if (true) {
+      CoroutinesWriter.write(CoroutinesFactory.JavaFx)
+      CoroutinesWriter.write(CoroutinesFactory.ControlsFx)
+      CoroutinesWriter.write(CoroutinesFactory.JFoenix)
+    }
+  }
 }

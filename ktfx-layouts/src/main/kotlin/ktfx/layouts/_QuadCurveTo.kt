@@ -25,12 +25,12 @@ public fun PathElementContainer.quadCurveTo(
     controlY: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-): QuadCurveTo = quadCurveTo(controlX = controlX, controlY = controlY, x = x, y = y) { }
+): QuadCurveTo = quadCurveTo(controlX = controlX, controlY = controlY, x = x, y = y) {}
 
 /**
  * Create a [QuadCurveTo] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun quadCurveTo(
@@ -40,16 +40,16 @@ public inline fun quadCurveTo(
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker QuadCurveTo).() -> Unit,
 ): QuadCurveTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = QuadCurveTo(controlX, controlY, x, y)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = QuadCurveTo(controlX, controlY, x, y)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [QuadCurveTo] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun PathElementContainer.quadCurveTo(
@@ -59,8 +59,8 @@ public inline fun PathElementContainer.quadCurveTo(
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker QuadCurveTo).() -> Unit,
 ): QuadCurveTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = QuadCurveTo(controlX, controlY, x, y)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = QuadCurveTo(controlX, controlY, x, y)
+  child.configuration()
+  return addChild(child)
 }

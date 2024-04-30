@@ -16,9 +16,8 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import org.controlsfx.control.PlusMinusSlider
 
-/**
- * @see PlusMinusSlider.setOnValueChanged
- */
-public fun PlusMinusSlider.onValueChanged(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit): Unit =
-        setOnValueChanged { event -> GlobalScope.launch(context) { action(event) } }
+/** @see PlusMinusSlider.setOnValueChanged */
+public fun PlusMinusSlider.onValueChanged(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit
+): Unit = setOnValueChanged { event -> GlobalScope.launch(context) { action(event) } }

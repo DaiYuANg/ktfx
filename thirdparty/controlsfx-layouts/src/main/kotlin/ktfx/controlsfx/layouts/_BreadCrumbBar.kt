@@ -24,70 +24,74 @@ import org.controlsfx.control.BreadCrumbBar
  * @return the control added.
  */
 public fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): BreadCrumbBar<T> =
-        breadCrumbBar(selectedCrumb = selectedCrumb) { }
+    breadCrumbBar(selectedCrumb = selectedCrumb) {}
 
 /**
  * Create a [BreadCrumbBar] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
-        configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit): BreadCrumbBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BreadCrumbBar<T>(selectedCrumb)
-    child.configuration()
-    return child
+public inline fun <T> breadCrumbBar(
+    selectedCrumb: TreeItem<T>? = null,
+    configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit
+): BreadCrumbBar<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BreadCrumbBar<T>(selectedCrumb)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [BreadCrumbBar] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.breadCrumbBar(selectedCrumb: TreeItem<T>? = null,
-        configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit): BreadCrumbBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BreadCrumbBar<T>(selectedCrumb)
-    child.configuration()
-    return addChild(child)
+public inline fun <T> NodeContainer.breadCrumbBar(
+    selectedCrumb: TreeItem<T>? = null,
+    configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit
+): BreadCrumbBar<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BreadCrumbBar<T>(selectedCrumb)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [BreadCrumbBar].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass,
-        id = id) { }
+): BreadCrumbBar<T> =
+    styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [BreadCrumbBar] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun <T> NodeContainer.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass,
-        id = id) { }
+): BreadCrumbBar<T> =
+    styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [BreadCrumbBar] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun <T> styledBreadCrumbBar(
@@ -96,20 +100,20 @@ public inline fun <T> styledBreadCrumbBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit,
 ): BreadCrumbBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BreadCrumbBar<T>(selectedCrumb)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BreadCrumbBar<T>(selectedCrumb)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [BreadCrumbBar] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun <T> NodeContainer.styledBreadCrumbBar(
@@ -118,10 +122,10 @@ public inline fun <T> NodeContainer.styledBreadCrumbBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit,
 ): BreadCrumbBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BreadCrumbBar<T>(selectedCrumb)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BreadCrumbBar<T>(selectedCrumb)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

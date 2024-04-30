@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
+public fun NodeContainer.splitMenuButton(): SplitMenuButton = splitMenuButton() {}
 
 /**
  * Create a [SplitMenuButton] with configuration block.
@@ -28,12 +28,13 @@ public fun NodeContainer.splitMenuButton(): SplitMenuButton = splitMenuButton() 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun splitMenuButton(configuration: (@KtfxLayoutDslMarker
-        KtfxSplitMenuButton).() -> Unit): SplitMenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSplitMenuButton()
-    child.configuration()
-    return child
+public inline fun splitMenuButton(
+    configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit
+): SplitMenuButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSplitMenuButton()
+  child.configuration()
+  return child
 }
 
 /**
@@ -42,12 +43,13 @@ public inline fun splitMenuButton(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.splitMenuButton(configuration: (@KtfxLayoutDslMarker
-        KtfxSplitMenuButton).() -> Unit): SplitMenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSplitMenuButton()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.splitMenuButton(
+    configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit
+): SplitMenuButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSplitMenuButton()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -58,7 +60,7 @@ public inline fun NodeContainer.splitMenuButton(configuration: (@KtfxLayoutDslMa
  * @return the styled control created.
  */
 public fun styledSplitMenuButton(vararg styleClass: String, id: String? = null): SplitMenuButton =
-        styledSplitMenuButton(styleClass = *styleClass, id = id) { }
+    styledSplitMenuButton(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [SplitMenuButton] to this container.
@@ -67,8 +69,10 @@ public fun styledSplitMenuButton(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSplitMenuButton(vararg styleClass: String, id: String? = null):
-        SplitMenuButton = styledSplitMenuButton(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledSplitMenuButton(
+    vararg styleClass: String,
+    id: String? = null
+): SplitMenuButton = styledSplitMenuButton(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [SplitMenuButton] with configuration block.
@@ -83,12 +87,12 @@ public inline fun styledSplitMenuButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit,
 ): SplitMenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSplitMenuButton()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSplitMenuButton()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -104,10 +108,10 @@ public inline fun NodeContainer.styledSplitMenuButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit,
 ): SplitMenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSplitMenuButton()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSplitMenuButton()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

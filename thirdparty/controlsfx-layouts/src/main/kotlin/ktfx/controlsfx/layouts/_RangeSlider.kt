@@ -28,12 +28,12 @@ public fun NodeContainer.rangeSlider(
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
-): RangeSlider = rangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue) { }
+): RangeSlider = rangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue) {}
 
 /**
  * Create a [RangeSlider] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun rangeSlider(
@@ -43,16 +43,16 @@ public inline fun rangeSlider(
     highValue: Double = 0.75,
     configuration: (@KtfxLayoutDslMarker RangeSlider).() -> Unit,
 ): RangeSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RangeSlider(min, max, lowValue, highValue)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RangeSlider(min, max, lowValue, highValue)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [RangeSlider] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.rangeSlider(
@@ -62,17 +62,17 @@ public inline fun NodeContainer.rangeSlider(
     highValue: Double = 0.75,
     configuration: (@KtfxLayoutDslMarker RangeSlider).() -> Unit,
 ): RangeSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RangeSlider(min, max, lowValue, highValue)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RangeSlider(min, max, lowValue, highValue)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [RangeSlider].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledRangeSlider(
@@ -82,14 +82,20 @@ public fun styledRangeSlider(
     highValue: Double = 0.75,
     vararg styleClass: String,
     id: String? = null,
-): RangeSlider = styledRangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue,
-        styleClass = *styleClass, id = id) { }
+): RangeSlider =
+    styledRangeSlider(
+        min = min,
+        max = max,
+        lowValue = lowValue,
+        highValue = highValue,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Add a styled [RangeSlider] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledRangeSlider(
@@ -99,15 +105,21 @@ public fun NodeContainer.styledRangeSlider(
     highValue: Double = 0.75,
     vararg styleClass: String,
     id: String? = null,
-): RangeSlider = styledRangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue,
-        styleClass = *styleClass, id = id) { }
+): RangeSlider =
+    styledRangeSlider(
+        min = min,
+        max = max,
+        lowValue = lowValue,
+        highValue = highValue,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Create a styled [RangeSlider] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledRangeSlider(
@@ -119,20 +131,20 @@ public inline fun styledRangeSlider(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker RangeSlider).() -> Unit,
 ): RangeSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RangeSlider(min, max, lowValue, highValue)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RangeSlider(min, max, lowValue, highValue)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [RangeSlider] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledRangeSlider(
@@ -144,10 +156,10 @@ public inline fun NodeContainer.styledRangeSlider(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker RangeSlider).() -> Unit,
 ): RangeSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = RangeSlider(min, max, lowValue, highValue)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = RangeSlider(min, max, lowValue, highValue)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

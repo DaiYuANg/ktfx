@@ -22,16 +22,16 @@ inline fun MultipleSelectionModel<*>.isNotSelected(): Boolean = selectedItems.is
 
 /** Returns a boolean binding that holds `true` when item is selected. */
 inline val SelectionModel<*>.selectedBinding: BooleanBinding
-    get() = selectedItemProperty().isNotNull
+  get() = selectedItemProperty().isNotNull
 
 /** Returns a boolean binding that holds `true` when item is not selected. */
 inline val SelectionModel<*>.notSelectedBinding: BooleanBinding
-    get() = selectedItemProperty().isNull
+  get() = selectedItemProperty().isNull
 
 /** Returns a boolean binding that holds `true` when item is selected. */
 inline val MultipleSelectionModel<*>.selectedBinding: BooleanBinding
-    get() = selectedItems.isNotEmpty
+  get() = selectedItems.isNotEmpty
 
 /** Returns a boolean binding that holds `true` when item is not selected. */
 inline val MultipleSelectionModel<*>.notSelectedBinding: BooleanBinding
-    get() = selectedItems.isEmpty
+  get() = selectedItems.isEmpty

@@ -30,12 +30,12 @@ public fun <X, Y> NodeContainer.barChart(
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
-): BarChart<X, Y> = barChart(x = x, y = y, data = data, categoryGap = categoryGap) { }
+): BarChart<X, Y> = barChart(x = x, y = y, data = data, categoryGap = categoryGap) {}
 
 /**
  * Create a [BarChart] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun <X, Y> barChart(
@@ -45,16 +45,16 @@ public inline fun <X, Y> barChart(
     categoryGap: Double = 10.0,
     configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit,
 ): BarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BarChart<X, Y>(x, y, data, categoryGap)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BarChart<X, Y>(x, y, data, categoryGap)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [BarChart] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun <X, Y> NodeContainer.barChart(
@@ -64,17 +64,17 @@ public inline fun <X, Y> NodeContainer.barChart(
     categoryGap: Double = 10.0,
     configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit,
 ): BarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BarChart<X, Y>(x, y, data, categoryGap)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BarChart<X, Y>(x, y, data, categoryGap)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [BarChart].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun <X, Y> styledBarChart(
@@ -84,14 +84,15 @@ public fun <X, Y> styledBarChart(
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null,
-): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass
-        = *styleClass, id = id) { }
+): BarChart<X, Y> =
+    styledBarChart(
+        x = x, y = y, data = data, categoryGap = categoryGap, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [BarChart] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun <X, Y> NodeContainer.styledBarChart(
@@ -101,15 +102,16 @@ public fun <X, Y> NodeContainer.styledBarChart(
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null,
-): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass
-        = *styleClass, id = id) { }
+): BarChart<X, Y> =
+    styledBarChart(
+        x = x, y = y, data = data, categoryGap = categoryGap, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [BarChart] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun <X, Y> styledBarChart(
@@ -121,20 +123,20 @@ public inline fun <X, Y> styledBarChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit,
 ): BarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BarChart<X, Y>(x, y, data, categoryGap)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BarChart<X, Y>(x, y, data, categoryGap)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [BarChart] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun <X, Y> NodeContainer.styledBarChart(
@@ -146,10 +148,10 @@ public inline fun <X, Y> NodeContainer.styledBarChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit,
 ): BarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = BarChart<X, Y>(x, y, data, categoryGap)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = BarChart<X, Y>(x, y, data, categoryGap)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

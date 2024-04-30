@@ -11,8 +11,8 @@ import javafx.stage.Window
 
 /** Move [Window] to specified location. */
 fun Window.moveTo(x: Number, y: Number) {
-    this.x = x.toDouble()
-    this.y = y.toDouble()
+  this.x = x.toDouble()
+  this.y = y.toDouble()
 }
 
 /** Move [Window] to specified location using [ContextMenuEvent]. */

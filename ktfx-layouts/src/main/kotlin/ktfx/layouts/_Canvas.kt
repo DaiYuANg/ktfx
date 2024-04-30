@@ -21,13 +21,13 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(width =
-        width, height = height) { }
+public fun NodeContainer.canvas(width: Double = 0.0, height: Double = 0.0): Canvas =
+    canvas(width = width, height = height) {}
 
 /**
  * Create a [Canvas] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun canvas(
@@ -35,16 +35,16 @@ public inline fun canvas(
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Canvas(width, height)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Canvas(width, height)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Canvas] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.canvas(
@@ -52,17 +52,17 @@ public inline fun NodeContainer.canvas(
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Canvas(width, height)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Canvas(width, height)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Canvas].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledCanvas(
@@ -70,13 +70,13 @@ public fun styledCanvas(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) { }
+): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Canvas] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledCanvas(
@@ -84,14 +84,14 @@ public fun NodeContainer.styledCanvas(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) { }
+): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Canvas] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledCanvas(
@@ -101,20 +101,20 @@ public inline fun styledCanvas(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Canvas(width, height)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Canvas(width, height)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Canvas] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledCanvas(
@@ -124,10 +124,10 @@ public inline fun NodeContainer.styledCanvas(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Canvas(width, height)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Canvas(width, height)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

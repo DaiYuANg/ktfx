@@ -22,7 +22,7 @@ import org.controlsfx.control.HiddenSidesPane
  *
  * @return the control added.
  */
-public fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() { }
+public fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() {}
 
 /**
  * Create a [HiddenSidesPane] with configuration block.
@@ -30,12 +30,13 @@ public fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
-        KtfxHiddenSidesPane).() -> Unit): HiddenSidesPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxHiddenSidesPane()
-    child.configuration()
-    return child
+public inline fun hiddenSidesPane(
+    configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit
+): HiddenSidesPane {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxHiddenSidesPane()
+  child.configuration()
+  return child
 }
 
 /**
@@ -44,12 +45,13 @@ public inline fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
-        KtfxHiddenSidesPane).() -> Unit): HiddenSidesPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxHiddenSidesPane()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.hiddenSidesPane(
+    configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit
+): HiddenSidesPane {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxHiddenSidesPane()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -60,7 +62,7 @@ public inline fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMa
  * @return the styled control created.
  */
 public fun styledHiddenSidesPane(vararg styleClass: String, id: String? = null): HiddenSidesPane =
-        styledHiddenSidesPane(styleClass = *styleClass, id = id) { }
+    styledHiddenSidesPane(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [HiddenSidesPane] to this container.
@@ -69,8 +71,10 @@ public fun styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
-        HiddenSidesPane = styledHiddenSidesPane(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledHiddenSidesPane(
+    vararg styleClass: String,
+    id: String? = null
+): HiddenSidesPane = styledHiddenSidesPane(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [HiddenSidesPane] with configuration block.
@@ -85,12 +89,12 @@ public inline fun styledHiddenSidesPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit,
 ): HiddenSidesPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxHiddenSidesPane()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxHiddenSidesPane()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -106,10 +110,10 @@ public inline fun NodeContainer.styledHiddenSidesPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit,
 ): HiddenSidesPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxHiddenSidesPane()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxHiddenSidesPane()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

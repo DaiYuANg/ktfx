@@ -17,9 +17,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * @see ButtonBase.setOnAction
- */
-public fun ButtonBase.onAction(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(ActionEvent) -> Unit): Unit = setOnAction { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see ButtonBase.setOnAction */
+public fun ButtonBase.onAction(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(ActionEvent) -> Unit
+): Unit = setOnAction { event -> GlobalScope.launch(context) { action(event) } }

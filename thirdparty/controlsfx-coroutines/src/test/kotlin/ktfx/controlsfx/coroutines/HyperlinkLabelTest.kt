@@ -6,6 +6,6 @@ import ktfx.controlsfx.test.BaseHyperlinkLabelTest
 import org.controlsfx.control.HyperlinkLabel
 
 class HyperlinkLabelTest : BaseHyperlinkLabelTest() {
-    override fun HyperlinkLabel.callOnAction(action: (ActionEvent) -> Unit): Unit =
-        onAction(Dispatchers.Unconfined) { action(it) }
+  override fun HyperlinkLabel.callOnAction(action: (ActionEvent) -> Unit): Unit =
+      onAction(Dispatchers.Unconfined) { action(it) }
 }

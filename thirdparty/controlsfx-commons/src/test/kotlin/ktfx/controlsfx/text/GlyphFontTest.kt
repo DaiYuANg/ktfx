@@ -1,32 +1,31 @@
 package ktfx.controlsfx.text
 
 import com.hendraanggrian.ktfx.test.initToolkit
-import org.controlsfx.glyphfont.FontAwesome
-import org.controlsfx.glyphfont.GlyphFontRegistry
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import org.controlsfx.glyphfont.FontAwesome
+import org.controlsfx.glyphfont.GlyphFontRegistry
 
 class GlyphFontTest {
-    @BeforeTest
-    fun start() = initToolkit()
+  @BeforeTest fun start() = initToolkit()
 
-    @Test
-    fun glyph() {
-        val glyphFromChar = FontAwesome() glyph 'A'
-        assertEquals("A", glyphFromChar.text)
+  @Test
+  fun glyph() {
+    val glyphFromChar = FontAwesome() glyph 'A'
+    assertEquals("A", glyphFromChar.text)
 
-        val glyphFromString = FontAwesome() glyph "A"
-        assertEquals("A", glyphFromString.text)
+    val glyphFromString = FontAwesome() glyph "A"
+    assertEquals("A", glyphFromString.text)
 
-        val glyphFromEnum = FontAwesome() glyph FontAwesome.Glyph.ADJUST
-        assertEquals("\uF042", glyphFromEnum.text)
-    }
+    val glyphFromEnum = FontAwesome() glyph FontAwesome.Glyph.ADJUST
+    assertEquals("\uF042", glyphFromEnum.text)
+  }
 
-    @Test
-    fun register() {
-        val glyphFont = FontAwesome()
-        glyphFont.register()
-        assertEquals(glyphFont, GlyphFontRegistry.font(glyphFont.name))
-    }
+  @Test
+  fun register() {
+    val glyphFont = FontAwesome()
+    glyphFont.register()
+    assertEquals(glyphFont, GlyphFontRegistry.font(glyphFont.name))
+  }
 }

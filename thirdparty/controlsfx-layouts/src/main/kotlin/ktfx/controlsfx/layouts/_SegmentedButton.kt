@@ -22,7 +22,7 @@ import org.controlsfx.control.SegmentedButton
  *
  * @return the control added.
  */
-public fun NodeContainer.segmentedButton(): SegmentedButton = segmentedButton() { }
+public fun NodeContainer.segmentedButton(): SegmentedButton = segmentedButton() {}
 
 /**
  * Create a [SegmentedButton] with configuration block.
@@ -30,12 +30,13 @@ public fun NodeContainer.segmentedButton(): SegmentedButton = segmentedButton() 
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun segmentedButton(configuration: (@KtfxLayoutDslMarker
-        KtfxSegmentedButton).() -> Unit): SegmentedButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSegmentedButton()
-    child.configuration()
-    return child
+public inline fun segmentedButton(
+    configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit
+): SegmentedButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSegmentedButton()
+  child.configuration()
+  return child
 }
 
 /**
@@ -44,12 +45,13 @@ public inline fun segmentedButton(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.segmentedButton(configuration: (@KtfxLayoutDslMarker
-        KtfxSegmentedButton).() -> Unit): SegmentedButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSegmentedButton()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.segmentedButton(
+    configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit
+): SegmentedButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSegmentedButton()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -60,7 +62,7 @@ public inline fun NodeContainer.segmentedButton(configuration: (@KtfxLayoutDslMa
  * @return the styled control created.
  */
 public fun styledSegmentedButton(vararg styleClass: String, id: String? = null): SegmentedButton =
-        styledSegmentedButton(styleClass = *styleClass, id = id) { }
+    styledSegmentedButton(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [SegmentedButton] to this container.
@@ -69,8 +71,10 @@ public fun styledSegmentedButton(vararg styleClass: String, id: String? = null):
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledSegmentedButton(vararg styleClass: String, id: String? = null):
-        SegmentedButton = styledSegmentedButton(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledSegmentedButton(
+    vararg styleClass: String,
+    id: String? = null
+): SegmentedButton = styledSegmentedButton(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [SegmentedButton] with configuration block.
@@ -85,12 +89,12 @@ public inline fun styledSegmentedButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit,
 ): SegmentedButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSegmentedButton()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSegmentedButton()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -106,10 +110,10 @@ public inline fun NodeContainer.styledSegmentedButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit,
 ): SegmentedButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSegmentedButton()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxSegmentedButton()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

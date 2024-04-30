@@ -24,12 +24,12 @@ import org.controlsfx.control.InfoOverlay
  * @return the control added.
  */
 public fun NodeContainer.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
-        infoOverlay(content = content, text = text) { }
+    infoOverlay(content = content, text = text) {}
 
 /**
  * Create an [InfoOverlay] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun infoOverlay(
@@ -37,16 +37,16 @@ public inline fun infoOverlay(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
 ): InfoOverlay {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxInfoOverlay(content, text)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxInfoOverlay(content, text)
+  child.configuration()
+  return child
 }
 
 /**
  * Add an [InfoOverlay] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.infoOverlay(
@@ -54,17 +54,17 @@ public inline fun NodeContainer.infoOverlay(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
 ): InfoOverlay {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxInfoOverlay(content, text)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxInfoOverlay(content, text)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [InfoOverlay].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledInfoOverlay(
@@ -72,14 +72,14 @@ public fun styledInfoOverlay(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id =
-        id) { }
+): InfoOverlay =
+    styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [InfoOverlay] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledInfoOverlay(
@@ -87,15 +87,15 @@ public fun NodeContainer.styledInfoOverlay(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id =
-        id) { }
+): InfoOverlay =
+    styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [InfoOverlay] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledInfoOverlay(
@@ -105,20 +105,20 @@ public inline fun styledInfoOverlay(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
 ): InfoOverlay {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxInfoOverlay(content, text)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxInfoOverlay(content, text)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [InfoOverlay] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledInfoOverlay(
@@ -128,10 +128,10 @@ public inline fun NodeContainer.styledInfoOverlay(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
 ): InfoOverlay {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxInfoOverlay(content, text)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxInfoOverlay(content, text)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

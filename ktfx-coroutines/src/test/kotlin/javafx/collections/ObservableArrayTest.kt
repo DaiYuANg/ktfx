@@ -6,11 +6,11 @@ import javafx.collections.ObservableArray
 import kotlinx.coroutines.Dispatchers
 
 class ObservableArrayTest : BaseObservableArrayTest() {
-    override fun <T : ObservableArray<T>> ObservableArray<T>.callListener(
-        action: (Observable, Boolean, Int, Int) -> Unit,
-    ) {
-        listener(Dispatchers.Unconfined) { observable, changed, from, to ->
-            action(observable, changed, from, to)
-        }
+  override fun <T : ObservableArray<T>> ObservableArray<T>.callListener(
+      action: (Observable, Boolean, Int, Int) -> Unit,
+  ) {
+    listener(Dispatchers.Unconfined) { observable, changed, from, to ->
+      action(observable, changed, from, to)
     }
+  }
 }

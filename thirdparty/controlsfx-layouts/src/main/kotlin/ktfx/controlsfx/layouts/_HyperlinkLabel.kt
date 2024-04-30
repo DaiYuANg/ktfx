@@ -22,69 +22,73 @@ import org.controlsfx.control.HyperlinkLabel
  *
  * @return the control added.
  */
-public fun NodeContainer.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlinkLabel(text
-        = text) { }
+public fun NodeContainer.hyperlinkLabel(text: String? = null): HyperlinkLabel =
+    hyperlinkLabel(text = text) {}
 
 /**
  * Create a [HyperlinkLabel] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun hyperlinkLabel(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        HyperlinkLabel).() -> Unit): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = HyperlinkLabel(text)
-    child.configuration()
-    return child
+public inline fun hyperlinkLabel(
+    text: String? = null,
+    configuration: (@KtfxLayoutDslMarker HyperlinkLabel).() -> Unit
+): HyperlinkLabel {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = HyperlinkLabel(text)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [HyperlinkLabel] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.hyperlinkLabel(text: String? = null,
-        configuration: (@KtfxLayoutDslMarker HyperlinkLabel).() -> Unit): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = HyperlinkLabel(text)
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.hyperlinkLabel(
+    text: String? = null,
+    configuration: (@KtfxLayoutDslMarker HyperlinkLabel).() -> Unit
+): HyperlinkLabel {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = HyperlinkLabel(text)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [HyperlinkLabel].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) { }
+): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [HyperlinkLabel] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) { }
+): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [HyperlinkLabel] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledHyperlinkLabel(
@@ -93,20 +97,20 @@ public inline fun styledHyperlinkLabel(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker HyperlinkLabel).() -> Unit,
 ): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = HyperlinkLabel(text)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = HyperlinkLabel(text)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [HyperlinkLabel] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledHyperlinkLabel(
@@ -115,10 +119,10 @@ public inline fun NodeContainer.styledHyperlinkLabel(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker HyperlinkLabel).() -> Unit,
 ): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = HyperlinkLabel(text)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = HyperlinkLabel(text)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

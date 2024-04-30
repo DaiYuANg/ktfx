@@ -43,70 +43,69 @@ import org.controlsfx.control.textfield.CustomPasswordField
 import org.controlsfx.control.textfield.CustomTextField
 
 val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
-    get() =
-        object : LayoutsFactory(
-            "thirdparty/controlsfx-layouts/src/main/kotlin",
-            "ktfx.controlsfx.layouts",
-            "ControlsfxLayoutsKt",
-        ) {
-            init {
-                // org.controlsfx.control.textfield
-                CustomPasswordField::class()
-                CustomTextField::class()
+  get() =
+      object :
+          LayoutsFactory(
+              "thirdparty/controlsfx-layouts/src/main/kotlin",
+              "ktfx.controlsfx.layouts",
+              "ControlsfxLayoutsKt",
+          ) {
+        init {
+          // org.controlsfx.control.textfield
+          CustomPasswordField::class()
+          CustomTextField::class()
 
-                // org.controlsfx.control
-                BreadCrumbBar::class(T) { treeItem("selectedCrumb", T) }
-                CheckComboBox::class(T) { items(T) }
-                CheckListView::class(T) { items(T) }
-                CheckTreeView::class(T) {
-                    "root"(CheckBoxTreeItem::class.name.parameterizedBy(T).nullable()) {
-                        defaultValue("null")
-                    }
-                }
-                GridView::class(T) { items(T) }
-                HiddenSidesPane::class(customClass = true)
-                HyperlinkLabel::class { text() }
-                InfoOverlay::class(customClass = true) {
-                    content()
-                    text()
-                }
-                ListSelectionView::class(T)
-                MaskerPane::class()
-                MasterDetailPane::class(customClass = true) {
-                    "detailSide"(Side::class.name) {
-                        defaultValue("%M", Side::class.name.member("RIGHT"))
-                    }
-                    "showDetailNode"(BOOLEAN) { defaultValue("true") }
-                }
-                NotificationPane::class(customClass = true)
-                PlusMinusSlider::class()
-                PrefixSelectionChoiceBox::class(T)
-                PrefixSelectionComboBox::class(T)
-                PropertySheet::class {
-                    "items"(
-                        ObservableList::class.parameterizedBy(PropertySheet.Item::class).nullable(),
-                    ) {
-                        defaultValue("null")
-                    }
-                }
-                RangeSlider::class {
-                    "min"(DOUBLE) { defaultValue("0.0") }
-                    "max"(DOUBLE) { defaultValue("1.0") }
-                    "lowValue"(DOUBLE) { defaultValue("0.25") }
-                    "highValue"(DOUBLE) { defaultValue("0.75") }
-                }
-                Rating::class {
-                    "max"(INT) { defaultValue("5") }
-                    "rating"(INT) { defaultValue("-1") }
-                }
-                SegmentedBar::class("T".genericsBy(SegmentedBar.Segment::class))
-                SegmentedButton::class(customClass = true)
-                SnapshotView::class(customClass = true)
-                StatusBar::class()
-                TaskProgressView::class(
-                    "T".genericsBy(Task::class.name.parameterizedBy("*".generics)),
-                )
-                ToggleSwitch::class { text() }
-                WorldMapView::class()
+          // org.controlsfx.control
+          BreadCrumbBar::class(T) { treeItem("selectedCrumb", T) }
+          CheckComboBox::class(T) { items(T) }
+          CheckListView::class(T) { items(T) }
+          CheckTreeView::class(T) {
+            "root"(CheckBoxTreeItem::class.name.parameterizedBy(T).nullable()) {
+              defaultValue("null")
             }
+          }
+          GridView::class(T) { items(T) }
+          HiddenSidesPane::class(customClass = true)
+          HyperlinkLabel::class { text() }
+          InfoOverlay::class(customClass = true) {
+            content()
+            text()
+          }
+          ListSelectionView::class(T)
+          MaskerPane::class()
+          MasterDetailPane::class(customClass = true) {
+            "detailSide"(Side::class.name) { defaultValue("%M", Side::class.name.member("RIGHT")) }
+            "showDetailNode"(BOOLEAN) { defaultValue("true") }
+          }
+          NotificationPane::class(customClass = true)
+          PlusMinusSlider::class()
+          PrefixSelectionChoiceBox::class(T)
+          PrefixSelectionComboBox::class(T)
+          PropertySheet::class {
+            "items"(
+                ObservableList::class.parameterizedBy(PropertySheet.Item::class).nullable(),
+            ) {
+              defaultValue("null")
+            }
+          }
+          RangeSlider::class {
+            "min"(DOUBLE) { defaultValue("0.0") }
+            "max"(DOUBLE) { defaultValue("1.0") }
+            "lowValue"(DOUBLE) { defaultValue("0.25") }
+            "highValue"(DOUBLE) { defaultValue("0.75") }
+          }
+          Rating::class {
+            "max"(INT) { defaultValue("5") }
+            "rating"(INT) { defaultValue("-1") }
+          }
+          SegmentedBar::class("T".genericsBy(SegmentedBar.Segment::class))
+          SegmentedButton::class(customClass = true)
+          SnapshotView::class(customClass = true)
+          StatusBar::class()
+          TaskProgressView::class(
+              "T".genericsBy(Task::class.name.parameterizedBy("*".generics)),
+          )
+          ToggleSwitch::class { text() }
+          WorldMapView::class()
         }
+      }

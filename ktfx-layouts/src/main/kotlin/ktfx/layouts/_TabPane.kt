@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.tabPane(): TabPane = tabPane() { }
+public fun NodeContainer.tabPane(): TabPane = tabPane() {}
 
 /**
  * Create a [TabPane] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.tabPane(): TabPane = tabPane() { }
  * @return the control created.
  */
 public inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTabPane()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTabPane()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.tabPane(configuration: (@KtfxLayoutDslMarker
-        KtfxTabPane).() -> Unit): TabPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTabPane()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.tabPane(
+    configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit
+): TabPane {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTabPane()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.tabPane(configuration: (@KtfxLayoutDslMarker
  * @return the styled control created.
  */
 public fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
-        styledTabPane(styleClass = *styleClass, id = id) { }
+    styledTabPane(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [TabPane] to this container.
@@ -67,7 +68,7 @@ public fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane
  * @return the styled control added.
  */
 public fun NodeContainer.styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
-        styledTabPane(styleClass = *styleClass, id = id) { }
+    styledTabPane(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [TabPane] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledTabPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit,
 ): TabPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTabPane()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTabPane()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledTabPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit,
 ): TabPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTabPane()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTabPane()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

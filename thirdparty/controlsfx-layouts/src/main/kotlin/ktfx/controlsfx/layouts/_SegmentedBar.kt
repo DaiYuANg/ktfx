@@ -22,8 +22,8 @@ import org.controlsfx.control.SegmentedBar
  *
  * @return the control added.
  */
-public fun <T : SegmentedBar.Segment> NodeContainer.segmentedBar(): SegmentedBar<T> = segmentedBar()
-        { }
+public fun <T : SegmentedBar.Segment> NodeContainer.segmentedBar(): SegmentedBar<T> =
+    segmentedBar() {}
 
 /**
  * Create a [SegmentedBar] with configuration block.
@@ -31,12 +31,13 @@ public fun <T : SegmentedBar.Segment> NodeContainer.segmentedBar(): SegmentedBar
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T : SegmentedBar.Segment> segmentedBar(configuration: (@KtfxLayoutDslMarker
-        SegmentedBar<T>).() -> Unit): SegmentedBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SegmentedBar<T>()
-    child.configuration()
-    return child
+public inline fun <T : SegmentedBar.Segment> segmentedBar(
+    configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit
+): SegmentedBar<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SegmentedBar<T>()
+  child.configuration()
+  return child
 }
 
 /**
@@ -45,13 +46,13 @@ public inline fun <T : SegmentedBar.Segment> segmentedBar(configuration: (@KtfxL
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T : SegmentedBar.Segment>
-        NodeContainer.segmentedBar(configuration: (@KtfxLayoutDslMarker
-        SegmentedBar<T>).() -> Unit): SegmentedBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SegmentedBar<T>()
-    child.configuration()
-    return addChild(child)
+public inline fun <T : SegmentedBar.Segment> NodeContainer.segmentedBar(
+    configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit
+): SegmentedBar<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SegmentedBar<T>()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -61,8 +62,10 @@ public inline fun <T : SegmentedBar.Segment>
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T : SegmentedBar.Segment> styledSegmentedBar(vararg styleClass: String, id: String? =
-        null): SegmentedBar<T> = styledSegmentedBar(styleClass = *styleClass, id = id) { }
+public fun <T : SegmentedBar.Segment> styledSegmentedBar(
+    vararg styleClass: String,
+    id: String? = null
+): SegmentedBar<T> = styledSegmentedBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [SegmentedBar] to this container.
@@ -71,9 +74,10 @@ public fun <T : SegmentedBar.Segment> styledSegmentedBar(vararg styleClass: Stri
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(vararg styleClass: String,
-        id: String? = null): SegmentedBar<T> = styledSegmentedBar(styleClass = *styleClass, id = id)
-        { }
+public fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(
+    vararg styleClass: String,
+    id: String? = null
+): SegmentedBar<T> = styledSegmentedBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [SegmentedBar] with configuration block.
@@ -88,12 +92,12 @@ public inline fun <T : SegmentedBar.Segment> styledSegmentedBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit,
 ): SegmentedBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SegmentedBar<T>()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SegmentedBar<T>()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -109,10 +113,10 @@ public inline fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit,
 ): SegmentedBar<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SegmentedBar<T>()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SegmentedBar<T>()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

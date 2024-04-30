@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.toolBar(): ToolBar = toolBar() { }
+public fun NodeContainer.toolBar(): ToolBar = toolBar() {}
 
 /**
  * Create a [ToolBar] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.toolBar(): ToolBar = toolBar() { }
  * @return the control created.
  */
 public inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxToolBar()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxToolBar()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.toolBar(configuration: (@KtfxLayoutDslMarker
-        KtfxToolBar).() -> Unit): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxToolBar()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.toolBar(
+    configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit
+): ToolBar {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxToolBar()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.toolBar(configuration: (@KtfxLayoutDslMarker
  * @return the styled control created.
  */
 public fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
-        styledToolBar(styleClass = *styleClass, id = id) { }
+    styledToolBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ToolBar] to this container.
@@ -67,7 +68,7 @@ public fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar
  * @return the styled control added.
  */
 public fun NodeContainer.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
-        styledToolBar(styleClass = *styleClass, id = id) { }
+    styledToolBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ToolBar] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledToolBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit,
 ): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxToolBar()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxToolBar()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledToolBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit,
 ): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxToolBar()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxToolBar()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

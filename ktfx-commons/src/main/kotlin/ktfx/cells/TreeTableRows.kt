@@ -17,44 +17,44 @@ fun <S> TreeTableView<S>.rowFactory(
 
 /** Custom [TreeTableRow] configurator class. */
 class KtfxTreeTableRow<T> : TreeTableRow<T>(), KtfxCell<T> {
-    private var onEditStart: (() -> Unit)? = null
-    private var onEditCommit: ((T?) -> Unit)? = null
-    private var onEditCancel: (() -> Unit)? = null
-    private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
+  private var onEditStart: (() -> Unit)? = null
+  private var onEditCommit: ((T?) -> Unit)? = null
+  private var onEditCancel: (() -> Unit)? = null
+  private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onEditStart(action: () -> Unit) {
-        onEditStart = action
-    }
+  override fun onEditStart(action: () -> Unit) {
+    onEditStart = action
+  }
 
-    override fun startEdit() {
-        super.startEdit()
-        onEditStart?.invoke()
-    }
+  override fun startEdit() {
+    super.startEdit()
+    onEditStart?.invoke()
+  }
 
-    override fun onEditCommit(action: (T?) -> Unit) {
-        onEditCommit = action
-    }
+  override fun onEditCommit(action: (T?) -> Unit) {
+    onEditCommit = action
+  }
 
-    override fun commitEdit(newValue: T?) {
-        super.commitEdit(newValue)
-        onEditCommit?.invoke(newValue)
-    }
+  override fun commitEdit(newValue: T?) {
+    super.commitEdit(newValue)
+    onEditCommit?.invoke(newValue)
+  }
 
-    override fun onEditCancel(action: () -> Unit) {
-        onEditCancel = action
-    }
+  override fun onEditCancel(action: () -> Unit) {
+    onEditCancel = action
+  }
 
-    override fun cancelEdit() {
-        super.cancelEdit()
-        onEditCancel?.invoke()
-    }
+  override fun cancelEdit() {
+    super.cancelEdit()
+    onEditCancel?.invoke()
+  }
 
-    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
-        onUpdate = action
-    }
+  override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+    onUpdate = action
+  }
 
-    override fun updateItem(item: T?, empty: Boolean) {
-        super.updateItem(item, empty)
-        onUpdate?.invoke(item, empty)
-    }
+  override fun updateItem(item: T?, empty: Boolean) {
+    super.updateItem(item, empty)
+    onUpdate?.invoke(item, empty)
+  }
 }

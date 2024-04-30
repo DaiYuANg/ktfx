@@ -27,8 +27,8 @@ import javafx.scene.effect.Shadow
  */
 fun Node.blendEffect(configuration: Blend.() -> Unit): Blend =
     Blend().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -39,8 +39,8 @@ fun Node.blendEffect(configuration: Blend.() -> Unit): Blend =
  */
 fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom =
     Bloom().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -51,8 +51,8 @@ fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom =
  */
 fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur =
     BoxBlur().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -63,8 +63,8 @@ fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur =
  */
 fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorAdjust =
     ColorAdjust().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -75,8 +75,8 @@ fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorAdjust =
  */
 fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput =
     ColorInput().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -87,8 +87,8 @@ fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput =
  */
 fun Node.displacementMapEffect(configuration: DisplacementMap.() -> Unit): DisplacementMap =
     DisplacementMap().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -99,8 +99,8 @@ fun Node.displacementMapEffect(configuration: DisplacementMap.() -> Unit): Displ
  */
 fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow =
     DropShadow().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -111,8 +111,8 @@ fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow =
  */
 fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): GaussianBlur =
     GaussianBlur().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -123,8 +123,8 @@ fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): GaussianBlu
  */
 fun Node.glowEffect(configuration: Glow.() -> Unit): Glow =
     Glow().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -135,8 +135,8 @@ fun Node.glowEffect(configuration: Glow.() -> Unit): Glow =
  */
 fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput =
     ImageInput().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -147,8 +147,8 @@ fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput =
  */
 fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerShadow =
     InnerShadow().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -159,8 +159,8 @@ fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerShadow =
  */
 fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting =
     Lighting().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -171,8 +171,8 @@ fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting =
  */
 fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur =
     MotionBlur().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -185,8 +185,8 @@ fun Node.perspectiveTransformEffect(
     configuration: PerspectiveTransform.() -> Unit,
 ): PerspectiveTransform =
     PerspectiveTransform().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -197,8 +197,8 @@ fun Node.perspectiveTransformEffect(
  */
 fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection =
     Reflection().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -209,8 +209,8 @@ fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection =
  */
 fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone =
     SepiaTone().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }
 
 /**
@@ -221,6 +221,6 @@ fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone =
  */
 fun Node.shadowEffect(configuration: Shadow.() -> Unit): Shadow =
     Shadow().also {
-        it.configuration()
-        effect = it
+      it.configuration()
+      effect = it
     }

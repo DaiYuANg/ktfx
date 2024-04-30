@@ -25,9 +25,9 @@ inline fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObser
  */
 fun <T> observableSetOf(vararg elements: T): ObservableSet<T> =
     if (elements.isNotEmpty()) {
-        FXCollections.unmodifiableObservableSet(elements.toMutableObservableSet())
+      FXCollections.unmodifiableObservableSet(elements.toMutableObservableSet())
     } else {
-        emptyObservableSet()
+      emptyObservableSet()
     }
 
 /**
@@ -61,15 +61,15 @@ fun <T : Any> observableSetOfNotNull(vararg elements: T?): ObservableSet<T> =
     elements.filterNotNullTo(mutableObservableSetOf())
 
 /**
- * Builds a new read-only [ObservableSet] by populating a [MutableSet] using the
- * given [builderAction] and returning a read-only set with the same elements.
+ * Builds a new read-only [ObservableSet] by populating a [MutableSet] using the given
+ * [builderAction] and returning a read-only set with the same elements.
  *
  * @see buildSet
  */
 @ExperimentalStdlibApi
 inline fun <T> buildObservableSet(builderAction: MutableSet<T>.() -> Unit): Set<T> {
-    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
-    return buildSet(builderAction).toObservableSet()
+  contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+  return buildSet(builderAction).toObservableSet()
 }
 
 /**
@@ -79,8 +79,8 @@ inline fun <T> buildObservableSet(builderAction: MutableSet<T>.() -> Unit): Set<
  */
 fun <T> Array<out T>.toObservableSet(): ObservableSet<T> =
     when (size) {
-        0 -> emptyObservableSet()
-        else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
+      0 -> emptyObservableSet()
+      else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
     }
 
 /**
@@ -97,13 +97,13 @@ inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> =
  * @see Iterable.toSet
  */
 fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> {
-    if (this is Collection) {
-        return when (size) {
-            0 -> emptyObservableSet()
-            else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
-        }
+  if (this is Collection) {
+    return when (size) {
+      0 -> emptyObservableSet()
+      else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
     }
-    return toCollection(FXCollections.observableSet()).optimizeReadOnlySet()
+  }
+  return toCollection(FXCollections.observableSet()).optimizeReadOnlySet()
 }
 
 /**
@@ -113,8 +113,8 @@ fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> {
  */
 fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> =
     when (this) {
-        is Set<T> -> FXCollections.observableSet(this)
-        else -> toCollection(FXCollections.observableSet())
+      is Set<T> -> FXCollections.observableSet(this)
+      else -> toCollection(FXCollections.observableSet())
     }
 
 /**

@@ -22,12 +22,12 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 public fun NodeContainer.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink =
-        hyperlink(text = text, graphic = graphic) { }
+    hyperlink(text = text, graphic = graphic) {}
 
 /**
  * Create a [Hyperlink] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun hyperlink(
@@ -35,16 +35,16 @@ public inline fun hyperlink(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit,
 ): Hyperlink {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Hyperlink(text, graphic)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Hyperlink(text, graphic)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Hyperlink] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.hyperlink(
@@ -52,17 +52,17 @@ public inline fun NodeContainer.hyperlink(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit,
 ): Hyperlink {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Hyperlink(text, graphic)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Hyperlink(text, graphic)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Hyperlink].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledHyperlink(
@@ -70,14 +70,13 @@ public fun styledHyperlink(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Hyperlink] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledHyperlink(
@@ -85,15 +84,14 @@ public fun NodeContainer.styledHyperlink(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Hyperlink] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledHyperlink(
@@ -103,20 +101,20 @@ public inline fun styledHyperlink(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit,
 ): Hyperlink {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Hyperlink(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Hyperlink(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Hyperlink] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledHyperlink(
@@ -126,10 +124,10 @@ public inline fun NodeContainer.styledHyperlink(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit,
 ): Hyperlink {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Hyperlink(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Hyperlink(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

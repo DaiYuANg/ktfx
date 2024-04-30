@@ -20,69 +20,73 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(buttonOrder =
-        buttonOrder) { }
+public fun NodeContainer.buttonBar(buttonOrder: String? = null): ButtonBar =
+    buttonBar(buttonOrder = buttonOrder) {}
 
 /**
  * Create a [ButtonBar] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun buttonBar(buttonOrder: String? = null, configuration: (@KtfxLayoutDslMarker
-        KtfxButtonBar).() -> Unit): ButtonBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxButtonBar(buttonOrder)
-    child.configuration()
-    return child
+public inline fun buttonBar(
+    buttonOrder: String? = null,
+    configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit
+): ButtonBar {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxButtonBar(buttonOrder)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [ButtonBar] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.buttonBar(buttonOrder: String? = null,
-        configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit): ButtonBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxButtonBar(buttonOrder)
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.buttonBar(
+    buttonOrder: String? = null,
+    configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit
+): ButtonBar {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxButtonBar(buttonOrder)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [ButtonBar].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) { }
+): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ButtonBar] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) { }
+): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ButtonBar] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledButtonBar(
@@ -91,20 +95,20 @@ public inline fun styledButtonBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit,
 ): ButtonBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxButtonBar(buttonOrder)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxButtonBar(buttonOrder)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [ButtonBar] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledButtonBar(
@@ -113,10 +117,10 @@ public inline fun NodeContainer.styledButtonBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit,
 ): ButtonBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxButtonBar(buttonOrder)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxButtonBar(buttonOrder)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

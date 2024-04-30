@@ -16,8 +16,8 @@ import kotlin.contracts.contract
 inline fun contextMenu(
     configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit,
 ): ContextMenu {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxContextMenu().apply(configuration)
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return KtfxContextMenu().apply(configuration)
 }
 
 /** Set a [ContextMenu] to this [Control]. */
@@ -27,8 +27,8 @@ fun Control.contextMenu(): ContextMenu = KtfxContextMenu().also { contextMenu = 
 inline fun Control.contextMenu(
     configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit,
 ): ContextMenu {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
 }
 
 /** Set a [ContextMenu] to this [Tab]. */
@@ -38,18 +38,18 @@ fun Tab.contextMenu(): ContextMenu = KtfxContextMenu().also { contextMenu = it }
 inline fun Tab.contextMenu(
     configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit,
 ): ContextMenu {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
 }
 
 /** Set a [ContextMenu] to this [TableColumnBase]. */
 fun <S, T> TableColumnBase<S, T>.contextMenu(): ContextMenu =
-    ktfx.layouts.contextMenu { }.also { contextMenu = it }
+    ktfx.layouts.contextMenu {}.also { contextMenu = it }
 
 /** Set a [ContextMenu] with configuration block to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
     configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit,
 ): ContextMenu {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
 }

@@ -7,14 +7,12 @@ import javafx.event.Event
 import javafx.event.EventHandler
 import javafx.event.EventType
 import javafx.scene.control.MenuItem
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.javafx.JavaFx
-import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.*
+import kotlinx.coroutines.javafx.JavaFx
 
 /** Registers an event handler to this [MenuItem]. */
+@OptIn(DelicateCoroutinesApi::class)
 fun <E : Event> MenuItem.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,

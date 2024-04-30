@@ -23,7 +23,7 @@ import org.controlsfx.control.PrefixSelectionChoiceBox
  * @return the control added.
  */
 public fun <T> NodeContainer.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> =
-        prefixSelectionChoiceBox() { }
+    prefixSelectionChoiceBox() {}
 
 /**
  * Create a [PrefixSelectionChoiceBox] with configuration block.
@@ -31,12 +31,13 @@ public fun <T> NodeContainer.prefixSelectionChoiceBox(): PrefixSelectionChoiceBo
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMarker
-        PrefixSelectionChoiceBox<T>).() -> Unit): PrefixSelectionChoiceBox<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = PrefixSelectionChoiceBox<T>()
-    child.configuration()
-    return child
+public inline fun <T> prefixSelectionChoiceBox(
+    configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
+): PrefixSelectionChoiceBox<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = PrefixSelectionChoiceBox<T>()
+  child.configuration()
+  return child
 }
 
 /**
@@ -45,12 +46,13 @@ public inline fun <T> prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMar
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.prefixSelectionChoiceBox(configuration: (@KtfxLayoutDslMarker
-        PrefixSelectionChoiceBox<T>).() -> Unit): PrefixSelectionChoiceBox<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = PrefixSelectionChoiceBox<T>()
-    child.configuration()
-    return addChild(child)
+public inline fun <T> NodeContainer.prefixSelectionChoiceBox(
+    configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
+): PrefixSelectionChoiceBox<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = PrefixSelectionChoiceBox<T>()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -60,9 +62,11 @@ public inline fun <T> NodeContainer.prefixSelectionChoiceBox(configuration: (@Kt
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = null):
-        PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(styleClass = *styleClass, id =
-        id) { }
+public fun <T> styledPrefixSelectionChoiceBox(
+    vararg styleClass: String,
+    id: String? = null
+): PrefixSelectionChoiceBox<T> =
+    styledPrefixSelectionChoiceBox(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [PrefixSelectionChoiceBox] to this container.
@@ -71,9 +75,11 @@ public fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: Str
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? =
-        null): PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(styleClass =
-        *styleClass, id = id) { }
+public fun <T> NodeContainer.styledPrefixSelectionChoiceBox(
+    vararg styleClass: String,
+    id: String? = null
+): PrefixSelectionChoiceBox<T> =
+    styledPrefixSelectionChoiceBox(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [PrefixSelectionChoiceBox] with configuration block.
@@ -88,12 +94,12 @@ public inline fun <T> styledPrefixSelectionChoiceBox(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit,
 ): PrefixSelectionChoiceBox<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = PrefixSelectionChoiceBox<T>()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = PrefixSelectionChoiceBox<T>()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -109,10 +115,10 @@ public inline fun <T> NodeContainer.styledPrefixSelectionChoiceBox(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit,
 ): PrefixSelectionChoiceBox<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = PrefixSelectionChoiceBox<T>()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = PrefixSelectionChoiceBox<T>()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

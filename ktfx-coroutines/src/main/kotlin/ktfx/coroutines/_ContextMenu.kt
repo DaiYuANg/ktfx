@@ -17,9 +17,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * @see ContextMenu.setOnAction
- */
-public fun ContextMenu.onAction(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(ActionEvent) -> Unit): Unit = setOnAction { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see ContextMenu.setOnAction */
+public fun ContextMenu.onAction(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(ActionEvent) -> Unit
+): Unit = setOnAction { event -> GlobalScope.launch(context) { action(event) } }

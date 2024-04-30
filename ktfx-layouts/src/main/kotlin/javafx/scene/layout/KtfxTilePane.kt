@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
@@ -10,47 +9,36 @@ import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
-import kotlin.contracts.ExperimentalContracts
 
-/**
- * [TilePane] with dynamic-layout dsl support.
- * Invoking dsl will add its children.
- */
+/** [TilePane] with dynamic-layout dsl support. Invoking dsl will add its children. */
 open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) :
     TilePane(orientation, hgap, vgap), NodeContainer {
-    constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)
+  constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)
 
-    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
+  final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
-    /** Children alignment in this layout. */
-    inline var Node.alignment: Pos?
-        @JvmName("getAlignment2")
-        get() = getAlignment(this)
+  /** Children alignment in this layout. */
+  inline var Node.alignment: Pos?
+    @JvmName("getAlignment2") get() = getAlignment(this)
+    @JvmName("setAlignment2") set(value) = setAlignment(this, value)
 
-        @JvmName("setAlignment2")
-        set(value) = setAlignment(this, value)
+  /** Configure [alignment] fluidly. */
+  fun <T : Node> T.align(pos: Pos): T {
+    alignment = pos
+    return this
+  }
 
-    /** Configure [alignment] fluidly. */
-    fun <T : Node> T.align(pos: Pos): T {
-        alignment = pos
-        return this
-    }
+  /** Children margin in this layout. */
+  inline var Node.margin: Insets?
+    @JvmName("getMargin2") get() = getMargin(this)
+    @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-    /** Children margin in this layout. */
-    inline var Node.margin: Insets?
-        @JvmName("getMargin2")
-        get() = getMargin(this)
+  /** Configure [margin] fluidly. */
+  fun <T : Node> T.margin(insets: Insets): T {
+    margin = insets
+    return this
+  }
 
-        @JvmName("setMargin2")
-        set(value) = setMargin(this, value)
-
-    /** Configure [margin] fluidly. */
-    fun <T : Node> T.margin(insets: Insets): T {
-        margin = insets
-        return this
-    }
-
-    /** Clear children constraints. */
-    @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
+  /** Clear children constraints. */
+  @JvmName("clearConstraints2") inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 }

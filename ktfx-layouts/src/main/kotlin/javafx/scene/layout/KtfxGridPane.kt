@@ -11,176 +11,139 @@ import javafx.scene.Node
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 
-/**
- * [GridPane] with dynamic-layout dsl support.
- * Invoking dsl will add its children.
- */
+/** [GridPane] with dynamic-layout dsl support. Invoking dsl will add its children. */
 open class KtfxGridPane : GridPane(), NodeContainer {
-    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
+  final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
-    /** Children row index in this layout. */
-    inline var Node.rowIndex: Int?
-        @JvmName("getRowIndex2")
-        get() = getRowIndex(this)
+  /** Children row index in this layout. */
+  inline var Node.rowIndex: Int?
+    @JvmName("getRowIndex2") get() = getRowIndex(this)
+    @JvmName("setRowIndex2") set(value) = setRowIndex(this, value)
 
-        @JvmName("setRowIndex2")
-        set(value) = setRowIndex(this, value)
+  /** Children column index in this layout. */
+  inline var Node.columnIndex: Int?
+    @JvmName("getColumnIndex2") get() = getColumnIndex(this)
+    @JvmName("setColumnIndex2") set(value) = setColumnIndex(this, value)
 
-    /** Children column index in this layout. */
-    inline var Node.columnIndex: Int?
-        @JvmName("getColumnIndex2")
-        get() = getColumnIndex(this)
+  /** Children row span in this layout. */
+  inline var Node.rowSpan: Int?
+    @JvmName("getRowSpan2") get() = getRowSpan(this)
+    @JvmName("setRowSpan2") set(value) = setRowSpan(this, value)
 
-        @JvmName("setColumnIndex2")
-        set(value) = setColumnIndex(this, value)
+  /** Children column span in this layout. */
+  inline var Node.columnSpan: Int?
+    @JvmName("getColumnSpan2") get() = getColumnSpan(this)
+    @JvmName("setColumnSpan2") set(value) = setColumnSpan(this, value)
 
-    /** Children row span in this layout. */
-    inline var Node.rowSpan: Int?
-        @JvmName("getRowSpan2")
-        get() = getRowSpan(this)
+  /** Configure [rowIndex] and [columnIndex] fluidly. */
+  fun <T : Node> T.grid(row: Int = 0, col: Int = 0): T {
+    rowIndex = row
+    columnIndex = col
+    return this
+  }
 
-        @JvmName("setRowSpan2")
-        set(value) = setRowSpan(this, value)
+  /** Configure [rowIndex], [rowSpan] and [columnIndex] fluidly. */
+  fun <T : Node> T.grid(row: Pair<Int, Int>, col: Int = 0): T {
+    rowIndex = row.first
+    rowSpan = row.second
+    columnIndex = col
+    return this
+  }
 
-    /** Children column span in this layout. */
-    inline var Node.columnSpan: Int?
-        @JvmName("getColumnSpan2")
-        get() = getColumnSpan(this)
+  /** Configure [rowIndex], [columnIndex] and [columnSpan] fluidly. */
+  fun <T : Node> T.grid(row: Int = 0, col: Pair<Int, Int>): T {
+    rowIndex = row
+    columnIndex = col.first
+    columnSpan = col.second
+    return this
+  }
 
-        @JvmName("setColumnSpan2")
-        set(value) = setColumnSpan(this, value)
+  /** Configure [rowIndex], [rowSpan], [columnIndex] and [columnSpan] fluidly. */
+  fun <T : Node> T.grid(row: Pair<Int, Int>, col: Pair<Int, Int>): T {
+    rowIndex = row.first
+    rowSpan = row.second
+    columnIndex = col.first
+    columnSpan = col.second
+    return this
+  }
 
-    /** Configure [rowIndex] and [columnIndex] fluidly. */
-    fun <T : Node> T.grid(row: Int = 0, col: Int = 0): T {
-        rowIndex = row
-        columnIndex = col
-        return this
-    }
+  /** Children horizontal alignment in this layout. */
+  inline var Node.halignment: HPos?
+    @JvmName("getHalignment2") get() = getHalignment(this)
+    @JvmName("setHalignment2") set(value) = setHalignment(this, value)
 
-    /** Configure [rowIndex], [rowSpan] and [columnIndex] fluidly. */
-    fun <T : Node> T.grid(row: Pair<Int, Int>, col: Int = 0): T {
-        rowIndex = row.first
-        rowSpan = row.second
-        columnIndex = col
-        return this
-    }
+  /** Children vertical alignment in this layout. */
+  inline var Node.valignment: VPos?
+    @JvmName("getValignment2") get() = getValignment(this)
+    @JvmName("setValignment2") set(value) = setValignment(this, value)
 
-    /** Configure [rowIndex], [columnIndex] and [columnSpan] fluidly. */
-    fun <T : Node> T.grid(row: Int = 0, col: Pair<Int, Int>): T {
-        rowIndex = row
-        columnIndex = col.first
-        columnSpan = col.second
-        return this
-    }
+  /** Configure [halignment] fluidly. */
+  fun <T : Node> T.halign(hpos: HPos): T {
+    halignment = hpos
+    return this
+  }
 
-    /** Configure [rowIndex], [rowSpan], [columnIndex] and [columnSpan] fluidly. */
-    fun <T : Node> T.grid(row: Pair<Int, Int>, col: Pair<Int, Int>): T {
-        rowIndex = row.first
-        rowSpan = row.second
-        columnIndex = col.first
-        columnSpan = col.second
-        return this
-    }
+  /** Configure [valignment] fluidly. */
+  fun <T : Node> T.valign(vpos: VPos): T {
+    valignment = vpos
+    return this
+  }
 
-    /** Children horizontal alignment in this layout. */
-    inline var Node.halignment: HPos?
-        @JvmName("getHalignment2")
-        get() = getHalignment(this)
+  /** Children fill width property in this layout. */
+  inline var Node.isFillWidth: Boolean?
+    @JvmName("isFillWidth2") get() = isFillWidth(this)
+    @JvmName("setFillWidth2") set(value) = setFillWidth(this, value)
 
-        @JvmName("setHalignment2")
-        set(value) = setHalignment(this, value)
+  /** Children fill height property in this layout. */
+  inline var Node.isFillHeight: Boolean?
+    @JvmName("isFillHeight2") get() = isFillHeight(this)
+    @JvmName("setFillHeight2") set(value) = setFillHeight(this, value)
 
-    /** Children vertical alignment in this layout. */
-    inline var Node.valignment: VPos?
-        @JvmName("getValignment2")
-        get() = getValignment(this)
+  /** Configure [isFillWidth] fluidly. */
+  fun <T : Node> T.fillWidth(fill: Boolean = true): T {
+    isFillWidth = fill
+    return this
+  }
 
-        @JvmName("setValignment2")
-        set(value) = setValignment(this, value)
+  /** Configure [isFillHeight] fluidly. */
+  fun <T : Node> T.fillHeight(fill: Boolean = true): T {
+    isFillHeight = fill
+    return this
+  }
 
-    /** Configure [halignment] fluidly. */
-    fun <T : Node> T.halign(hpos: HPos): T {
-        halignment = hpos
-        return this
-    }
+  /** Children horizontal grow priority in this layout. */
+  inline var Node.hgrow: Priority?
+    @JvmName("getHgrow2") get() = getHgrow(this)
+    @JvmName("setHgrow2") set(value) = setHgrow(this, value)
 
-    /** Configure [valignment] fluidly. */
-    fun <T : Node> T.valign(vpos: VPos): T {
-        valignment = vpos
-        return this
-    }
+  /** Children vertical grow priority in this layout. */
+  inline var Node.vgrow: Priority?
+    @JvmName("getVgrow2") get() = getVgrow(this)
+    @JvmName("setVgrow2") set(value) = setVgrow(this, value)
 
-    /** Children fill width property in this layout. */
-    inline var Node.isFillWidth: Boolean?
-        @JvmName("isFillWidth2")
-        get() = isFillWidth(this)
+  /** Configure [hgrow] fluidly. */
+  fun <T : Node> T.hgrow(always: Boolean = true): T {
+    hgrow = if (always) Priority.ALWAYS else Priority.NEVER
+    return this
+  }
 
-        @JvmName("setFillWidth2")
-        set(value) = setFillWidth(this, value)
+  /** Configure [vgrow] fluidly. */
+  fun <T : Node> T.vgrow(always: Boolean = true): T {
+    vgrow = if (always) Priority.ALWAYS else Priority.NEVER
+    return this
+  }
 
-    /** Children fill height property in this layout. */
-    inline var Node.isFillHeight: Boolean?
-        @JvmName("isFillHeight2")
-        get() = isFillHeight(this)
+  /** Children margin in this layout. */
+  inline var Node.margin: Insets?
+    @JvmName("getMargin2") get() = getMargin(this)
+    @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-        @JvmName("setFillHeight2")
-        set(value) = setFillHeight(this, value)
+  /** Configure [margin] fluidly. */
+  fun <T : Node> T.margin(insets: Insets): T {
+    margin = insets
+    return this
+  }
 
-    /** Configure [isFillWidth] fluidly. */
-    fun <T : Node> T.fillWidth(fill: Boolean = true): T {
-        isFillWidth = fill
-        return this
-    }
-
-    /** Configure [isFillHeight] fluidly. */
-    fun <T : Node> T.fillHeight(fill: Boolean = true): T {
-        isFillHeight = fill
-        return this
-    }
-
-    /** Children horizontal grow priority in this layout. */
-    inline var Node.hgrow: Priority?
-        @JvmName("getHgrow2")
-        get() = getHgrow(this)
-
-        @JvmName("setHgrow2")
-        set(value) = setHgrow(this, value)
-
-    /** Children vertical grow priority in this layout. */
-    inline var Node.vgrow: Priority?
-        @JvmName("getVgrow2")
-        get() = getVgrow(this)
-
-        @JvmName("setVgrow2")
-        set(value) = setVgrow(this, value)
-
-    /** Configure [hgrow] fluidly. */
-    fun <T : Node> T.hgrow(always: Boolean = true): T {
-        hgrow = if (always) Priority.ALWAYS else Priority.NEVER
-        return this
-    }
-
-    /** Configure [vgrow] fluidly. */
-    fun <T : Node> T.vgrow(always: Boolean = true): T {
-        vgrow = if (always) Priority.ALWAYS else Priority.NEVER
-        return this
-    }
-
-    /** Children margin in this layout. */
-    inline var Node.margin: Insets?
-        @JvmName("getMargin2")
-        get() = getMargin(this)
-
-        @JvmName("setMargin2")
-        set(value) = setMargin(this, value)
-
-    /** Configure [margin] fluidly. */
-    fun <T : Node> T.margin(insets: Insets): T {
-        margin = insets
-        return this
-    }
-
-    /** Clear children constraints. */
-    @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
+  /** Clear children constraints. */
+  @JvmName("clearConstraints2") inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 }

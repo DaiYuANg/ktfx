@@ -27,12 +27,12 @@ public fun NodeContainer.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
-): TilePane = tilePane(orientation = orientation, hgap = hgap, vgap = vgap) { }
+): TilePane = tilePane(orientation = orientation, hgap = hgap, vgap = vgap) {}
 
 /**
  * Create a [TilePane] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun tilePane(
@@ -41,16 +41,16 @@ public inline fun tilePane(
     vgap: Double,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit,
 ): TilePane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTilePane(orientation, hgap, vgap)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTilePane(orientation, hgap, vgap)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [TilePane] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.tilePane(
@@ -59,17 +59,17 @@ public inline fun NodeContainer.tilePane(
     vgap: Double,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit,
 ): TilePane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTilePane(orientation, hgap, vgap)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTilePane(orientation, hgap, vgap)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [TilePane].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledTilePane(
@@ -78,14 +78,15 @@ public fun styledTilePane(
     vgap: Double,
     vararg styleClass: String,
     id: String? = null,
-): TilePane = styledTilePane(orientation = orientation, hgap = hgap, vgap = vgap, styleClass =
-        *styleClass, id = id) { }
+): TilePane =
+    styledTilePane(
+        orientation = orientation, hgap = hgap, vgap = vgap, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [TilePane] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledTilePane(
@@ -94,15 +95,16 @@ public fun NodeContainer.styledTilePane(
     vgap: Double,
     vararg styleClass: String,
     id: String? = null,
-): TilePane = styledTilePane(orientation = orientation, hgap = hgap, vgap = vgap, styleClass =
-        *styleClass, id = id) { }
+): TilePane =
+    styledTilePane(
+        orientation = orientation, hgap = hgap, vgap = vgap, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [TilePane] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledTilePane(
@@ -113,20 +115,20 @@ public inline fun styledTilePane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit,
 ): TilePane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTilePane(orientation, hgap, vgap)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTilePane(orientation, hgap, vgap)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [TilePane] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledTilePane(
@@ -137,10 +139,10 @@ public inline fun NodeContainer.styledTilePane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit,
 ): TilePane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTilePane(orientation, hgap, vgap)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTilePane(orientation, hgap, vgap)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

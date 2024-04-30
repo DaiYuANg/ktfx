@@ -2,6 +2,7 @@
 
 package ktfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType
@@ -10,7 +11,6 @@ import javafx.scene.control.ButtonType.CLOSE
 import javafx.scene.control.ButtonType.NO
 import javafx.scene.control.ButtonType.YES
 import javafx.scene.image.ImageView
-import java.util.Optional
 
 /**
  * Show an alert with title and graphic.
@@ -29,14 +29,16 @@ fun alert(
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    Alert(AlertType.NONE, content, *buttonTypes).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    Alert(AlertType.NONE, content, *buttonTypes)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          alertAction?.invoke(dialog)
         }
-        alertAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show an alert.
@@ -69,14 +71,16 @@ fun infoAlert(
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    Alert(AlertType.INFORMATION, content, *buttonTypes).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    Alert(AlertType.INFORMATION, content, *buttonTypes)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          alertAction?.invoke(dialog)
         }
-        alertAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show an information alert.
@@ -109,14 +113,16 @@ fun warningAlert(
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    Alert(AlertType.WARNING, content, *buttonTypes).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    Alert(AlertType.WARNING, content, *buttonTypes)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          alertAction?.invoke(dialog)
         }
-        alertAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show a warning alert.
@@ -149,14 +155,16 @@ fun confirmAlert(
     vararg buttonTypes: ButtonType = arrayOf(YES, NO),
     alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    Alert(AlertType.CONFIRMATION, content, *buttonTypes).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    Alert(AlertType.CONFIRMATION, content, *buttonTypes)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          alertAction?.invoke(dialog)
         }
-        alertAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show a confirmation alert.
@@ -189,14 +197,16 @@ fun errorAlert(
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
     alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    Alert(AlertType.ERROR, content, *buttonTypes).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    Alert(AlertType.ERROR, content, *buttonTypes)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          alertAction?.invoke(dialog)
         }
-        alertAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show an error alert.

@@ -8,8 +8,8 @@ import javafx.beans.binding.BooleanExpression
 import javafx.beans.value.ObservableBooleanValue
 
 /**
- * Creates a [BooleanBinding] that calculates the conditional-AND
- * operation on the value of two instance of [ObservableBooleanValue].
+ * Creates a [BooleanBinding] that calculates the conditional-AND operation on the value of two
+ * instance of [ObservableBooleanValue].
  *
  * @see BooleanExpression.and
  */
@@ -17,8 +17,8 @@ inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): Bool
     Bindings.and(this, other)
 
 /**
- * Creates a [BooleanBinding] that calculates the conditional-OR
- * operation on the value of two instance of [ObservableBooleanValue].
+ * Creates a [BooleanBinding] that calculates the conditional-OR operation on the value of two
+ * instance of [ObservableBooleanValue].
  *
  * @see BooleanExpression.or
  */
@@ -26,16 +26,16 @@ inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): Boole
     Bindings.or(this, other)
 
 /**
- * Creates a [BooleanBinding] that calculates the conditional-OR
- * operation on the value of two instance of [ObservableBooleanValue].
+ * Creates a [BooleanBinding] that calculates the conditional-OR operation on the value of two
+ * instance of [ObservableBooleanValue].
  *
  * @see BooleanExpression.not
  */
 inline operator fun ObservableBooleanValue.not(): BooleanBinding = Bindings.not(this)
 
 /**
- * Creates a new [BooleanBinding] that holds `true`
- * if the values of two instances of [ObservableBooleanValue] are equal.
+ * Creates a new [BooleanBinding] that holds `true` if the values of two instances of
+ * [ObservableBooleanValue] are equal.
  *
  * @see BooleanExpression.isEqualTo
  */
@@ -43,8 +43,8 @@ inline infix fun ObservableBooleanValue.eq(other: ObservableBooleanValue): Boole
     Bindings.equal(this, other)
 
 /**
- * Creates a new [BooleanBinding] that holds `true`
- * if the values of two instances of [ObservableBooleanValue] are not equal.
+ * Creates a new [BooleanBinding] that holds `true` if the values of two instances of
+ * [ObservableBooleanValue] are not equal.
  *
  * @see BooleanExpression.isNotEqualTo
  */

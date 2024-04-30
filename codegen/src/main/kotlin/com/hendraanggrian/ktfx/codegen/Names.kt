@@ -25,19 +25,18 @@ val Y = "Y".generics
 
 fun List<ParameterSpec>.toString(namedArgument: Boolean, commaSuffix: Boolean): String =
     buildString {
-        append(
-            joinToString {
-                var s =
-                    buildString {
-                        append(it.name)
-                        if (namedArgument) append(" = ${it.name}")
-                    }
-                if (VARARG in it.modifiers) {
-                    val index = s.lastIndexOf(it.name)
-                    s = s.substring(0, index) + '*' + s.substring(index)
-                }
-                s
-            },
-        )
-        if (commaSuffix && isNotEmpty()) append(", ")
+      append(
+          joinToString {
+            var s = buildString {
+              append(it.name)
+              if (namedArgument) append(" = ${it.name}")
+            }
+            if (VARARG in it.modifiers) {
+              val index = s.lastIndexOf(it.name)
+              s = s.substring(0, index) + '*' + s.substring(index)
+            }
+            s
+          },
+      )
+      if (commaSuffix && isNotEmpty()) append(", ")
     }

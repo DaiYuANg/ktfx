@@ -13,14 +13,16 @@ import javafx.collections.ObservableArray
  *
  * @see Array.indices
  */
-val ObservableArray<*>.indices: IntRange get() = IntRange(0, lastIndex)
+val ObservableArray<*>.indices: IntRange
+  get() = IntRange(0, lastIndex)
 
 /**
  * Returns the last valid index for the array.
  *
  * @see Array.lastIndex
  */
-val ObservableArray<*>.lastIndex: Int get() = size() - 1
+val ObservableArray<*>.lastIndex: Int
+  get() = size() - 1
 
 /**
  * Returns `true` if the array is empty.
@@ -37,4 +39,5 @@ inline fun ObservableArray<*>.isEmpty(): Boolean = size() == 0
 inline fun ObservableArray<*>.isNotEmpty(): Boolean = size() != 0
 
 /** Creates a new [IntegerBinding] that contains the size of this array. */
-inline val ObservableArray<*>.sizeBinding: IntegerBinding get() = Bindings.size(this)
+inline val ObservableArray<*>.sizeBinding: IntegerBinding
+  get() = Bindings.size(this)

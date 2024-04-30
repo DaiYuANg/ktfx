@@ -2,10 +2,10 @@
 
 package ktfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.ChoiceDialog
 import javafx.scene.image.ImageView
-import java.util.Optional
 
 /**
  * Show a selector with title and graphic.
@@ -24,14 +24,16 @@ fun <T> selector(
     prefill: T? = null,
     dialogAction: (ChoiceDialog<T>.() -> Unit)? = null,
 ): Optional<T> =
-    ChoiceDialog<T>(prefill, items).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    ChoiceDialog<T>(prefill, items)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show a selector.
@@ -64,14 +66,16 @@ fun <T> selector(
     prefill: T? = null,
     dialogAction: (ChoiceDialog<T>.() -> Unit)? = null,
 ): Optional<T> =
-    ChoiceDialog<T>(prefill, *items).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    ChoiceDialog<T>(prefill, *items)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show a selector.

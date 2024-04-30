@@ -9,18 +9,17 @@ import kotlin.test.assertEquals
 
 abstract class BaseButtonBaseTest {
 
-    abstract fun ButtonBase.callOnAction(action: (ActionEvent) -> Unit)
+  abstract fun ButtonBase.callOnAction(action: (ActionEvent) -> Unit)
 
-    @BeforeTest
-    fun start() = initToolkit()
+  @BeforeTest fun start() = initToolkit()
 
-    @Test
-    fun onAction() {
-        val button = Button()
-        button.callOnAction {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-        }
-        button.onAction.handle(ActionEvent(this, FakeEventTarget))
+  @Test
+  fun onAction() {
+    val button = Button()
+    button.callOnAction {
+      assertEquals(this, it.source)
+      assertEquals(FakeEventTarget, it.target)
     }
+    button.onAction.handle(ActionEvent(this, FakeEventTarget))
+  }
 }

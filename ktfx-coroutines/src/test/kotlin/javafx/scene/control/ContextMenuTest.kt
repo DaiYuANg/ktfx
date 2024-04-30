@@ -6,7 +6,7 @@ import javafx.scene.control.ContextMenu
 import kotlinx.coroutines.Dispatchers
 
 class ContextMenuTest : BaseContextMenuTest() {
-    override fun ContextMenu.callOnAction(action: (ActionEvent) -> Unit) {
-        onAction(Dispatchers.Unconfined) { action(it) }
-    }
+  override fun ContextMenu.callOnAction(action: (ActionEvent) -> Unit) {
+    onAction(Dispatchers.Unconfined) { action(it) }
+  }
 }

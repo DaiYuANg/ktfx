@@ -22,20 +22,22 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 public fun NodeContainer.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
+    toggleButton(text = text, graphic = graphic) {}
 
 /**
  * Add a [ToggleButton] to this container.
  *
  * @return the control added.
  */
-public fun ToggleButtonContainer.toggleButton(text: String? = null, graphic: Node? = null):
-        ToggleButton = toggleButton(text = text, graphic = graphic) { }
+public fun ToggleButtonContainer.toggleButton(
+    text: String? = null,
+    graphic: Node? = null
+): ToggleButton = toggleButton(text = text, graphic = graphic) {}
 
 /**
  * Create a [ToggleButton] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun toggleButton(
@@ -43,16 +45,16 @@ public inline fun toggleButton(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ToggleButton(text, graphic)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ToggleButton(text, graphic)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [ToggleButton] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.toggleButton(
@@ -60,16 +62,16 @@ public inline fun NodeContainer.toggleButton(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ToggleButton(text, graphic)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ToggleButton(text, graphic)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Add a [ToggleButton] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun ToggleButtonContainer.toggleButton(
@@ -77,17 +79,17 @@ public inline fun ToggleButtonContainer.toggleButton(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ToggleButton(text, graphic)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ToggleButton(text, graphic)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [ToggleButton].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledToggleButton(
@@ -95,14 +97,14 @@ public fun styledToggleButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): ToggleButton =
+    styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ToggleButton] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledToggleButton(
@@ -110,14 +112,14 @@ public fun NodeContainer.styledToggleButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): ToggleButton =
+    styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ToggleButton] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun ToggleButtonContainer.styledToggleButton(
@@ -125,15 +127,15 @@ public fun ToggleButtonContainer.styledToggleButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): ToggleButton =
+    styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ToggleButton] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledToggleButton(
@@ -143,20 +145,20 @@ public inline fun styledToggleButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ToggleButton(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ToggleButton(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [ToggleButton] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledToggleButton(
@@ -166,20 +168,20 @@ public inline fun NodeContainer.styledToggleButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ToggleButton(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ToggleButton(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Add a styled [ToggleButton] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun ToggleButtonContainer.styledToggleButton(
@@ -189,10 +191,10 @@ public inline fun ToggleButtonContainer.styledToggleButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ToggleButton(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ToggleButton(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

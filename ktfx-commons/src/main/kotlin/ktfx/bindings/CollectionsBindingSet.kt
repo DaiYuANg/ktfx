@@ -28,7 +28,9 @@ inline fun <E> Set<E>.unbindContent(other: ObservableSet<E>): Unit =
 inline fun <E> ObservableSet<E>.size(): IntegerBinding = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is empty. */
-inline val <E> ObservableSet<E>.isEmpty: BooleanBinding get() = Bindings.isEmpty(this)
+inline val <E> ObservableSet<E>.isEmpty: BooleanBinding
+  get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is not empty. */
-inline val <E> ObservableSet<E>.isNotEmpty: BooleanBinding get() = Bindings.isNotEmpty(this)
+inline val <E> ObservableSet<E>.isNotEmpty: BooleanBinding
+  get() = Bindings.isNotEmpty(this)

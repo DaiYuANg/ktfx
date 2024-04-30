@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.path(): Path = path() { }
+public fun NodeContainer.path(): Path = path() {}
 
 /**
  * Create a [Path] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.path(): Path = path() { }
  * @return the control created.
  */
 public inline fun path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit): Path {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxPath()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxPath()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit):
-        Path {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxPath()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.path(
+    configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit
+): Path {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxPath()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -56,8 +57,8 @@ public inline fun NodeContainer.path(configuration: (@KtfxLayoutDslMarker KtfxPa
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledPath(vararg styleClass: String, id: String? = null): Path = styledPath(styleClass =
-        *styleClass, id = id) { }
+public fun styledPath(vararg styleClass: String, id: String? = null): Path =
+    styledPath(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Path] to this container.
@@ -67,7 +68,7 @@ public fun styledPath(vararg styleClass: String, id: String? = null): Path = sty
  * @return the styled control added.
  */
 public fun NodeContainer.styledPath(vararg styleClass: String, id: String? = null): Path =
-        styledPath(styleClass = *styleClass, id = id) { }
+    styledPath(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Path] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledPath(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit,
 ): Path {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxPath()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxPath()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledPath(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit,
 ): Path {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxPath()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxPath()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

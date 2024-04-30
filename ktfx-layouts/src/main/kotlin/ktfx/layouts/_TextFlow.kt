@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.textFlow(): TextFlow = textFlow() { }
+public fun NodeContainer.textFlow(): TextFlow = textFlow() {}
 
 /**
  * Create a [TextFlow] with configuration block.
@@ -28,12 +28,13 @@ public fun NodeContainer.textFlow(): TextFlow = textFlow() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit):
-        TextFlow {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTextFlow()
-    child.configuration()
-    return child
+public inline fun textFlow(
+    configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit
+): TextFlow {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTextFlow()
+  child.configuration()
+  return child
 }
 
 /**
@@ -42,12 +43,13 @@ public inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).()
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.textFlow(configuration: (@KtfxLayoutDslMarker
-        KtfxTextFlow).() -> Unit): TextFlow {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTextFlow()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.textFlow(
+    configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit
+): TextFlow {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTextFlow()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -58,7 +60,7 @@ public inline fun NodeContainer.textFlow(configuration: (@KtfxLayoutDslMarker
  * @return the styled control created.
  */
 public fun styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
-        styledTextFlow(styleClass = *styleClass, id = id) { }
+    styledTextFlow(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [TextFlow] to this container.
@@ -68,7 +70,7 @@ public fun styledTextFlow(vararg styleClass: String, id: String? = null): TextFl
  * @return the styled control added.
  */
 public fun NodeContainer.styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
-        styledTextFlow(styleClass = *styleClass, id = id) { }
+    styledTextFlow(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [TextFlow] with configuration block.
@@ -83,12 +85,12 @@ public inline fun styledTextFlow(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit,
 ): TextFlow {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTextFlow()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTextFlow()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -104,10 +106,10 @@ public inline fun NodeContainer.styledTextFlow(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit,
 ): TextFlow {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTextFlow()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxTextFlow()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

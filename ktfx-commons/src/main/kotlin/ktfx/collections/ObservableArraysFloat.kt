@@ -28,8 +28,8 @@ inline fun observableFloatArrayOf(): ObservableFloatArray = FXCollections.observ
  */
 fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray =
     when {
-        elements.isNotEmpty() -> FXCollections.observableFloatArray(*elements)
-        else -> FXCollections.observableFloatArray()
+      elements.isNotEmpty() -> FXCollections.observableFloatArray(*elements)
+      else -> FXCollections.observableFloatArray()
     }
 
 /**
@@ -64,12 +64,12 @@ operator fun ObservableFloatArray.contains(element: Float): Boolean = indexOf(el
  * @see FloatArray.indexOf
  */
 fun ObservableFloatArray.indexOf(element: Float): Int {
-    for (index in indices) {
-        if (element == this[index]) {
-            return index
-        }
+  for (index in indices) {
+    if (element == this[index]) {
+      return index
     }
-    return -1
+  }
+  return -1
 }
 
 /**
@@ -78,12 +78,12 @@ fun ObservableFloatArray.indexOf(element: Float): Int {
  * @see FloatArray.lastIndexOf
  */
 fun ObservableFloatArray.lastIndexOf(element: Float): Int {
-    for (index in indices.reversed()) {
-        if (element == this[index]) {
-            return index
-        }
+  for (index in indices.reversed()) {
+    if (element == this[index]) {
+      return index
     }
-    return -1
+  }
+  return -1
 }
 
 /**
@@ -119,9 +119,9 @@ inline operator fun ObservableFloatArray.plusAssign(elements: ObservableFloatArr
  * @see FloatArray.forEach
  */
 inline fun ObservableFloatArray.forEach(action: (Float) -> Unit) {
-    for (index in 0 until size()) {
-        action(this[index])
-    }
+  for (index in 0 until size()) {
+    action(this[index])
+  }
 }
 
 /**
@@ -130,9 +130,9 @@ inline fun ObservableFloatArray.forEach(action: (Float) -> Unit) {
  * @see FloatArray.forEachIndexed
  */
 inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Unit) {
-    for (index in 0 until size()) {
-        action(index, this[index])
-    }
+  for (index in 0 until size()) {
+    action(index, this[index])
+  }
 }
 
 /**
@@ -142,9 +142,9 @@ inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Un
  */
 operator fun ObservableFloatArray.iterator(): FloatIterator =
     object : FloatIterator() {
-        var index = 0
+      var index = 0
 
-        override fun hasNext(): Boolean = index < size()
+      override fun hasNext(): Boolean = index < size()
 
-        override fun nextFloat(): Float = get(index++)
+      override fun nextFloat(): Float = get(index++)
     }

@@ -2,10 +2,10 @@
 
 package ktfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.TextInputDialog
 import javafx.scene.image.ImageView
-import java.util.Optional
 
 /**
  * Show a text input dialog with title and graphic.
@@ -22,14 +22,16 @@ fun inputDialog(
     prefill: String = "",
     dialogAction: (TextInputDialog.() -> Unit)? = null,
 ): Optional<String> =
-    TextInputDialog(prefill).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    TextInputDialog(prefill)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Show a text input dialog.

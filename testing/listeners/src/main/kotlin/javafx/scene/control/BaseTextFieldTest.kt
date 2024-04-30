@@ -8,18 +8,17 @@ import kotlin.test.assertEquals
 
 abstract class BaseTextFieldTest {
 
-    abstract fun TextField.callOnAction(action: (ActionEvent) -> Unit)
+  abstract fun TextField.callOnAction(action: (ActionEvent) -> Unit)
 
-    @BeforeTest
-    fun start() = initToolkit()
+  @BeforeTest fun start() = initToolkit()
 
-    @Test
-    fun onAction() {
-        val field = TextField()
-        field.callOnAction {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-        }
-        field.onAction.handle(ActionEvent(this, FakeEventTarget))
+  @Test
+  fun onAction() {
+    val field = TextField()
+    field.callOnAction {
+      assertEquals(this, it.source)
+      assertEquals(FakeEventTarget, it.target)
     }
+    field.onAction.handle(ActionEvent(this, FakeEventTarget))
+  }
 }

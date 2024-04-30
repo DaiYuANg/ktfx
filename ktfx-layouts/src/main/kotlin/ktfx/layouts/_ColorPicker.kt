@@ -22,69 +22,73 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color)
-        { }
+public fun NodeContainer.colorPicker(color: Color = WHITE): ColorPicker =
+    colorPicker(color = color) {}
 
 /**
  * Create a [ColorPicker] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
-        ColorPicker).() -> Unit): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ColorPicker(color)
-    child.configuration()
-    return child
+public inline fun colorPicker(
+    color: Color = WHITE,
+    configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit
+): ColorPicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ColorPicker(color)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [ColorPicker] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.colorPicker(color: Color = WHITE,
-        configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ColorPicker(color)
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.colorPicker(
+    color: Color = WHITE,
+    configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit
+): ColorPicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ColorPicker(color)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [ColorPicker].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
+): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ColorPicker] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
+): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ColorPicker] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledColorPicker(
@@ -93,20 +97,20 @@ public inline fun styledColorPicker(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit,
 ): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ColorPicker(color)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ColorPicker(color)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [ColorPicker] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledColorPicker(
@@ -115,10 +119,10 @@ public inline fun NodeContainer.styledColorPicker(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit,
 ): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ColorPicker(color)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ColorPicker(color)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

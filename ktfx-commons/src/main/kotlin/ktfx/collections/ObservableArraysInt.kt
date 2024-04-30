@@ -29,8 +29,8 @@ inline fun observableIntArrayOf(): ObservableIntegerArray = FXCollections.observ
  */
 fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
     when {
-        elements.isNotEmpty() -> FXCollections.observableIntegerArray(*elements)
-        else -> FXCollections.observableIntegerArray()
+      elements.isNotEmpty() -> FXCollections.observableIntegerArray(*elements)
+      else -> FXCollections.observableIntegerArray()
     }
 
 /**
@@ -65,12 +65,12 @@ operator fun ObservableIntegerArray.contains(element: Int): Boolean = indexOf(el
  * @see IntArray.indexOf
  */
 fun ObservableIntegerArray.indexOf(element: Int): Int {
-    for (index in indices) {
-        if (element == this[index]) {
-            return index
-        }
+  for (index in indices) {
+    if (element == this[index]) {
+      return index
     }
-    return -1
+  }
+  return -1
 }
 
 /**
@@ -79,12 +79,12 @@ fun ObservableIntegerArray.indexOf(element: Int): Int {
  * @see IntArray.lastIndexOf
  */
 fun ObservableIntegerArray.lastIndexOf(element: Int): Int {
-    for (index in indices.reversed()) {
-        if (element == this[index]) {
-            return index
-        }
+  for (index in indices.reversed()) {
+    if (element == this[index]) {
+      return index
     }
-    return -1
+  }
+  return -1
 }
 
 /**
@@ -120,9 +120,9 @@ inline operator fun ObservableIntegerArray.plusAssign(elements: ObservableIntege
  * @see IntArray.forEach
  */
 inline fun ObservableIntegerArray.forEach(action: (Int) -> Unit) {
-    for (index in 0 until size()) {
-        action(this[index])
-    }
+  for (index in 0 until size()) {
+    action(this[index])
+  }
 }
 
 /**
@@ -131,9 +131,9 @@ inline fun ObservableIntegerArray.forEach(action: (Int) -> Unit) {
  * @see IntArray.forEachIndexed
  */
 inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, Int) -> Unit) {
-    for (index in 0 until size()) {
-        action(index, this[index])
-    }
+  for (index in 0 until size()) {
+    action(index, this[index])
+  }
 }
 
 /**
@@ -143,9 +143,9 @@ inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, Int) -> Un
  */
 operator fun ObservableIntegerArray.iterator(): IntIterator =
     object : IntIterator() {
-        var index = 0
+      var index = 0
 
-        override fun hasNext(): Boolean = index < size()
+      override fun hasNext(): Boolean = index < size()
 
-        override fun nextInt(): Int = get(index++)
+      override fun nextInt(): Int = get(index++)
     }

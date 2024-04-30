@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.polygon(): Polygon = polygon() { }
+public fun NodeContainer.polygon(): Polygon = polygon() {}
 
 /**
  * Create a [Polygon] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.polygon(): Polygon = polygon() { }
  * @return the control created.
  */
 public inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Polygon()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Polygon()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Un
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit):
-        Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Polygon()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.polygon(
+    configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit
+): Polygon {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Polygon()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.polygon(configuration: (@KtfxLayoutDslMarker Pol
  * @return the styled control created.
  */
 public fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
-        styledPolygon(styleClass = *styleClass, id = id) { }
+    styledPolygon(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Polygon] to this container.
@@ -67,7 +68,7 @@ public fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon
  * @return the styled control added.
  */
 public fun NodeContainer.styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
-        styledPolygon(styleClass = *styleClass, id = id) { }
+    styledPolygon(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Polygon] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledPolygon(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit,
 ): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Polygon()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Polygon()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledPolygon(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit,
 ): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Polygon()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Polygon()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

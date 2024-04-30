@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem() { }
+public fun MenuItemContainer.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem() {}
 
 /**
  * Create a [SeparatorMenuItem] with configuration block.
@@ -28,12 +28,13 @@ public fun MenuItemContainer.separatorMenuItem(): SeparatorMenuItem = separatorM
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker
-        SeparatorMenuItem).() -> Unit): SeparatorMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SeparatorMenuItem()
-    child.configuration()
-    return child
+public inline fun separatorMenuItem(
+    configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit
+): SeparatorMenuItem {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SeparatorMenuItem()
+  child.configuration()
+  return child
 }
 
 /**
@@ -42,12 +43,13 @@ public inline fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun MenuItemContainer.separatorMenuItem(configuration: (@KtfxLayoutDslMarker
-        SeparatorMenuItem).() -> Unit): SeparatorMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SeparatorMenuItem()
-    child.configuration()
-    return addChild(child)
+public inline fun MenuItemContainer.separatorMenuItem(
+    configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit
+): SeparatorMenuItem {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SeparatorMenuItem()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,8 +59,10 @@ public inline fun MenuItemContainer.separatorMenuItem(configuration: (@KtfxLayou
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledSeparatorMenuItem(vararg styleClass: String, id: String? = null): SeparatorMenuItem
-        = styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
+public fun styledSeparatorMenuItem(
+    vararg styleClass: String,
+    id: String? = null
+): SeparatorMenuItem = styledSeparatorMenuItem(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [SeparatorMenuItem] to this container.
@@ -67,8 +71,10 @@ public fun styledSeparatorMenuItem(vararg styleClass: String, id: String? = null
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun MenuItemContainer.styledSeparatorMenuItem(vararg styleClass: String, id: String? = null):
-        SeparatorMenuItem = styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
+public fun MenuItemContainer.styledSeparatorMenuItem(
+    vararg styleClass: String,
+    id: String? = null
+): SeparatorMenuItem = styledSeparatorMenuItem(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [SeparatorMenuItem] with configuration block.
@@ -83,12 +89,12 @@ public inline fun styledSeparatorMenuItem(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit,
 ): SeparatorMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SeparatorMenuItem()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SeparatorMenuItem()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -104,10 +110,10 @@ public inline fun MenuItemContainer.styledSeparatorMenuItem(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit,
 ): SeparatorMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SeparatorMenuItem()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SeparatorMenuItem()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

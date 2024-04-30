@@ -9,17 +9,17 @@ import org.controlsfx.validation.Validator
 
 private lateinit var support: ValidationSupport
 private val singletonSupport: ValidationSupport
-    get() {
-        if (!::support.isInitialized) {
-            support = ValidationSupport()
-        }
-        return support
+  get() {
+    if (!::support.isInitialized) {
+      support = ValidationSupport()
     }
+    return support
+  }
 
 /** Set control's required flag. */
 inline var Control.isValidationRequired: Boolean
-    get() = ValidationSupport.isRequired(this)
-    set(value) = ValidationSupport.setRequired(this, value)
+  get() = ValidationSupport.isRequired(this)
+  set(value) = ValidationSupport.setRequired(this, value)
 
 /** Register empty validation. */
 fun <T> Control.registerEmptyValidator(

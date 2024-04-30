@@ -37,10 +37,12 @@ inline fun <E> List<E>.unbindContent(other: ObservableList<E>): Unit =
 inline fun <E> ObservableList<E>.size(): IntegerBinding = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is empty. */
-inline val <E> ObservableList<E>.isEmpty: BooleanBinding get() = Bindings.isEmpty(this)
+inline val <E> ObservableList<E>.isEmpty: BooleanBinding
+  get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is not empty. */
-inline val <E> ObservableList<E>.isNotEmpty: BooleanBinding get() = Bindings.isNotEmpty(this)
+inline val <E> ObservableList<E>.isNotEmpty: BooleanBinding
+  get() = Bindings.isNotEmpty(this)
 
 /**
  * Creates a new [ObjectBinding] that contains the element of an [ObservableList] at the specified
@@ -195,9 +197,9 @@ inline fun ObservableList<String>.getBinding(index: ObservableIntegerValue): Str
  * @see List.forEach
  */
 inline fun <E> ObservableList<E>.forEachBinding(action: (Binding<E>) -> Unit) {
-    for (index in 0 until size) {
-        action(getBinding(index))
-    }
+  for (index in 0 until size) {
+    action(getBinding(index))
+  }
 }
 
 /**
@@ -206,7 +208,7 @@ inline fun <E> ObservableList<E>.forEachBinding(action: (Binding<E>) -> Unit) {
  * @see List.forEachIndexed
  */
 inline fun <E> ObservableList<E>.forEachBindingIndexed(action: (index: Int, Binding<E>) -> Unit) {
-    for (index in 0 until size) {
-        action(index, getBinding(index))
-    }
+  for (index in 0 until size) {
+    action(index, getBinding(index))
+  }
 }

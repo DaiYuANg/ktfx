@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.region(): Region = region() { }
+public fun NodeContainer.region(): Region = region() {}
 
 /**
  * Create a [Region] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.region(): Region = region() { }
  * @return the control created.
  */
 public inline fun region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit): Region {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Region()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Region()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit):
-        Region {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Region()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.region(
+    configuration: (@KtfxLayoutDslMarker Region).() -> Unit
+): Region {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Region()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.region(configuration: (@KtfxLayoutDslMarker Regi
  * @return the styled control created.
  */
 public fun styledRegion(vararg styleClass: String, id: String? = null): Region =
-        styledRegion(styleClass = *styleClass, id = id) { }
+    styledRegion(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Region] to this container.
@@ -67,7 +68,7 @@ public fun styledRegion(vararg styleClass: String, id: String? = null): Region =
  * @return the styled control added.
  */
 public fun NodeContainer.styledRegion(vararg styleClass: String, id: String? = null): Region =
-        styledRegion(styleClass = *styleClass, id = id) { }
+    styledRegion(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Region] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledRegion(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Region).() -> Unit,
 ): Region {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Region()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Region()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledRegion(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Region).() -> Unit,
 ): Region {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Region()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Region()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

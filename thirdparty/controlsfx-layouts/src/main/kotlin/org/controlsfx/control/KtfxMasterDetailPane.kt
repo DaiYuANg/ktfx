@@ -14,14 +14,14 @@ import org.controlsfx.control.MasterDetailPane
  */
 open class KtfxMasterDetailPane(detailSide: Side, showDetail: Boolean) :
     MasterDetailPane(detailSide, showDetail), NodeContainer {
-    private var size = 0
+  private var size = 0
 
-    final override fun <T : Node> addChild(child: T): T =
-        child.also {
-            when (size++) {
-                0 -> masterNode = it
-                1 -> detailNode = it
-                else -> error("Master and detail node has been set.")
-            }
+  final override fun <T : Node> addChild(child: T): T =
+      child.also {
+        when (size++) {
+          0 -> masterNode = it
+          1 -> detailNode = it
+          else -> error("Master and detail node has been set.")
         }
+      }
 }

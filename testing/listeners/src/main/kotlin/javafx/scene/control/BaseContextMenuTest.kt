@@ -8,18 +8,17 @@ import kotlin.test.assertEquals
 
 abstract class BaseContextMenuTest {
 
-    abstract fun ContextMenu.callOnAction(action: (ActionEvent) -> Unit)
+  abstract fun ContextMenu.callOnAction(action: (ActionEvent) -> Unit)
 
-    @BeforeTest
-    fun start() = initToolkit()
+  @BeforeTest fun start() = initToolkit()
 
-    @Test
-    fun onAction() {
-        val menu = ContextMenu()
-        menu.callOnAction {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-        }
-        menu.onAction.handle(ActionEvent(this, FakeEventTarget))
+  @Test
+  fun onAction() {
+    val menu = ContextMenu()
+    menu.callOnAction {
+      assertEquals(this, it.source)
+      assertEquals(FakeEventTarget, it.target)
     }
+    menu.onAction.handle(ActionEvent(this, FakeEventTarget))
+  }
 }

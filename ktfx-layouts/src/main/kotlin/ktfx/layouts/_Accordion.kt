@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.accordion(): Accordion = accordion() { }
+public fun NodeContainer.accordion(): Accordion = accordion() {}
 
 /**
  * Create an [Accordion] with configuration block.
@@ -28,12 +28,13 @@ public fun NodeContainer.accordion(): Accordion = accordion() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit):
-        Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxAccordion()
-    child.configuration()
-    return child
+public inline fun accordion(
+    configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit
+): Accordion {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxAccordion()
+  child.configuration()
+  return child
 }
 
 /**
@@ -42,12 +43,13 @@ public inline fun accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.accordion(configuration: (@KtfxLayoutDslMarker
-        KtfxAccordion).() -> Unit): Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxAccordion()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.accordion(
+    configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit
+): Accordion {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxAccordion()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -58,7 +60,7 @@ public inline fun NodeContainer.accordion(configuration: (@KtfxLayoutDslMarker
  * @return the styled control created.
  */
 public fun styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
-        styledAccordion(styleClass = *styleClass, id = id) { }
+    styledAccordion(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Accordion] to this container.
@@ -68,7 +70,7 @@ public fun styledAccordion(vararg styleClass: String, id: String? = null): Accor
  * @return the styled control added.
  */
 public fun NodeContainer.styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
-        styledAccordion(styleClass = *styleClass, id = id) { }
+    styledAccordion(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Accordion] with configuration block.
@@ -83,12 +85,12 @@ public inline fun styledAccordion(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit,
 ): Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxAccordion()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxAccordion()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -104,10 +106,10 @@ public inline fun NodeContainer.styledAccordion(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit,
 ): Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxAccordion()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxAccordion()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

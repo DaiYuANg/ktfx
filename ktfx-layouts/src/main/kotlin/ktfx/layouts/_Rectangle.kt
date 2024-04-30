@@ -26,12 +26,12 @@ public fun NodeContainer.rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-): Rectangle = rectangle(x = x, y = y, width = width, height = height) { }
+): Rectangle = rectangle(x = x, y = y, width = width, height = height) {}
 
 /**
  * Create a [Rectangle] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun rectangle(
@@ -41,16 +41,16 @@ public inline fun rectangle(
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit,
 ): Rectangle {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Rectangle(x, y, width, height)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Rectangle(x, y, width, height)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Rectangle] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.rectangle(
@@ -60,17 +60,17 @@ public inline fun NodeContainer.rectangle(
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit,
 ): Rectangle {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Rectangle(x, y, width, height)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Rectangle(x, y, width, height)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Rectangle].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledRectangle(
@@ -80,14 +80,15 @@ public fun styledRectangle(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Rectangle = styledRectangle(x = x, y = y, width = width, height = height, styleClass =
-        *styleClass, id = id) { }
+): Rectangle =
+    styledRectangle(
+        x = x, y = y, width = width, height = height, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Rectangle] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledRectangle(
@@ -97,15 +98,16 @@ public fun NodeContainer.styledRectangle(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Rectangle = styledRectangle(x = x, y = y, width = width, height = height, styleClass =
-        *styleClass, id = id) { }
+): Rectangle =
+    styledRectangle(
+        x = x, y = y, width = width, height = height, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Rectangle] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledRectangle(
@@ -117,20 +119,20 @@ public inline fun styledRectangle(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit,
 ): Rectangle {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Rectangle(x, y, width, height)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Rectangle(x, y, width, height)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Rectangle] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledRectangle(
@@ -142,10 +144,10 @@ public inline fun NodeContainer.styledRectangle(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit,
 ): Rectangle {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Rectangle(x, y, width, height)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Rectangle(x, y, width, height)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

@@ -28,12 +28,12 @@ public fun <X, Y> NodeContainer.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-): StackedBarChart<X, Y> = stackedBarChart(x = x, y = y, data = data) { }
+): StackedBarChart<X, Y> = stackedBarChart(x = x, y = y, data = data) {}
 
 /**
  * Create a [StackedBarChart] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun <X, Y> stackedBarChart(
@@ -42,16 +42,16 @@ public inline fun <X, Y> stackedBarChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit,
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedBarChart<X, Y>(x, y, data)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedBarChart<X, Y>(x, y, data)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [StackedBarChart] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun <X, Y> NodeContainer.stackedBarChart(
@@ -60,17 +60,17 @@ public inline fun <X, Y> NodeContainer.stackedBarChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit,
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedBarChart<X, Y>(x, y, data)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedBarChart<X, Y>(x, y, data)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [StackedBarChart].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun <X, Y> styledStackedBarChart(
@@ -79,14 +79,14 @@ public fun <X, Y> styledStackedBarChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedBarChart<X, Y> =
+    styledStackedBarChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [StackedBarChart] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun <X, Y> NodeContainer.styledStackedBarChart(
@@ -95,15 +95,15 @@ public fun <X, Y> NodeContainer.styledStackedBarChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedBarChart<X, Y> =
+    styledStackedBarChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [StackedBarChart] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun <X, Y> styledStackedBarChart(
@@ -114,20 +114,20 @@ public inline fun <X, Y> styledStackedBarChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit,
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedBarChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedBarChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [StackedBarChart] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun <X, Y> NodeContainer.styledStackedBarChart(
@@ -138,10 +138,10 @@ public inline fun <X, Y> NodeContainer.styledStackedBarChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit,
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedBarChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedBarChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

@@ -1,17 +1,20 @@
 [versions]
-jdk = "8"
-kotlin = "1.8.20"
+jdk = "21"
+kotlin = "2.0.0-RC2"
 ktlint = "1.0.0"
-controlsfx = "8.40.18"
+controlsfx = "11.2.1"
 jfoenix = "8.0.10"
+javaFx = "21"
 
 [plugins]
-dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin" }
+dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
 kotlinx-kover = "org.jetbrains.kotlinx.kover:0.7.4"
 ktlint = "org.jlleitschuh.gradle.ktlint:11.6.1"
 maven-publish = "com.vanniktech.maven.publish.base:0.22.0" # max for jdk8
 git-publish = "org.ajoberstar.git-publish:3.0.1" # max for jdk8
 pages = "com.hendraanggrian.pages:0.1"
+versionCheck = { id = "com.github.ben-manes.versions", version = "0.51.0" }
+javafx = { id = "org.openjfx.javafxplugin", version = "0.1.0" }
 
 [libraries]
 # lint
@@ -21,10 +24,22 @@ kotlinx-coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
 kotlinx-coroutines-javafx = "org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.7.3"
 controlsfx = { module = "org.controlsfx:controlsfx", version.ref = "controlsfx" }
 jfoenix = { module = "com.jfoenix:jfoenix", version.ref = "jfoenix" }
-commons-lang3 = "org.apache.commons:commons-lang3:3.13.0"
+commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version = "3.13.0" }
 commons-math3 = "org.apache.commons:commons-math3:3.6.1"
 kotlinpoet-dsl = "com.hendraanggrian:kotlinpoet-dsl:0.2-SNAPSHOT"
 # test
 truth = "com.google.truth:truth:1.1.5"
 testfx-junit = "org.testfx:testfx-junit:4.0.15-alpha"
 testfx-monocle = "org.testfx:openjfx-monocle:8u76-b04"
+
+javafxUnitTest = { group = "org.testfx", name = "testfx-junit5", version = "4.0.18" }
+
+spotbugsPlugin = { group = "com.github.spotbugs.snom", name = "spotbugs-gradle-plugin", version = "6.0.8" }
+spotlessPlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version = "6.25.0" }
+javaFxPlugin = { group = "org.openjfx.javafxplugin", name = "org.openjfx.javafxplugin.gradle.plugin", version = "0.1.0" }
+kotlinGradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinGradleLombokPlugin = { group = "org.jetbrains.kotlin", name = "kotlin-lombok", version.ref = "kotlin" }
+kotlinGradleSerializationPlugin = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin" }
+kotlinGradleNoArgPlugin = { group = "org.jetbrains.kotlin", name = "kotlin-noarg", version.ref = "kotlin" }
+kotlinGradleAllOpenPlugin = { group = "org.jetbrains.kotlin", name = "kotlin-allopen", version.ref = "kotlin" }
+kotlinLogging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version = "6.0.9" }

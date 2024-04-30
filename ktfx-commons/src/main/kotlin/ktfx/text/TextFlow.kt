@@ -11,9 +11,9 @@ import javafx.scene.text.TextFlow
  * @see kotlin.text.set
  */
 operator fun TextFlow.set(index: Int, value: String) {
-    val child = children[index]
-    require(child is Text) { "TextFlow child is not a Text" }
-    child.text = value
+  val child = children[index]
+  require(child is Text) { "TextFlow child is not a Text" }
+  child.text = value
 }
 
 /**
@@ -58,14 +58,10 @@ inline fun TextFlow.appendLine(value: String?): TextFlow = append(value).appendL
  */
 inline fun TextFlow.appendLine(value: Any?): TextFlow = append(value).appendLine()
 
-/**
- * @see kotlin.text.SystemProperties
- */
+/** @see kotlin.text.SystemProperties */
 private object SystemProperties {
-    /** Line separator for current system. */
-    @JvmField
-    val LINE_SEPARATOR =
-        checkNotNull(System.getProperty("line.separator")) {
-            "Unable to obtain separator character."
-        }
+  /** Line separator for current system. */
+  @JvmField
+  val LINE_SEPARATOR =
+      checkNotNull(System.getProperty("line.separator")) { "Unable to obtain separator character." }
 }

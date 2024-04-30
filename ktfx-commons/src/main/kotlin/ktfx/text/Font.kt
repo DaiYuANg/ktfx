@@ -9,10 +9,12 @@ import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 
 /** Returns a default font with size of this [Int] number. */
-val Int.pt: Font get() = Font.font(toDouble())
+val Int.pt: Font
+  get() = Font.font(toDouble())
 
 /** Returns a default font with size of this [Double] number. */
-inline val Double.pt: Font get() = Font.font(this)
+inline val Double.pt: Font
+  get() = Font.font(this)
 
 /** Composes a font from configuration using [Int] size. */
 fun fontOf(

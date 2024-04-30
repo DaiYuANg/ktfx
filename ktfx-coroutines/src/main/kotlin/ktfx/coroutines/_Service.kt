@@ -17,44 +17,38 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * @see Service.setOnReady
- */
-public fun Service<*>.onReady(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(WorkerStateEvent) -> Unit): Unit = setOnReady { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see Service.setOnReady */
+public fun Service<*>.onReady(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WorkerStateEvent) -> Unit
+): Unit = setOnReady { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see Service.setOnScheduled
- */
-public fun Service<*>.onScheduled(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(WorkerStateEvent) -> Unit): Unit = setOnScheduled { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see Service.setOnScheduled */
+public fun Service<*>.onScheduled(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WorkerStateEvent) -> Unit
+): Unit = setOnScheduled { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see Service.setOnRunning
- */
-public fun Service<*>.onRunning(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(WorkerStateEvent) -> Unit): Unit = setOnRunning { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see Service.setOnRunning */
+public fun Service<*>.onRunning(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WorkerStateEvent) -> Unit
+): Unit = setOnRunning { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see Service.setOnSucceeded
- */
-public fun Service<*>.onSucceeded(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(WorkerStateEvent) -> Unit): Unit = setOnSucceeded { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see Service.setOnSucceeded */
+public fun Service<*>.onSucceeded(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WorkerStateEvent) -> Unit
+): Unit = setOnSucceeded { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see Service.setOnCancelled
- */
-public fun Service<*>.onCancelled(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(WorkerStateEvent) -> Unit): Unit = setOnCancelled { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see Service.setOnCancelled */
+public fun Service<*>.onCancelled(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WorkerStateEvent) -> Unit
+): Unit = setOnCancelled { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see Service.setOnFailed
- */
-public fun Service<*>.onFailed(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(WorkerStateEvent) -> Unit): Unit = setOnFailed { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see Service.setOnFailed */
+public fun Service<*>.onFailed(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WorkerStateEvent) -> Unit
+): Unit = setOnFailed { event -> GlobalScope.launch(context) { action(event) } }

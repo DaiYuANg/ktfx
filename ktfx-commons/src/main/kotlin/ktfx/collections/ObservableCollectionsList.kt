@@ -5,9 +5,9 @@
 
 package ktfx.collections
 
+import java.util.Random
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import java.util.Random
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
@@ -26,9 +26,9 @@ inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObs
  */
 fun <T> observableListOf(vararg elements: T): ObservableList<T> =
     if (elements.isNotEmpty()) {
-        FXCollections.unmodifiableObservableList(elements.toMutableObservableList())
+      FXCollections.unmodifiableObservableList(elements.toMutableObservableList())
     } else {
-        emptyObservableList()
+      emptyObservableList()
     }
 
 /**
@@ -60,11 +60,11 @@ inline fun <T> mutableObservableListOf(): ObservableList<T> = FXCollections.obse
  */
 fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
     if (elements.isEmpty()) {
-        mutableObservableListOf()
+      mutableObservableListOf()
     } else {
-        FXCollections.observableArrayList(
-            *elements,
-        )
+      FXCollections.observableArrayList(
+          *elements,
+      )
     }
 
 /**
@@ -85,15 +85,15 @@ fun <T : Any> observableListOfNotNull(vararg elements: T?): ObservableList<T> =
     elements.filterNotNullTo(mutableObservableListOf())
 
 /**
- * Builds a new read-only [ObservableList] by populating a [MutableList] using the
- * given [builderAction] and returning a read-only list with the same elements.
+ * Builds a new read-only [ObservableList] by populating a [MutableList] using the given
+ * [builderAction] and returning a read-only list with the same elements.
  *
  * @see buildList
  */
 @ExperimentalStdlibApi
 inline fun <T> buildObservableList(builderAction: MutableList<T>.() -> Unit): List<T> {
-    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
-    return buildList(builderAction).toObservableList()
+  contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+  return buildList(builderAction).toObservableList()
 }
 
 /**
@@ -103,9 +103,9 @@ inline fun <T> buildObservableList(builderAction: MutableList<T>.() -> Unit): Li
  */
 fun <T> Array<out T>.toObservableList(): ObservableList<T> =
     when (size) {
-        0 -> emptyObservableList()
-        1 -> observableListOf(this[0])
-        else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
+      0 -> emptyObservableList()
+      1 -> observableListOf(this[0])
+      else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
     }
 
 /**
@@ -122,14 +122,14 @@ inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
  * @see Iterable.toList
  */
 fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
-    if (this is Collection) {
-        return when (size) {
-            0 -> emptyObservableList()
-            1 -> observableListOf(if (this is List) get(0) else iterator().next())
-            else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
-        }
+  if (this is Collection) {
+    return when (size) {
+      0 -> emptyObservableList()
+      1 -> observableListOf(if (this is List) get(0) else iterator().next())
+      else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
     }
-    return this.toMutableObservableList().optimizeReadOnlyList()
+  }
+  return this.toMutableObservableList().optimizeReadOnlyList()
 }
 
 /**
@@ -138,10 +138,10 @@ fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
  * @see Iterable.toMutableList
  */
 fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
-    if (this is Collection) {
-        return this.toMutableObservableList()
-    }
-    return toCollection(FXCollections.observableArrayList())
+  if (this is Collection) {
+    return this.toMutableObservableList()
+  }
+  return toCollection(FXCollections.observableArrayList())
 }
 
 /**

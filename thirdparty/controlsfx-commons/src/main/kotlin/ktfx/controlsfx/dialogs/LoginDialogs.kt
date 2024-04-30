@@ -2,6 +2,7 @@
 
 package ktfx.controlsfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
@@ -9,7 +10,6 @@ import ktfx.dialogs.headerTitle
 import ktfx.toFxPair
 import ktfx.toKotlinPair
 import org.controlsfx.dialog.LoginDialog
-import java.util.Optional
 
 /**
  * Build a login dialog with Kotlin DSL.
@@ -29,18 +29,20 @@ fun loginDialog(
     dialogAction: (LoginDialog.() -> Unit)? = null,
 ): Optional<javafx.util.Pair<String, String>> =
     LoginDialog(
-        initialUserInfo?.toFxPair(),
-    ) {
-        authenticator(it.toKotlinPair())
-        null
-    }.also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+            initialUserInfo?.toFxPair(),
+        ) {
+          authenticator(it.toKotlinPair())
+          null
+        }
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Build a login dialog with Kotlin DSL.

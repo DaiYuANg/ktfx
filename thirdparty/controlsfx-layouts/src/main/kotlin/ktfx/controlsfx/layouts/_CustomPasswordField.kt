@@ -22,7 +22,7 @@ import org.controlsfx.control.textfield.CustomPasswordField
  *
  * @return the control added.
  */
-public fun NodeContainer.customPasswordField(): CustomPasswordField = customPasswordField() { }
+public fun NodeContainer.customPasswordField(): CustomPasswordField = customPasswordField() {}
 
 /**
  * Create a [CustomPasswordField] with configuration block.
@@ -30,12 +30,13 @@ public fun NodeContainer.customPasswordField(): CustomPasswordField = customPass
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun customPasswordField(configuration: (@KtfxLayoutDslMarker
-        CustomPasswordField).() -> Unit): CustomPasswordField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomPasswordField()
-    child.configuration()
-    return child
+public inline fun customPasswordField(
+    configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit
+): CustomPasswordField {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomPasswordField()
+  child.configuration()
+  return child
 }
 
 /**
@@ -44,12 +45,13 @@ public inline fun customPasswordField(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.customPasswordField(configuration: (@KtfxLayoutDslMarker
-        CustomPasswordField).() -> Unit): CustomPasswordField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomPasswordField()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.customPasswordField(
+    configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit
+): CustomPasswordField {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomPasswordField()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -59,8 +61,10 @@ public inline fun NodeContainer.customPasswordField(configuration: (@KtfxLayoutD
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun styledCustomPasswordField(vararg styleClass: String, id: String? = null):
-        CustomPasswordField = styledCustomPasswordField(styleClass = *styleClass, id = id) { }
+public fun styledCustomPasswordField(
+    vararg styleClass: String,
+    id: String? = null
+): CustomPasswordField = styledCustomPasswordField(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [CustomPasswordField] to this container.
@@ -69,8 +73,10 @@ public fun styledCustomPasswordField(vararg styleClass: String, id: String? = nu
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledCustomPasswordField(vararg styleClass: String, id: String? = null):
-        CustomPasswordField = styledCustomPasswordField(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledCustomPasswordField(
+    vararg styleClass: String,
+    id: String? = null
+): CustomPasswordField = styledCustomPasswordField(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [CustomPasswordField] with configuration block.
@@ -85,12 +91,12 @@ public inline fun styledCustomPasswordField(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit,
 ): CustomPasswordField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomPasswordField()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomPasswordField()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -106,10 +112,10 @@ public inline fun NodeContainer.styledCustomPasswordField(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit,
 ): CustomPasswordField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomPasswordField()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomPasswordField()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

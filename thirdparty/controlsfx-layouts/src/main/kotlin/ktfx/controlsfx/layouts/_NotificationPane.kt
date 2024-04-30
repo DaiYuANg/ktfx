@@ -22,7 +22,7 @@ import org.controlsfx.control.NotificationPane
  *
  * @return the control added.
  */
-public fun NodeContainer.notificationPane(): NotificationPane = notificationPane() { }
+public fun NodeContainer.notificationPane(): NotificationPane = notificationPane() {}
 
 /**
  * Create a [NotificationPane] with configuration block.
@@ -30,12 +30,13 @@ public fun NodeContainer.notificationPane(): NotificationPane = notificationPane
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun notificationPane(configuration: (@KtfxLayoutDslMarker
-        KtfxNotificationPane).() -> Unit): NotificationPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxNotificationPane()
-    child.configuration()
-    return child
+public inline fun notificationPane(
+    configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit
+): NotificationPane {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxNotificationPane()
+  child.configuration()
+  return child
 }
 
 /**
@@ -44,12 +45,13 @@ public inline fun notificationPane(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.notificationPane(configuration: (@KtfxLayoutDslMarker
-        KtfxNotificationPane).() -> Unit): NotificationPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxNotificationPane()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.notificationPane(
+    configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit
+): NotificationPane {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxNotificationPane()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -60,7 +62,7 @@ public inline fun NodeContainer.notificationPane(configuration: (@KtfxLayoutDslM
  * @return the styled control created.
  */
 public fun styledNotificationPane(vararg styleClass: String, id: String? = null): NotificationPane =
-        styledNotificationPane(styleClass = *styleClass, id = id) { }
+    styledNotificationPane(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [NotificationPane] to this container.
@@ -69,8 +71,10 @@ public fun styledNotificationPane(vararg styleClass: String, id: String? = null)
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeContainer.styledNotificationPane(vararg styleClass: String, id: String? = null):
-        NotificationPane = styledNotificationPane(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledNotificationPane(
+    vararg styleClass: String,
+    id: String? = null
+): NotificationPane = styledNotificationPane(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [NotificationPane] with configuration block.
@@ -85,12 +89,12 @@ public inline fun styledNotificationPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit,
 ): NotificationPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxNotificationPane()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxNotificationPane()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -106,10 +110,10 @@ public inline fun NodeContainer.styledNotificationPane(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit,
 ): NotificationPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxNotificationPane()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxNotificationPane()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

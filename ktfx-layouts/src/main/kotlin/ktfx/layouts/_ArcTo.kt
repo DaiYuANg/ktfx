@@ -29,13 +29,20 @@ public fun PathElementContainer.arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
-): ArcTo = arcTo(radiusX = radiusX, radiusY = radiusY, xAxisRotation = xAxisRotation, x = x, y = y,
-        largeArcFlag = largeArcFlag, sweepFlag = sweepFlag) { }
+): ArcTo =
+    arcTo(
+        radiusX = radiusX,
+        radiusY = radiusY,
+        xAxisRotation = xAxisRotation,
+        x = x,
+        y = y,
+        largeArcFlag = largeArcFlag,
+        sweepFlag = sweepFlag) {}
 
 /**
  * Create an [ArcTo] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun arcTo(
@@ -48,16 +55,16 @@ public inline fun arcTo(
     sweepFlag: Boolean = false,
     configuration: (@KtfxLayoutDslMarker ArcTo).() -> Unit,
 ): ArcTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)
+  child.configuration()
+  return child
 }
 
 /**
  * Add an [ArcTo] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun PathElementContainer.arcTo(
@@ -70,8 +77,8 @@ public inline fun PathElementContainer.arcTo(
     sweepFlag: Boolean = false,
     configuration: (@KtfxLayoutDslMarker ArcTo).() -> Unit,
 ): ArcTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)
+  child.configuration()
+  return addChild(child)
 }

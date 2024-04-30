@@ -28,8 +28,8 @@ fun Node.fadeTransition(
     configuration: FadeTransition.() -> Unit,
 ): FadeTransition =
     FadeTransition(duration, this).apply {
-        configuration()
-        play()
+      configuration()
+      play()
     }
 
 /**
@@ -46,8 +46,8 @@ fun Shape.fillTransition(
     configuration: FillTransition.() -> Unit,
 ): FillTransition =
     FillTransition(duration, this, fromValue, toValue).apply {
-        configuration()
-        play()
+      configuration()
+      play()
     }
 
 /**
@@ -63,8 +63,8 @@ fun Node.pathTransition(
     configuration: PathTransition.() -> Unit,
 ): PathTransition =
     PathTransition(duration, path, this).apply {
-        configuration()
-        play()
+      configuration()
+      play()
     }
 
 /**
@@ -79,8 +79,8 @@ fun Node.rotateTransition(
     configuration: RotateTransition.() -> Unit,
 ): RotateTransition =
     RotateTransition(duration, this).apply {
-        configuration()
-        play()
+      configuration()
+      play()
     }
 
 /**
@@ -95,8 +95,8 @@ fun Node.scaleTransition(
     configuration: ScaleTransition.() -> Unit,
 ): ScaleTransition =
     ScaleTransition(duration, this).apply {
-        configuration()
-        play()
+      configuration()
+      play()
     }
 
 /**
@@ -113,8 +113,8 @@ fun Shape.strokeTransition(
     configuration: StrokeTransition.() -> Unit,
 ): StrokeTransition =
     StrokeTransition(duration, this, fromValue, toValue).apply {
-        configuration()
-        play()
+      configuration()
+      play()
     }
 
 /**
@@ -129,8 +129,8 @@ fun Node.translateTransition(
     configuration: TranslateTransition.() -> Unit,
 ): TranslateTransition =
     TranslateTransition(duration, this).apply {
-        configuration()
-        play()
+      configuration()
+      play()
     }
 
 /**
@@ -143,9 +143,13 @@ fun Node.parallelTransition(configuration: AnimationScope.() -> Unit): ParallelT
     ParallelTransition(
         this,
         *object : AnimationScope {
-            override val node: Node get() = this@parallelTransition
-            override val animations: MutableCollection<Animation> = mutableListOf()
-        }.apply(configuration).build(),
+              override val node: Node
+                get() = this@parallelTransition
+
+              override val animations: MutableCollection<Animation> = mutableListOf()
+            }
+            .apply(configuration)
+            .build(),
     )
 
 /**
@@ -160,9 +164,13 @@ fun Shape.shapeParallelTransition(
     ParallelTransition(
         this,
         *object : ShapeAnimationScope {
-            override val node: Shape get() = this@shapeParallelTransition
-            override val animations: MutableCollection<Animation> = mutableListOf()
-        }.apply(configuration).build(),
+              override val node: Shape
+                get() = this@shapeParallelTransition
+
+              override val animations: MutableCollection<Animation> = mutableListOf()
+            }
+            .apply(configuration)
+            .build(),
     )
 
 /**
@@ -175,9 +183,13 @@ fun Node.sequentialTransition(configuration: AnimationScope.() -> Unit): Sequent
     SequentialTransition(
         this,
         *object : AnimationScope {
-            override val node: Node get() = this@sequentialTransition
-            override val animations: MutableCollection<Animation> = mutableListOf()
-        }.apply(configuration).build(),
+              override val node: Node
+                get() = this@sequentialTransition
+
+              override val animations: MutableCollection<Animation> = mutableListOf()
+            }
+            .apply(configuration)
+            .build(),
     )
 
 /**
@@ -192,141 +204,145 @@ fun Shape.shapeSequentialTransition(
     SequentialTransition(
         this,
         *object : ShapeAnimationScope {
-            override val node: Shape get() = this@shapeSequentialTransition
-            override val animations: MutableCollection<Animation> = mutableListOf()
-        }.apply(configuration).build(),
+              override val node: Shape
+                get() = this@shapeSequentialTransition
+
+              override val animations: MutableCollection<Animation> = mutableListOf()
+            }
+            .apply(configuration)
+            .build(),
     )
 
 /** Shape animations configurator interface for [ParallelTransition] and [SequentialTransition]. */
 interface ShapeAnimationScope : AnimationScope {
-    override val node: Shape
+  override val node: Shape
 
-    /**
-     * Append a [FillTransition].
-     *
-     * @param duration length of this animation.
-     * @param configuration the configuration block that customizes animation.
-     * @return the animation added.
-     */
-    fun fill(
-        duration: Duration = 400.0.ms,
-        fromValue: Color? = null,
-        toValue: Color? = null,
-        configuration: FillTransition.() -> Unit,
-    ): FillTransition =
-        FillTransition(duration, node, fromValue, toValue).also {
-            it.configuration()
-            animations += it
-        }
+  /**
+   * Append a [FillTransition].
+   *
+   * @param duration length of this animation.
+   * @param configuration the configuration block that customizes animation.
+   * @return the animation added.
+   */
+  fun fill(
+      duration: Duration = 400.0.ms,
+      fromValue: Color? = null,
+      toValue: Color? = null,
+      configuration: FillTransition.() -> Unit,
+  ): FillTransition =
+      FillTransition(duration, node, fromValue, toValue).also {
+        it.configuration()
+        animations += it
+      }
 
-    /**
-     * Append a [StrokeTransition].
-     *
-     * @param duration length of this animation.
-     * @param configuration the configuration block that customizes animation.
-     * @return the animation added.
-     */
-    fun stroke(
-        duration: Duration = 400.0.ms,
-        fromValue: Color? = null,
-        toValue: Color? = null,
-        configuration: StrokeTransition.() -> Unit,
-    ): StrokeTransition =
-        StrokeTransition(duration, node, fromValue, toValue).also {
-            it.configuration()
-            animations += it
-        }
+  /**
+   * Append a [StrokeTransition].
+   *
+   * @param duration length of this animation.
+   * @param configuration the configuration block that customizes animation.
+   * @return the animation added.
+   */
+  fun stroke(
+      duration: Duration = 400.0.ms,
+      fromValue: Color? = null,
+      toValue: Color? = null,
+      configuration: StrokeTransition.() -> Unit,
+  ): StrokeTransition =
+      StrokeTransition(duration, node, fromValue, toValue).also {
+        it.configuration()
+        animations += it
+      }
 }
 
 /** Node animations configurator interface for [ParallelTransition] and [SequentialTransition]. */
 interface AnimationScope {
-    /** Node that the animations belong to. */
-    val node: Node
+  /** Node that the animations belong to. */
+  val node: Node
 
-    /** Collection of animations within this scope. */
-    val animations: MutableCollection<Animation>
+  /** Collection of animations within this scope. */
+  val animations: MutableCollection<Animation>
 
-    /**
-     * Append a [FadeTransition].
-     *
-     * @param duration length of this animation.
-     * @param configuration the configuration block that customizes animation.
-     * @return the animation added.
-     */
-    fun fade(
-        duration: Duration = 400.0.ms,
-        configuration: FadeTransition.() -> Unit,
-    ): FadeTransition =
-        FadeTransition(duration, node).also {
-            it.configuration()
-            animations += it
-        }
+  /**
+   * Append a [FadeTransition].
+   *
+   * @param duration length of this animation.
+   * @param configuration the configuration block that customizes animation.
+   * @return the animation added.
+   */
+  fun fade(
+      duration: Duration = 400.0.ms,
+      configuration: FadeTransition.() -> Unit,
+  ): FadeTransition =
+      FadeTransition(duration, node).also {
+        it.configuration()
+        animations += it
+      }
 
-    /**
-     * Append a [PathTransition].
-     *
-     * @param duration length of this animation.
-     * @param configuration the configuration block that customizes animation.
-     * @return the animation added.
-     */
-    fun path(
-        duration: Duration = 400.0.ms,
-        path: Shape? = null,
-        configuration: PathTransition.() -> Unit,
-    ): PathTransition =
-        PathTransition(duration, path, node).also {
-            it.configuration()
-            animations += it
-        }
+  /**
+   * Append a [PathTransition].
+   *
+   * @param duration length of this animation.
+   * @param configuration the configuration block that customizes animation.
+   * @return the animation added.
+   */
+  fun path(
+      duration: Duration = 400.0.ms,
+      path: Shape? = null,
+      configuration: PathTransition.() -> Unit,
+  ): PathTransition =
+      PathTransition(duration, path, node).also {
+        it.configuration()
+        animations += it
+      }
 
-    /**
-     * Append a [RotateTransition].
-     *
-     * @param duration length of this animation.
-     * @param configuration the configuration block that customizes animation.
-     * @return the animation added.
-     */
-    fun rotate(
-        duration: Duration = 400.0.ms,
-        configuration: RotateTransition.() -> Unit,
-    ): RotateTransition =
-        RotateTransition(duration, node).also {
-            it.configuration()
-            animations += it
-        }
+  /**
+   * Append a [RotateTransition].
+   *
+   * @param duration length of this animation.
+   * @param configuration the configuration block that customizes animation.
+   * @return the animation added.
+   */
+  fun rotate(
+      duration: Duration = 400.0.ms,
+      configuration: RotateTransition.() -> Unit,
+  ): RotateTransition =
+      RotateTransition(duration, node).also {
+        it.configuration()
+        animations += it
+      }
 
-    /**
-     * Append a [ScaleTransition].
-     *
-     * @param duration length of this animation.
-     * @param configuration the configuration block that customizes animation.
-     * @return the animation added.
-     */
-    fun scale(
-        duration: Duration = 400.0.ms,
-        configuration: ScaleTransition.() -> Unit,
-    ): ScaleTransition =
-        ScaleTransition(duration, node).also {
-            it.configuration()
-            animations += it
-        }
+  /**
+   * Append a [ScaleTransition].
+   *
+   * @param duration length of this animation.
+   * @param configuration the configuration block that customizes animation.
+   * @return the animation added.
+   */
+  fun scale(
+      duration: Duration = 400.0.ms,
+      configuration: ScaleTransition.() -> Unit,
+  ): ScaleTransition =
+      ScaleTransition(duration, node).also {
+        it.configuration()
+        animations += it
+      }
 
-    /**
-     * Append a [TranslateTransition].
-     *
-     * @param duration length of this animation.
-     * @param configuration the configuration block that customizes animation.
-     * @return the animation added.
-     */
-    fun translate(
-        duration: Duration = 400.0.ms,
-        configuration: TranslateTransition.() -> Unit,
-    ): TranslateTransition =
-        TranslateTransition(duration, node).also {
-            it.configuration()
-            animations += it
-        }
+  /**
+   * Append a [TranslateTransition].
+   *
+   * @param duration length of this animation.
+   * @param configuration the configuration block that customizes animation.
+   * @return the animation added.
+   */
+  fun translate(
+      duration: Duration = 400.0.ms,
+      configuration: TranslateTransition.() -> Unit,
+  ): TranslateTransition =
+      TranslateTransition(duration, node).also {
+        it.configuration()
+        animations += it
+      }
 
-    /** Return array of animations based on current configuration. */
-    fun build(): Array<Animation> = animations.toTypedArray()
+  /** Return array of animations based on current configuration. */
+  fun build(): Array<Animation> = animations.toTypedArray()
 }

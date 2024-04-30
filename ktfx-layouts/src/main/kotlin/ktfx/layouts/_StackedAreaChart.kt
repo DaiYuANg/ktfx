@@ -28,12 +28,12 @@ public fun <X, Y> NodeContainer.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-): StackedAreaChart<X, Y> = stackedAreaChart(x = x, y = y, data = data) { }
+): StackedAreaChart<X, Y> = stackedAreaChart(x = x, y = y, data = data) {}
 
 /**
  * Create a [StackedAreaChart] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun <X, Y> stackedAreaChart(
@@ -42,16 +42,16 @@ public inline fun <X, Y> stackedAreaChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit,
 ): StackedAreaChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedAreaChart<X, Y>(x, y, data)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedAreaChart<X, Y>(x, y, data)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [StackedAreaChart] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun <X, Y> NodeContainer.stackedAreaChart(
@@ -60,17 +60,17 @@ public inline fun <X, Y> NodeContainer.stackedAreaChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit,
 ): StackedAreaChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedAreaChart<X, Y>(x, y, data)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedAreaChart<X, Y>(x, y, data)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [StackedAreaChart].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun <X, Y> styledStackedAreaChart(
@@ -79,14 +79,14 @@ public fun <X, Y> styledStackedAreaChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedAreaChart<X, Y> =
+    styledStackedAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [StackedAreaChart] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun <X, Y> NodeContainer.styledStackedAreaChart(
@@ -95,15 +95,15 @@ public fun <X, Y> NodeContainer.styledStackedAreaChart(
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedAreaChart<X, Y> =
+    styledStackedAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [StackedAreaChart] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun <X, Y> styledStackedAreaChart(
@@ -114,20 +114,20 @@ public inline fun <X, Y> styledStackedAreaChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit,
 ): StackedAreaChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedAreaChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedAreaChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [StackedAreaChart] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun <X, Y> NodeContainer.styledStackedAreaChart(
@@ -138,10 +138,10 @@ public inline fun <X, Y> NodeContainer.styledStackedAreaChart(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit,
 ): StackedAreaChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StackedAreaChart<X, Y>(x, y, data)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StackedAreaChart<X, Y>(x, y, data)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

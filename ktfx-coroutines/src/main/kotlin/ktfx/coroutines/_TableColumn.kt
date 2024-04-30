@@ -16,23 +16,20 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * @see TableColumn.setOnEditStart
- */
-public fun <S, T> TableColumn<S, T>.onEditStart(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit): Unit =
-        setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+/** @see TableColumn.setOnEditStart */
+public fun <S, T> TableColumn<S, T>.onEditStart(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see TableColumn.setOnEditCommit
- */
-public fun <S, T> TableColumn<S, T>.onEditCommit(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit): Unit =
-        setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
+/** @see TableColumn.setOnEditCommit */
+public fun <S, T> TableColumn<S, T>.onEditCommit(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see TableColumn.setOnEditCancel
- */
-public fun <S, T> TableColumn<S, T>.onEditCancel(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit): Unit =
-        setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+/** @see TableColumn.setOnEditCancel */
+public fun <S, T> TableColumn<S, T>.onEditCancel(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }

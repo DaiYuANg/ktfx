@@ -11,16 +11,16 @@ import kotlin.test.assertTrue
 
 abstract class BaseObservableValueTest {
 
-    abstract fun ObservableValue<String>.callListener(action: (Observable, String, String) -> Unit)
+  abstract fun ObservableValue<String>.callListener(action: (Observable, String, String) -> Unit)
 
-    @Test
-    fun listen() {
-        val property = SimpleStringProperty()
-        property.callListener { observable, oldValue, value ->
-            assertTrue(observable is StringProperty)
-            assertNull(oldValue)
-            assertEquals("Hello world", value)
-        }
-        property.set("Hello world")
+  @Test
+  fun listen() {
+    val property = SimpleStringProperty()
+    property.callListener { observable, oldValue, value ->
+      assertTrue(observable is StringProperty)
+      assertNull(oldValue)
+      assertEquals("Hello world", value)
     }
+    property.set("Hello world")
+  }
 }

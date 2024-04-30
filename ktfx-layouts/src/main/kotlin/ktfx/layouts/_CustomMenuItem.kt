@@ -22,13 +22,15 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.customMenuItem(content: Node? = null, hideOnClick: Boolean = true):
-        CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
+public fun MenuItemContainer.customMenuItem(
+    content: Node? = null,
+    hideOnClick: Boolean = true
+): CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) {}
 
 /**
  * Create a [CustomMenuItem] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun customMenuItem(
@@ -36,16 +38,16 @@ public inline fun customMenuItem(
     hideOnClick: Boolean = true,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
 ): CustomMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomMenuItem(content, hideOnClick)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomMenuItem(content, hideOnClick)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [CustomMenuItem] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun MenuItemContainer.customMenuItem(
@@ -53,17 +55,17 @@ public inline fun MenuItemContainer.customMenuItem(
     hideOnClick: Boolean = true,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
 ): CustomMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomMenuItem(content, hideOnClick)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomMenuItem(content, hideOnClick)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [CustomMenuItem].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledCustomMenuItem(
@@ -71,14 +73,15 @@ public fun styledCustomMenuItem(
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
-): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-        *styleClass, id = id) { }
+): CustomMenuItem =
+    styledCustomMenuItem(
+        content = content, hideOnClick = hideOnClick, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [CustomMenuItem] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun MenuItemContainer.styledCustomMenuItem(
@@ -86,15 +89,16 @@ public fun MenuItemContainer.styledCustomMenuItem(
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
-): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-        *styleClass, id = id) { }
+): CustomMenuItem =
+    styledCustomMenuItem(
+        content = content, hideOnClick = hideOnClick, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [CustomMenuItem] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledCustomMenuItem(
@@ -104,20 +108,20 @@ public inline fun styledCustomMenuItem(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
 ): CustomMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomMenuItem(content, hideOnClick)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomMenuItem(content, hideOnClick)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [CustomMenuItem] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun MenuItemContainer.styledCustomMenuItem(
@@ -127,10 +131,10 @@ public inline fun MenuItemContainer.styledCustomMenuItem(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
 ): CustomMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = CustomMenuItem(content, hideOnClick)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = CustomMenuItem(content, hideOnClick)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

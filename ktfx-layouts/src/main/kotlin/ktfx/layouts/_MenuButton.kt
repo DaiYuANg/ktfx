@@ -22,12 +22,12 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 public fun NodeContainer.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
-        menuButton(text = text, graphic = graphic) { }
+    menuButton(text = text, graphic = graphic) {}
 
 /**
  * Create a [MenuButton] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun menuButton(
@@ -35,16 +35,16 @@ public inline fun menuButton(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
 ): MenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuButton(text, graphic)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuButton(text, graphic)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [MenuButton] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.menuButton(
@@ -52,17 +52,17 @@ public inline fun NodeContainer.menuButton(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
 ): MenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuButton(text, graphic)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuButton(text, graphic)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [MenuButton].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledMenuButton(
@@ -70,14 +70,14 @@ public fun styledMenuButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id)
-        { }
+): MenuButton =
+    styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [MenuButton] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledMenuButton(
@@ -85,15 +85,15 @@ public fun NodeContainer.styledMenuButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id)
-        { }
+): MenuButton =
+    styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [MenuButton] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledMenuButton(
@@ -103,20 +103,20 @@ public inline fun styledMenuButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
 ): MenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuButton(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuButton(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [MenuButton] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledMenuButton(
@@ -126,10 +126,10 @@ public inline fun NodeContainer.styledMenuButton(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
 ): MenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuButton(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenuButton(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

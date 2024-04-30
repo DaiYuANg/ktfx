@@ -2,13 +2,13 @@
 
 package ktfx.controlsfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
 import org.controlsfx.dialog.CommandLinksDialog
-import java.util.Optional
 
 /**
  * Build a command links dialog with Kotlin DSL.
@@ -25,14 +25,16 @@ fun commandLinksDialog(
     vararg links: CommandLinksDialog.CommandLinksButtonType,
     dialogAction: (CommandLinksDialog.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    CommandLinksDialog(*links).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    CommandLinksDialog(*links)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Build a command links dialog with Kotlin DSL.
@@ -61,14 +63,16 @@ fun commandLinksDialog(
     links: List<CommandLinksDialog.CommandLinksButtonType>,
     dialogAction: (CommandLinksDialog.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    CommandLinksDialog(links).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    CommandLinksDialog(links)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Build a command links dialog with Kotlin DSL.

@@ -50,8 +50,8 @@ inline fun <T> TreeView<T>.checkBoxCellFactory(
  * Sets a [ChoiceBoxTreeCell] factory for use in this [TreeView].
  *
  * @param T The type of the elements contained within the [TreeView].
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ChoiceBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(vararg items: T): Unit =
     setCellFactory(ChoiceBoxTreeCell.forTreeView(*items))
@@ -62,8 +62,8 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(vararg items: T): Unit =
  * @param T The type of the elements contained within the [TreeView].
  * @param converter A string converter that, given an object of type T, will return a String that
  *   can be used to represent the object visually.
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ChoiceBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
@@ -74,8 +74,8 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
  * Sets a [ChoiceBoxTreeCell] factory for use in this [TreeView].
  *
  * @param T The type of the elements contained within the [TreeView].
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ChoiceBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(items: ObservableList<T>): Unit =
     setCellFactory(ChoiceBoxTreeCell.forTreeView(items))
@@ -86,8 +86,8 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(items: ObservableList<T>): Unit 
  * @param T The type of the elements contained within the [TreeView].
  * @param converter A string converter that, given an object of type T, will return a String that
  *   can be used to represent the object visually.
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ChoiceBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
@@ -98,8 +98,8 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
  * Sets a [ComboBoxTreeCell] factory for use in this [TreeView].
  *
  * @param T The type of the elements contained within the [TreeView].
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ComboBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(vararg items: T): Unit =
     setCellFactory(ComboBoxTreeCell.forTreeView(*items))
@@ -110,8 +110,8 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(vararg items: T): Unit =
  * @param T The type of the elements contained within the [TreeView].
  * @param converter A string converter that, given an object of type T, will return a String that
  *   can be used to represent the object visually.
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ComboBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     converter: StringConverter<T>,
@@ -122,8 +122,8 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(
  * Sets a [ComboBoxTreeCell] factory for use in this [TreeView].
  *
  * @param T The type of the elements contained within the [TreeView].
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ComboBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(items: ObservableList<T>): Unit =
     setCellFactory(ComboBoxTreeCell.forTreeView(items))
@@ -134,8 +134,8 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(items: ObservableList<T>): Unit =
  * @param T The type of the elements contained within the [TreeView].
  * @param converter A string converter that, given an object of type T, will return a String that
  *   can be used to represent the object visually.
- * @param items Zero or more items that will be shown to the user when
- *   the [javafx.scene.control.ComboBox] menu is showing.
+ * @param items Zero or more items that will be shown to the user when the
+ *   [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     converter: StringConverter<T>,
@@ -162,48 +162,50 @@ inline fun <T> TreeView<T>.textFieldCellFactory(converter: StringConverter<T>): 
  * @param configuration custom initialization block that configures [KtfxListCell].
  */
 fun <T> TreeView<T>.cellFactory(configuration: KtfxTreeCell<T>.(TreeView<T>) -> Unit): Unit =
-    setCellFactory { KtfxTreeCell<T>().apply { configuration(it) } }
+    setCellFactory {
+      KtfxTreeCell<T>().apply { configuration(it) }
+    }
 
 /** Custom [TreeCell] configurator class. */
 class KtfxTreeCell<T> : TreeCell<T>(), KtfxCell<T> {
-    private var onEditStart: (() -> Unit)? = null
-    private var onEditCommit: ((T?) -> Unit)? = null
-    private var onEditCancel: (() -> Unit)? = null
-    private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
+  private var onEditStart: (() -> Unit)? = null
+  private var onEditCommit: ((T?) -> Unit)? = null
+  private var onEditCancel: (() -> Unit)? = null
+  private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onEditStart(action: () -> Unit) {
-        onEditStart = action
-    }
+  override fun onEditStart(action: () -> Unit) {
+    onEditStart = action
+  }
 
-    override fun startEdit() {
-        super.startEdit()
-        onEditStart?.invoke()
-    }
+  override fun startEdit() {
+    super.startEdit()
+    onEditStart?.invoke()
+  }
 
-    override fun onEditCommit(action: (T?) -> Unit) {
-        onEditCommit = action
-    }
+  override fun onEditCommit(action: (T?) -> Unit) {
+    onEditCommit = action
+  }
 
-    override fun commitEdit(newValue: T?) {
-        super.commitEdit(newValue)
-        onEditCommit?.invoke(newValue)
-    }
+  override fun commitEdit(newValue: T?) {
+    super.commitEdit(newValue)
+    onEditCommit?.invoke(newValue)
+  }
 
-    override fun onEditCancel(action: () -> Unit) {
-        onEditCancel = action
-    }
+  override fun onEditCancel(action: () -> Unit) {
+    onEditCancel = action
+  }
 
-    override fun cancelEdit() {
-        super.cancelEdit()
-        onEditCancel?.invoke()
-    }
+  override fun cancelEdit() {
+    super.cancelEdit()
+    onEditCancel?.invoke()
+  }
 
-    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
-        onUpdate = action
-    }
+  override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+    onUpdate = action
+  }
 
-    override fun updateItem(item: T?, empty: Boolean) {
-        super.updateItem(item, empty)
-        onUpdate?.invoke(item, empty)
-    }
+  override fun updateItem(item: T?, empty: Boolean) {
+    super.updateItem(item, empty)
+    onUpdate?.invoke(item, empty)
+  }
 }

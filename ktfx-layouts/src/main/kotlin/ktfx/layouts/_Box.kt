@@ -26,12 +26,12 @@ public fun NodeContainer.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
-): Box = box(width = width, height = height, depth = depth) { }
+): Box = box(width = width, height = height, depth = depth) {}
 
 /**
  * Create a [Box] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun box(
@@ -40,16 +40,16 @@ public inline fun box(
     depth: Double = DEFAULT_SIZE,
     configuration: (@KtfxLayoutDslMarker Box).() -> Unit,
 ): Box {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Box(width, height, depth)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Box(width, height, depth)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Box] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.box(
@@ -58,17 +58,17 @@ public inline fun NodeContainer.box(
     depth: Double = DEFAULT_SIZE,
     configuration: (@KtfxLayoutDslMarker Box).() -> Unit,
 ): Box {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Box(width, height, depth)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Box(width, height, depth)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Box].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledBox(
@@ -77,14 +77,14 @@ public fun styledBox(
     depth: Double = DEFAULT_SIZE,
     vararg styleClass: String,
     id: String? = null,
-): Box = styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id)
-        { }
+): Box =
+    styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Box] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledBox(
@@ -93,15 +93,15 @@ public fun NodeContainer.styledBox(
     depth: Double = DEFAULT_SIZE,
     vararg styleClass: String,
     id: String? = null,
-): Box = styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id)
-        { }
+): Box =
+    styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Box] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledBox(
@@ -112,20 +112,20 @@ public inline fun styledBox(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Box).() -> Unit,
 ): Box {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Box(width, height, depth)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Box(width, height, depth)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Box] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledBox(
@@ -136,10 +136,10 @@ public inline fun NodeContainer.styledBox(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Box).() -> Unit,
 ): Box {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Box(width, height, depth)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Box(width, height, depth)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

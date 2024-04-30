@@ -22,13 +22,15 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0):
-        Pagination = pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
+public fun NodeContainer.pagination(
+    pageCount: Int = INDETERMINATE,
+    currentPageIndex: Int = 0
+): Pagination = pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) {}
 
 /**
  * Create a [Pagination] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun pagination(
@@ -36,16 +38,16 @@ public inline fun pagination(
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
 ): Pagination {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Pagination(pageCount, currentPageIndex)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Pagination(pageCount, currentPageIndex)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Pagination] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.pagination(
@@ -53,17 +55,17 @@ public inline fun NodeContainer.pagination(
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
 ): Pagination {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Pagination(pageCount, currentPageIndex)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Pagination(pageCount, currentPageIndex)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Pagination].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledPagination(
@@ -71,14 +73,18 @@ public fun styledPagination(
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null,
-): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass, id = id) { }
+): Pagination =
+    styledPagination(
+        pageCount = pageCount,
+        currentPageIndex = currentPageIndex,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Add a styled [Pagination] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledPagination(
@@ -86,15 +92,19 @@ public fun NodeContainer.styledPagination(
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null,
-): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass, id = id) { }
+): Pagination =
+    styledPagination(
+        pageCount = pageCount,
+        currentPageIndex = currentPageIndex,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Create a styled [Pagination] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledPagination(
@@ -104,20 +114,20 @@ public inline fun styledPagination(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
 ): Pagination {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Pagination(pageCount, currentPageIndex)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Pagination(pageCount, currentPageIndex)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Pagination] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledPagination(
@@ -127,10 +137,10 @@ public inline fun NodeContainer.styledPagination(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
 ): Pagination {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Pagination(pageCount, currentPageIndex)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Pagination(pageCount, currentPageIndex)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

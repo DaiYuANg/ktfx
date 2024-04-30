@@ -17,9 +17,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * @see Animation.setOnFinished
- */
-public fun Animation.onFinished(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(ActionEvent) -> Unit): Unit = setOnFinished { event ->
-        GlobalScope.launch(context) { action(event) } }
+/** @see Animation.setOnFinished */
+public fun Animation.onFinished(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(ActionEvent) -> Unit
+): Unit = setOnFinished { event -> GlobalScope.launch(context) { action(event) } }

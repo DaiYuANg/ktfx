@@ -20,13 +20,13 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo = lineTo(x = x, y =
-        y) { }
+public fun PathElementContainer.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo =
+    lineTo(x = x, y = y) {}
 
 /**
  * Create a [LineTo] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun lineTo(
@@ -34,16 +34,16 @@ public inline fun lineTo(
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker LineTo).() -> Unit,
 ): LineTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = LineTo(x, y)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = LineTo(x, y)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [LineTo] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun PathElementContainer.lineTo(
@@ -51,8 +51,8 @@ public inline fun PathElementContainer.lineTo(
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker LineTo).() -> Unit,
 ): LineTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = LineTo(x, y)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = LineTo(x, y)
+  child.configuration()
+  return addChild(child)
 }

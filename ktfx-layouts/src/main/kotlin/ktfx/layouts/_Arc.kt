@@ -28,13 +28,19 @@ public fun NodeContainer.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-): Arc = arc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY, startAngle
-        = startAngle, length = length) { }
+): Arc =
+    arc(
+        centerX = centerX,
+        centerY = centerY,
+        radiusX = radiusX,
+        radiusY = radiusY,
+        startAngle = startAngle,
+        length = length) {}
 
 /**
  * Create an [Arc] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun arc(
@@ -46,16 +52,16 @@ public inline fun arc(
     length: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Arc).() -> Unit,
 ): Arc {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+  child.configuration()
+  return child
 }
 
 /**
  * Add an [Arc] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.arc(
@@ -67,17 +73,17 @@ public inline fun NodeContainer.arc(
     length: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Arc).() -> Unit,
 ): Arc {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Arc].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledArc(
@@ -89,14 +95,22 @@ public fun styledArc(
     length: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Arc = styledArc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
-        startAngle = startAngle, length = length, styleClass = *styleClass, id = id) { }
+): Arc =
+    styledArc(
+        centerX = centerX,
+        centerY = centerY,
+        radiusX = radiusX,
+        radiusY = radiusY,
+        startAngle = startAngle,
+        length = length,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Add a styled [Arc] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledArc(
@@ -108,15 +122,23 @@ public fun NodeContainer.styledArc(
     length: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-): Arc = styledArc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
-        startAngle = startAngle, length = length, styleClass = *styleClass, id = id) { }
+): Arc =
+    styledArc(
+        centerX = centerX,
+        centerY = centerY,
+        radiusX = radiusX,
+        radiusY = radiusY,
+        startAngle = startAngle,
+        length = length,
+        styleClass = *styleClass,
+        id = id) {}
 
 /**
  * Create a styled [Arc] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledArc(
@@ -130,20 +152,20 @@ public inline fun styledArc(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Arc).() -> Unit,
 ): Arc {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Arc] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledArc(
@@ -157,10 +179,10 @@ public inline fun NodeContainer.styledArc(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Arc).() -> Unit,
 ): Arc {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

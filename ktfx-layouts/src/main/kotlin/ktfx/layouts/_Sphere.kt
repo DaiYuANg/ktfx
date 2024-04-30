@@ -22,13 +22,13 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(radius =
-        radius, division = division) { }
+public fun NodeContainer.sphere(radius: Double = 1.0, division: Int = 64): Sphere =
+    sphere(radius = radius, division = division) {}
 
 /**
  * Create a [Sphere] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun sphere(
@@ -36,16 +36,16 @@ public inline fun sphere(
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Sphere(radius, division)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Sphere(radius, division)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Sphere] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun NodeContainer.sphere(
@@ -53,17 +53,17 @@ public inline fun NodeContainer.sphere(
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Sphere(radius, division)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Sphere(radius, division)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Sphere].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledSphere(
@@ -71,14 +71,13 @@ public fun styledSphere(
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {
-        }
+): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Sphere] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledSphere(
@@ -86,15 +85,14 @@ public fun NodeContainer.styledSphere(
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {
-        }
+): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Sphere] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledSphere(
@@ -104,20 +102,20 @@ public inline fun styledSphere(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Sphere(radius, division)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Sphere(radius, division)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Sphere] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledSphere(
@@ -127,10 +125,10 @@ public inline fun NodeContainer.styledSphere(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Sphere(radius, division)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Sphere(radius, division)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

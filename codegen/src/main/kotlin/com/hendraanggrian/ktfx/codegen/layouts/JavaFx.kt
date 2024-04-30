@@ -114,340 +114,326 @@ import javafx.scene.text.TextFlow
 import javafx.scene.web.WebView
 
 val LayoutsFactory.Companion.JavaFx: LayoutsFactory
-    get() =
-        object : LayoutsFactory("ktfx-layouts/src/main/kotlin", KTFX_LAYOUTS, "KtfxLayoutsKt") {
-            init {
-                // javafx.scene
-                Group::class(customClass = true)
+  get() =
+      object : LayoutsFactory("ktfx-layouts/src/main/kotlin", KTFX_LAYOUTS, "KtfxLayoutsKt") {
+        init {
+          // javafx.scene
+          Group::class(customClass = true)
 
-                // javafx.scene.canvas
-                Canvas::class {
-                    width()
-                    height()
-                }
+          // javafx.scene.canvas
+          Canvas::class {
+            width()
+            height()
+          }
 
-                // javafx.scene.chart
-                AreaChart::class(X, Y) { xyChartParameters() }
-                BarChart::class(X, Y) {
-                    xyChartParameters()
-                    "categoryGap"(DOUBLE) { defaultValue("10.0") }
-                }
-                BubbleChart::class(X, Y) { xyChartParameters() }
-                PieChart::class {
-                    "data"(ObservableList::class.parameterizedBy(PieChart.Data::class)) {
-                        defaultValue(
-                            "%M()",
-                            FXCollections::class.name.member("observableArrayList"),
-                        )
-                    }
-                }
-                ScatterChart::class(X, Y) { xyChartParameters() }
-                StackedAreaChart::class(X, Y) { xyChartParameters() }
-                StackedBarChart::class(X, Y) { xyChartParameters() }
-
-                // javafx.scene.control
-                Accordion::class(customClass = true)
-                Button::class {
-                    text()
-                    graphic()
-                }
-                ButtonBar::class(customClass = true) {
-                    "buttonOrder"(STRING.nullable()) { defaultValue("null") }
-                }
-                CheckBox::class { text() }
-                CheckMenuItem::class {
-                    text()
-                    graphic()
-                }
-                ChoiceBox::class(T) { items(T) }
-                ColorPicker::class { color() }
-                ComboBox::class(T) { items(T) }
-                CustomMenuItem::class {
-                    content()
-                    "hideOnClick"(BOOLEAN) { defaultValue("true") }
-                }
-                DatePicker::class { date() }
-                Hyperlink::class {
-                    text()
-                    graphic()
-                }
-                Label::class {
-                    text()
-                    graphic()
-                }
-                ListView::class(T) { items(T) }
-                Menu::class(customClass = true) {
-                    emptyText()
-                    graphic()
-                }
-                MenuBar::class(customClass = true)
-                MenuButton::class(customClass = true) {
-                    text()
-                    graphic()
-                }
-                MenuItem::class {
-                    text()
-                    graphic()
-                }
-                Pagination::class {
-                    "pageCount"(INT) {
-                        defaultValue("%M", Pagination::class.name.member("INDETERMINATE"))
-                    }
-                    "currentPageIndex"(INT) { defaultValue("0") }
-                }
-                PasswordField::class()
-                ProgressBar::class { progress() }
-                ProgressIndicator::class { progress() }
-                RadioButton::class { text() }
-                RadioMenuItem::class {
-                    text()
-                    graphic()
-                }
-                ScrollBar::class()
-                ScrollPane::class(customClass = true) { content() }
-                Separator::class { orientation() }
-                SeparatorMenuItem::class()
-                Slider::class { slider("0.0") }
-                Spinner::class(T)
-                SplitMenuButton::class(customClass = true)
-                SplitPane::class(customClass = true)
-                Tab::class(customClass = true) {
-                    text()
-                    content()
-                }
-                TableView::class(S) { items(S) }
-                TabPane::class(customClass = true)
-                TextArea::class { emptyText() }
-                TextField::class { emptyText() }
-                TitledPane::class(customClass = true) {
-                    "title"(STRING.nullable()) { defaultValue("null") }
-                }
-                ToggleButton::class {
-                    text()
-                    graphic()
-                }
-                ToolBar::class(customClass = true)
-                TreeTableView::class(S) { treeItem("root", S) }
-                TreeView::class(T) { treeItem("root", T) }
-
-                // javafx.scene.image
-                ImageView::class {
-                    "image"(Image::class.name.nullable()) { defaultValue("null") }
-                }
-                ImageView::class { parameter("imageUrl", STRING) }
-
-                // javafx.scene.media
-                MediaView::class {
-                    "mediaPlayer"(MediaPlayer::class.name.nullable()) {
-                        defaultValue("null")
-                    }
-                }
-
-                // javafx.scene.layout
-                AnchorPane::class(customClass = true)
-                BorderPane::class(customClass = true)
-                FlowPane::class(customClass = true) {
-                    orientation()
-                    parameter("hgap", DOUBLE)
-                    parameter("vgap", DOUBLE)
-                }
-                FlowPane::class(customClass = true) {
-                    orientation()
-                    "gap"(DOUBLE) { defaultValue("0.0") }
-                }
-                GridPane::class(customClass = true)
-                HBox::class(customClass = true) { spacing() }
-                Pane::class(customClass = true)
-                Region::class()
-                StackPane::class(customClass = true)
-                TilePane::class(customClass = true) {
-                    orientation()
-                    parameter("hgap", DOUBLE)
-                    parameter("vgap", DOUBLE)
-                }
-                TilePane::class(customClass = true) {
-                    orientation()
-                    "gap"(DOUBLE) { defaultValue("0.0") }
-                }
-                VBox::class(customClass = true) { spacing() }
-
-                // javafx.scene.shape
-                Arc::class {
-                    centerXY()
-                    radiusXY()
-                    "startAngle"(DOUBLE) { defaultValue("0.0") }
-                    "length"(DOUBLE) { defaultValue("0.0") }
-                }
-                ArcTo::class {
-                    radiusXY()
-                    "xAxisRotation"(DOUBLE) { defaultValue("0.0") }
-                    x()
-                    y()
-                    "largeArcFlag"(BOOLEAN) { defaultValue("false") }
-                    "sweepFlag"(BOOLEAN) { defaultValue("false") }
-                }
-                Box::class {
-                    "width"(DOUBLE) {
-                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
-                    }
-                    "height"(DOUBLE) {
-                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
-                    }
-                    "depth"(DOUBLE) {
-                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
-                    }
-                }
-                Circle::class {
-                    centerXY()
-                    radius(0.0)
-                    fill()
-                }
-                ClosePath::class()
-                CubicCurve::class {
-                    startXY()
-                    controlXY1()
-                    controlXY2()
-                    endXY()
-                }
-                CubicCurveTo::class {
-                    controlXY1()
-                    controlXY2()
-                    x()
-                    y()
-                }
-                Cylinder::class {
-                    radius(1.0)
-                    "height"(DOUBLE) { defaultValue("2.0") }
-                    division()
-                }
-                Ellipse::class {
-                    centerXY()
-                    radiusXY()
-                }
-                HLineTo::class { x() }
-                Line::class {
-                    centerXY()
-                    endXY()
-                }
-                LineTo::class {
-                    x()
-                    y()
-                }
-                MeshView::class {
-                    "mesh"(Mesh::class.name.nullable()) { defaultValue("null") }
-                }
-                MoveTo::class {
-                    x()
-                    y()
-                }
-                Path::class(customClass = true)
-                Polygon::class() // points param not included since vararg is reserved
-                Polyline::class() // points param not included since vararg is reserved
-                QuadCurve::class {
-                    startXY()
-                    controlXY()
-                    endXY()
-                }
-                QuadCurveTo::class {
-                    controlXY()
-                    x()
-                    y()
-                }
-                Rectangle::class {
-                    x()
-                    y()
-                    width()
-                    height()
-                }
-                Sphere::class {
-                    radius(1.0)
-                    division()
-                }
-                SVGPath::class()
-                VLineTo::class { y() }
-
-                // javafx.scene.text
-                Text::class { text() }
-                TextFlow::class(customClass = true)
-
-                // javafx.scene.web
-                WebView::class()
+          // javafx.scene.chart
+          AreaChart::class(X, Y) { xyChartParameters() }
+          BarChart::class(X, Y) {
+            xyChartParameters()
+            "categoryGap"(DOUBLE) { defaultValue("10.0") }
+          }
+          BubbleChart::class(X, Y) { xyChartParameters() }
+          PieChart::class {
+            "data"(ObservableList::class.parameterizedBy(PieChart.Data::class)) {
+              defaultValue(
+                  "%M()",
+                  FXCollections::class.name.member("observableArrayList"),
+              )
             }
+          }
+          ScatterChart::class(X, Y) { xyChartParameters() }
+          StackedAreaChart::class(X, Y) { xyChartParameters() }
+          StackedBarChart::class(X, Y) { xyChartParameters() }
 
-            fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { defaultValue("\"\"") }
+          // javafx.scene.control
+          Accordion::class(customClass = true)
+          Button::class {
+            text()
+            graphic()
+          }
+          ButtonBar::class(customClass = true) {
+            "buttonOrder"(STRING.nullable()) { defaultValue("null") }
+          }
+          CheckBox::class { text() }
+          CheckMenuItem::class {
+            text()
+            graphic()
+          }
+          ChoiceBox::class(T) { items(T) }
+          ColorPicker::class { color() }
+          ComboBox::class(T) { items(T) }
+          CustomMenuItem::class {
+            content()
+            "hideOnClick"(BOOLEAN) { defaultValue("true") }
+          }
+          DatePicker::class { date() }
+          Hyperlink::class {
+            text()
+            graphic()
+          }
+          Label::class {
+            text()
+            graphic()
+          }
+          ListView::class(T) { items(T) }
+          Menu::class(customClass = true) {
+            emptyText()
+            graphic()
+          }
+          MenuBar::class(customClass = true)
+          MenuButton::class(customClass = true) {
+            text()
+            graphic()
+          }
+          MenuItem::class {
+            text()
+            graphic()
+          }
+          Pagination::class {
+            "pageCount"(INT) { defaultValue("%M", Pagination::class.name.member("INDETERMINATE")) }
+            "currentPageIndex"(INT) { defaultValue("0") }
+          }
+          PasswordField::class()
+          ProgressBar::class { progress() }
+          ProgressIndicator::class { progress() }
+          RadioButton::class { text() }
+          RadioMenuItem::class {
+            text()
+            graphic()
+          }
+          ScrollBar::class()
+          ScrollPane::class(customClass = true) { content() }
+          Separator::class { orientation() }
+          SeparatorMenuItem::class()
+          Slider::class { slider("0.0") }
+          Spinner::class(T)
+          SplitMenuButton::class(customClass = true)
+          SplitPane::class(customClass = true)
+          Tab::class(customClass = true) {
+            text()
+            content()
+          }
+          TableView::class(S) { items(S) }
+          TabPane::class(customClass = true)
+          TextArea::class { emptyText() }
+          TextField::class { emptyText() }
+          TitledPane::class(customClass = true) {
+            "title"(STRING.nullable()) { defaultValue("null") }
+          }
+          ToggleButton::class {
+            text()
+            graphic()
+          }
+          ToolBar::class(customClass = true)
+          TreeTableView::class(S) { treeItem("root", S) }
+          TreeView::class(T) { treeItem("root", T) }
 
-            fun ParameterSpecHandlerScope.orientation() =
-                "orientation"(Orientation::class.name) {
-                    defaultValue(
-                        "%M",
-                        Orientation::class.name.member("HORIZONTAL"),
-                    )
-                }
+          // javafx.scene.image
+          ImageView::class { "image"(Image::class.name.nullable()) { defaultValue("null") } }
+          ImageView::class { parameter("imageUrl", STRING) }
 
-            fun ParameterSpecHandlerScope.spacing() = "spacing"(DOUBLE) { defaultValue("0.0") }
+          // javafx.scene.media
+          MediaView::class {
+            "mediaPlayer"(MediaPlayer::class.name.nullable()) { defaultValue("null") }
+          }
 
-            fun ParameterSpecHandlerScope.width() = "width"(DOUBLE) { defaultValue("0.0") }
+          // javafx.scene.layout
+          AnchorPane::class(customClass = true)
+          BorderPane::class(customClass = true)
+          FlowPane::class(customClass = true) {
+            orientation()
+            parameter("hgap", DOUBLE)
+            parameter("vgap", DOUBLE)
+          }
+          FlowPane::class(customClass = true) {
+            orientation()
+            "gap"(DOUBLE) { defaultValue("0.0") }
+          }
+          GridPane::class(customClass = true)
+          HBox::class(customClass = true) { spacing() }
+          Pane::class(customClass = true)
+          Region::class()
+          StackPane::class(customClass = true)
+          TilePane::class(customClass = true) {
+            orientation()
+            parameter("hgap", DOUBLE)
+            parameter("vgap", DOUBLE)
+          }
+          TilePane::class(customClass = true) {
+            orientation()
+            "gap"(DOUBLE) { defaultValue("0.0") }
+          }
+          VBox::class(customClass = true) { spacing() }
 
-            fun ParameterSpecHandlerScope.height() = "height"(DOUBLE) { defaultValue("0.0") }
+          // javafx.scene.shape
+          Arc::class {
+            centerXY()
+            radiusXY()
+            "startAngle"(DOUBLE) { defaultValue("0.0") }
+            "length"(DOUBLE) { defaultValue("0.0") }
+          }
+          ArcTo::class {
+            radiusXY()
+            "xAxisRotation"(DOUBLE) { defaultValue("0.0") }
+            x()
+            y()
+            "largeArcFlag"(BOOLEAN) { defaultValue("false") }
+            "sweepFlag"(BOOLEAN) { defaultValue("false") }
+          }
+          Box::class {
+            "width"(DOUBLE) { defaultValue("%M", Box::class.name.member("DEFAULT_SIZE")) }
+            "height"(DOUBLE) { defaultValue("%M", Box::class.name.member("DEFAULT_SIZE")) }
+            "depth"(DOUBLE) { defaultValue("%M", Box::class.name.member("DEFAULT_SIZE")) }
+          }
+          Circle::class {
+            centerXY()
+            radius(0.0)
+            fill()
+          }
+          ClosePath::class()
+          CubicCurve::class {
+            startXY()
+            controlXY1()
+            controlXY2()
+            endXY()
+          }
+          CubicCurveTo::class {
+            controlXY1()
+            controlXY2()
+            x()
+            y()
+          }
+          Cylinder::class {
+            radius(1.0)
+            "height"(DOUBLE) { defaultValue("2.0") }
+            division()
+          }
+          Ellipse::class {
+            centerXY()
+            radiusXY()
+          }
+          HLineTo::class { x() }
+          Line::class {
+            centerXY()
+            endXY()
+          }
+          LineTo::class {
+            x()
+            y()
+          }
+          MeshView::class { "mesh"(Mesh::class.name.nullable()) { defaultValue("null") } }
+          MoveTo::class {
+            x()
+            y()
+          }
+          Path::class(customClass = true)
+          Polygon::class() // points param not included since vararg is reserved
+          Polyline::class() // points param not included since vararg is reserved
+          QuadCurve::class {
+            startXY()
+            controlXY()
+            endXY()
+          }
+          QuadCurveTo::class {
+            controlXY()
+            x()
+            y()
+          }
+          Rectangle::class {
+            x()
+            y()
+            width()
+            height()
+          }
+          Sphere::class {
+            radius(1.0)
+            division()
+          }
+          SVGPath::class()
+          VLineTo::class { y() }
 
-            fun ParameterSpecHandlerScope.xyChartParameters() {
-                parameter("x", Axis::class.name.parameterizedBy(X))
-                parameter("y", Axis::class.name.parameterizedBy(Y))
-                "data"(
-                    ObservableList::class.asClassName()
-                        .parameterizedBy(XYChart.Series::class.asClassName().parameterizedBy(X, Y)),
-                ) {
-                    defaultValue(
-                        "%M()",
-                        FXCollections::class.asClassName().member("observableArrayList"),
-                    )
-                }
-            }
+          // javafx.scene.text
+          Text::class { text() }
+          TextFlow::class(customClass = true)
 
-            fun ParameterSpecHandlerScope.x() = "x"(DOUBLE) { defaultValue("0.0") }
-
-            fun ParameterSpecHandlerScope.y() = "y"(DOUBLE) { defaultValue("0.0") }
-
-            fun ParameterSpecHandlerScope.startXY() {
-                "startX"(DOUBLE) { defaultValue("0.0") }
-                "startY"(DOUBLE) { defaultValue("0.0") }
-            }
-
-            fun ParameterSpecHandlerScope.endXY() {
-                "endX"(DOUBLE) { defaultValue("0.0") }
-                "endY"(DOUBLE) { defaultValue("0.0") }
-            }
-
-            fun ParameterSpecHandlerScope.centerXY() {
-                "centerX"(DOUBLE) { defaultValue("0.0") }
-                "centerY"(DOUBLE) { defaultValue("0.0") }
-            }
-
-            fun ParameterSpecHandlerScope.radiusXY() {
-                "radiusX"(DOUBLE) { defaultValue("0.0") }
-                "radiusY"(DOUBLE) { defaultValue("0.0") }
-            }
-
-            fun ParameterSpecHandlerScope.radius(radius: Double) =
-                "radius"(DOUBLE) { defaultValue("$radius") }
-
-            fun ParameterSpecHandlerScope.fill() =
-                "fill"(Paint::class.name.nullable()) { defaultValue("null") }
-
-            fun ParameterSpecHandlerScope.controlXY() {
-                "controlX"(DOUBLE) { defaultValue("0.0") }
-                "controlY"(DOUBLE) { defaultValue("0.0") }
-            }
-
-            fun ParameterSpecHandlerScope.controlXY1() {
-                "controlX1"(DOUBLE) { defaultValue("0.0") }
-                "controlY1"(DOUBLE) { defaultValue("0.0") }
-            }
-
-            fun ParameterSpecHandlerScope.controlXY2() {
-                "controlX2"(DOUBLE) { defaultValue("0.0") }
-                "controlY2"(DOUBLE) { defaultValue("0.0") }
-            }
-
-            fun ParameterSpecHandlerScope.division() = "division"(INT) { defaultValue("64") }
+          // javafx.scene.web
+          WebView::class()
         }
+
+        fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { defaultValue("\"\"") }
+
+        fun ParameterSpecHandlerScope.orientation() =
+            "orientation"(Orientation::class.name) {
+              defaultValue(
+                  "%M",
+                  Orientation::class.name.member("HORIZONTAL"),
+              )
+            }
+
+        fun ParameterSpecHandlerScope.spacing() = "spacing"(DOUBLE) { defaultValue("0.0") }
+
+        fun ParameterSpecHandlerScope.width() = "width"(DOUBLE) { defaultValue("0.0") }
+
+        fun ParameterSpecHandlerScope.height() = "height"(DOUBLE) { defaultValue("0.0") }
+
+        fun ParameterSpecHandlerScope.xyChartParameters() {
+          parameter("x", Axis::class.name.parameterizedBy(X))
+          parameter("y", Axis::class.name.parameterizedBy(Y))
+          "data"(
+              ObservableList::class.asClassName()
+                  .parameterizedBy(XYChart.Series::class.asClassName().parameterizedBy(X, Y)),
+          ) {
+            defaultValue(
+                "%M()",
+                FXCollections::class.asClassName().member("observableArrayList"),
+            )
+          }
+        }
+
+        fun ParameterSpecHandlerScope.x() = "x"(DOUBLE) { defaultValue("0.0") }
+
+        fun ParameterSpecHandlerScope.y() = "y"(DOUBLE) { defaultValue("0.0") }
+
+        fun ParameterSpecHandlerScope.startXY() {
+          "startX"(DOUBLE) { defaultValue("0.0") }
+          "startY"(DOUBLE) { defaultValue("0.0") }
+        }
+
+        fun ParameterSpecHandlerScope.endXY() {
+          "endX"(DOUBLE) { defaultValue("0.0") }
+          "endY"(DOUBLE) { defaultValue("0.0") }
+        }
+
+        fun ParameterSpecHandlerScope.centerXY() {
+          "centerX"(DOUBLE) { defaultValue("0.0") }
+          "centerY"(DOUBLE) { defaultValue("0.0") }
+        }
+
+        fun ParameterSpecHandlerScope.radiusXY() {
+          "radiusX"(DOUBLE) { defaultValue("0.0") }
+          "radiusY"(DOUBLE) { defaultValue("0.0") }
+        }
+
+        fun ParameterSpecHandlerScope.radius(radius: Double) =
+            "radius"(DOUBLE) { defaultValue("$radius") }
+
+        fun ParameterSpecHandlerScope.fill() =
+            "fill"(Paint::class.name.nullable()) { defaultValue("null") }
+
+        fun ParameterSpecHandlerScope.controlXY() {
+          "controlX"(DOUBLE) { defaultValue("0.0") }
+          "controlY"(DOUBLE) { defaultValue("0.0") }
+        }
+
+        fun ParameterSpecHandlerScope.controlXY1() {
+          "controlX1"(DOUBLE) { defaultValue("0.0") }
+          "controlY1"(DOUBLE) { defaultValue("0.0") }
+        }
+
+        fun ParameterSpecHandlerScope.controlXY2() {
+          "controlX2"(DOUBLE) { defaultValue("0.0") }
+          "controlY2"(DOUBLE) { defaultValue("0.0") }
+        }
+
+        fun ParameterSpecHandlerScope.division() = "division"(INT) { defaultValue("64") }
+      }

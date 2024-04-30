@@ -20,68 +20,72 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.text(text: String? = null): Text = text(text = text) { }
+public fun NodeContainer.text(text: String? = null): Text = text(text = text) {}
 
 /**
  * Create a [Text] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit):
-        Text {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Text(text)
-    child.configuration()
-    return child
+public inline fun text(
+    text: String? = null,
+    configuration: (@KtfxLayoutDslMarker Text).() -> Unit
+): Text {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Text(text)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Text] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.text(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        Text).() -> Unit): Text {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Text(text)
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.text(
+    text: String? = null,
+    configuration: (@KtfxLayoutDslMarker Text).() -> Unit
+): Text {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Text(text)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Text].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): Text = styledText(text = text, styleClass = *styleClass, id = id) { }
+): Text = styledText(text = text, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Text] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-): Text = styledText(text = text, styleClass = *styleClass, id = id) { }
+): Text = styledText(text = text, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Text] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledText(
@@ -90,20 +94,20 @@ public inline fun styledText(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Text).() -> Unit,
 ): Text {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Text(text)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Text(text)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Text] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledText(
@@ -112,10 +116,10 @@ public inline fun NodeContainer.styledText(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Text).() -> Unit,
 ): Text {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Text(text)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = Text(text)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

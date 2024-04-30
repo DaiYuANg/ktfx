@@ -19,4 +19,5 @@ inline fun Node.removeDecoration(decoration: Decoration): Unit =
 inline fun Node.clearDecorations(): Unit = Decorator.removeAllDecorations(this)
 
 /** Returns all the currently set decorations for the given node. */
-inline val Node.decorations: ObservableList<Decoration> get() = Decorator.getDecorations(this)
+inline val Node.decorations: ObservableList<Decoration>
+  get() = Decorator.getDecorations(this)

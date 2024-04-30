@@ -6,17 +6,17 @@ import ktfx.layouts.KtfxPane
 import org.controlsfx.control.PropertySheet
 
 class PropertySheetTest : LayoutsTest<KtfxPane, PropertySheet>() {
-    override fun manager(): KtfxPane = KtfxPane()
+  override fun manager(): KtfxPane = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+  override fun KtfxPane.childCount(): Int = children.size
 
-    override fun child1(): PropertySheet = propertySheet { }
+  override fun child1(): PropertySheet = propertySheet {}
 
-    override fun KtfxPane.child2(): PropertySheet = propertySheet()
+  override fun KtfxPane.child2(): PropertySheet = propertySheet()
 
-    override fun KtfxPane.child3(): PropertySheet = propertySheet { }
+  override fun KtfxPane.child3(): PropertySheet = propertySheet {}
 
-    override fun PropertySheet.testDefaultValues() {
-        assertThat(items).isEmpty()
-    }
+  override fun PropertySheet.testDefaultValues() {
+    assertThat(items).isEmpty()
+  }
 }

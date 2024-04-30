@@ -22,7 +22,7 @@ import org.controlsfx.control.StatusBar
  *
  * @return the control added.
  */
-public fun NodeContainer.statusBar(): StatusBar = statusBar() { }
+public fun NodeContainer.statusBar(): StatusBar = statusBar() {}
 
 /**
  * Create a [StatusBar] with configuration block.
@@ -31,10 +31,10 @@ public fun NodeContainer.statusBar(): StatusBar = statusBar() { }
  * @return the control created.
  */
 public inline fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit): StatusBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StatusBar()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StatusBar()
+  child.configuration()
+  return child
 }
 
 /**
@@ -43,12 +43,13 @@ public inline fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.statusBar(configuration: (@KtfxLayoutDslMarker
-        StatusBar).() -> Unit): StatusBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StatusBar()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.statusBar(
+    configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit
+): StatusBar {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StatusBar()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -59,7 +60,7 @@ public inline fun NodeContainer.statusBar(configuration: (@KtfxLayoutDslMarker
  * @return the styled control created.
  */
 public fun styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
-        styledStatusBar(styleClass = *styleClass, id = id) { }
+    styledStatusBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [StatusBar] to this container.
@@ -69,7 +70,7 @@ public fun styledStatusBar(vararg styleClass: String, id: String? = null): Statu
  * @return the styled control added.
  */
 public fun NodeContainer.styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
-        styledStatusBar(styleClass = *styleClass, id = id) { }
+    styledStatusBar(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [StatusBar] with configuration block.
@@ -84,12 +85,12 @@ public inline fun styledStatusBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit,
 ): StatusBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StatusBar()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StatusBar()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -105,10 +106,10 @@ public inline fun NodeContainer.styledStatusBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit,
 ): StatusBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = StatusBar()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = StatusBar()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

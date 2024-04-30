@@ -2,13 +2,13 @@
 
 package ktfx.controlsfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
 import org.controlsfx.dialog.ExceptionDialog
-import java.util.Optional
 
 /**
  * Build an exception dialog with Kotlin DSL.
@@ -25,14 +25,16 @@ fun exceptionDialog(
     exception: Throwable,
     dialogAction: (ExceptionDialog.() -> Unit)? = null,
 ): Optional<ButtonType> =
-    ExceptionDialog(exception).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    ExceptionDialog(exception)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Build an exception dialog with Kotlin DSL.

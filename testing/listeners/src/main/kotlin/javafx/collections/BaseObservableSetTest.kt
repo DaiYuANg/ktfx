@@ -9,15 +9,15 @@ import kotlin.test.assertTrue
 
 abstract class BaseObservableSetTest {
 
-    abstract fun <E> ObservableSet<E>.callListener(action: (SetChangeListener.Change<out E>) -> Unit)
+  abstract fun <E> ObservableSet<E>.callListener(action: (SetChangeListener.Change<out E>) -> Unit)
 
-    @Test
-    fun listener() {
-        val set = FXCollections.observableSet<String>()
-        set.callListener {
-            assertTrue(it.wasAdded())
-            assertEquals("Hello world", it.elementAdded)
-        }
-        set.add("Hello world")
+  @Test
+  fun listener() {
+    val set = FXCollections.observableSet<String>()
+    set.callListener {
+      assertTrue(it.wasAdded())
+      assertEquals("Hello world", it.elementAdded)
     }
+    set.add("Hello world")
+  }
 }

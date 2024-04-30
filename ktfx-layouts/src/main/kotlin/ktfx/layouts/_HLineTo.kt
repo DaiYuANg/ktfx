@@ -20,32 +20,36 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun PathElementContainer.hlineTo(x: Double = 0.0): HLineTo = hlineTo(x = x) { }
+public fun PathElementContainer.hlineTo(x: Double = 0.0): HLineTo = hlineTo(x = x) {}
 
 /**
  * Create a [HLineTo] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker
-        HLineTo).() -> Unit): HLineTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = HLineTo(x)
-    child.configuration()
-    return child
+public inline fun hlineTo(
+    x: Double = 0.0,
+    configuration: (@KtfxLayoutDslMarker HLineTo).() -> Unit
+): HLineTo {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = HLineTo(x)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [HLineTo] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun PathElementContainer.hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker
-        HLineTo).() -> Unit): HLineTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = HLineTo(x)
-    child.configuration()
-    return addChild(child)
+public inline fun PathElementContainer.hlineTo(
+    x: Double = 0.0,
+    configuration: (@KtfxLayoutDslMarker HLineTo).() -> Unit
+): HLineTo {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = HLineTo(x)
+  child.configuration()
+  return addChild(child)
 }

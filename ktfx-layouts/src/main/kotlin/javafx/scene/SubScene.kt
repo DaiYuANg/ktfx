@@ -16,6 +16,6 @@ inline fun subScene(
     height: Double = -1.0,
     configuration: (@KtfxLayoutDslMarker KtfxSubScene).() -> Unit,
 ): SubScene {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSubScene(Pane(), width, height).apply(configuration)
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return KtfxSubScene(Pane(), width, height).apply(configuration)
 }

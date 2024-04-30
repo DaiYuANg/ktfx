@@ -2,13 +2,13 @@
 
 package ktfx.controlsfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.image.ImageView
 import javafx.scene.text.Font
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
 import org.controlsfx.dialog.FontSelectorDialog
-import java.util.Optional
 
 /**
  * Build a font selector dialog with Kotlin DSL.
@@ -25,14 +25,16 @@ fun fontSelector(
     defaultFont: Font? = null,
     dialogAction: (FontSelectorDialog.() -> Unit)? = null,
 ): Optional<Font> =
-    FontSelectorDialog(defaultFont).also { dialog ->
-        if (title != null) dialog.headerTitle = title
-        when {
+    FontSelectorDialog(defaultFont)
+        .also { dialog ->
+          if (title != null) dialog.headerTitle = title
+          when {
             graphic is ImageView -> dialog.graphicIcon = graphic
             graphic != null -> dialog.graphic = graphic
+          }
+          dialogAction?.invoke(dialog)
         }
-        dialogAction?.invoke(dialog)
-    }.showAndWait()
+        .showAndWait()
 
 /**
  * Build a font selector dialog with Kotlin DSL.

@@ -21,8 +21,8 @@ inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this
  * @see kotlin.run
  */
 inline fun runLater(crossinline block: () -> Unit) {
-    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
-    Platform.runLater { block() }
+  contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+  Platform.runLater { block() }
 }
 
 /**
@@ -31,8 +31,8 @@ inline fun runLater(crossinline block: () -> Unit) {
  * @see kotlin.run
  */
 inline fun <T> T.runLater(crossinline block: T.() -> Unit) {
-    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
-    Platform.runLater { block() }
+  contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+  Platform.runLater { block() }
 }
 
 /**
@@ -41,8 +41,8 @@ inline fun <T> T.runLater(crossinline block: T.() -> Unit) {
  * @see kotlin.with
  */
 inline fun <T> withLater(receiver: T, crossinline block: T.() -> Unit) {
-    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
-    Platform.runLater { receiver.block() }
+  contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+  Platform.runLater { receiver.block() }
 }
 
 /**
@@ -52,9 +52,9 @@ inline fun <T> withLater(receiver: T, crossinline block: T.() -> Unit) {
  * @see kotlin.apply
  */
 inline fun <T> T.applyLater(crossinline block: T.() -> Unit): T {
-    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
-    Platform.runLater { block() }
-    return this
+  contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+  Platform.runLater { block() }
+  return this
 }
 
 /**
@@ -64,9 +64,9 @@ inline fun <T> T.applyLater(crossinline block: T.() -> Unit): T {
  * @see kotlin.also
  */
 inline fun <T> T.alsoLater(crossinline block: (T) -> Unit): T {
-    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
-    Platform.runLater { block(this) }
-    return this
+  contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+  Platform.runLater { block(this) }
+  return this
 }
 
 /**
@@ -75,8 +75,8 @@ inline fun <T> T.alsoLater(crossinline block: (T) -> Unit): T {
  * @see kotlin.let
  */
 inline fun <T> T.letLater(crossinline block: (T) -> Unit) {
-    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
-    Platform.runLater { block(this) }
+  contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+  Platform.runLater { block(this) }
 }
 
 /**
@@ -85,6 +85,6 @@ inline fun <T> T.letLater(crossinline block: (T) -> Unit) {
  * @see kotlin.repeat
  */
 inline fun repeatLater(times: Int, crossinline action: (Int) -> Unit) {
-    contract { callsInPlace(action) }
-    Platform.runLater { for (index in 0 until times) action(index) }
+  contract { callsInPlace(action) }
+  Platform.runLater { for (index in 0 until times) action(index) }
 }

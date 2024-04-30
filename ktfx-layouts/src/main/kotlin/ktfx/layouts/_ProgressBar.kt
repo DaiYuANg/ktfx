@@ -23,68 +23,72 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 public fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
-        progressBar(progress = progress) { }
+    progressBar(progress = progress) {}
 
 /**
  * Create a [ProgressBar] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
-        configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressBar(progress)
-    child.configuration()
-    return child
+public inline fun progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
+): ProgressBar {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressBar(progress)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [ProgressBar] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS,
-        configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressBar(progress)
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
+): ProgressBar {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressBar(progress)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [ProgressBar].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
+): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ProgressBar] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun NodeContainer.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
+): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ProgressBar] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledProgressBar(
@@ -93,20 +97,20 @@ public inline fun styledProgressBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit,
 ): ProgressBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressBar(progress)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressBar(progress)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [ProgressBar] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun NodeContainer.styledProgressBar(
@@ -115,10 +119,10 @@ public inline fun NodeContainer.styledProgressBar(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit,
 ): ProgressBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ProgressBar(progress)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ProgressBar(progress)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

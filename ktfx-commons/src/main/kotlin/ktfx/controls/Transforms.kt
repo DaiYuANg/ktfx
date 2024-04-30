@@ -15,8 +15,8 @@ import javafx.scene.transform.Translate
  */
 fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine =
     Affine().also {
-        it.configuration()
-        transforms += it
+      it.configuration()
+      transforms += it
     }
 
 /**
@@ -27,8 +27,8 @@ fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine =
  */
 fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate =
     Rotate().also {
-        it.configuration()
-        transforms += it
+      it.configuration()
+      transforms += it
     }
 
 /**
@@ -39,8 +39,8 @@ fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate =
  */
 fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale =
     Scale().also {
-        it.configuration()
-        transforms += it
+      it.configuration()
+      transforms += it
     }
 
 /**
@@ -51,8 +51,8 @@ fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale =
  */
 fun Node.shearTransformation(configuration: Shear.() -> Unit): Shear =
     Shear().also {
-        it.configuration()
-        transforms += it
+      it.configuration()
+      transforms += it
     }
 
 /**
@@ -63,6 +63,6 @@ fun Node.shearTransformation(configuration: Shear.() -> Unit): Shear =
  */
 fun Node.translateTransformation(configuration: Translate.() -> Unit): Translate =
     Translate().also {
-        it.configuration()
-        transforms += it
+      it.configuration()
+      transforms += it
     }

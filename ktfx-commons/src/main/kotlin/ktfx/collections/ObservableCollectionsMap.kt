@@ -25,9 +25,9 @@ inline fun <K, V> emptyObservableMap(): ObservableMap<K, V> = FXCollections.empt
  */
 fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
     if (pairs.isNotEmpty()) {
-        FXCollections.unmodifiableObservableMap(pairs.toMap(FXCollections.observableHashMap()))
+      FXCollections.unmodifiableObservableMap(pairs.toMap(FXCollections.observableHashMap()))
     } else {
-        emptyObservableMap()
+      emptyObservableMap()
     }
 
 /**
@@ -51,25 +51,23 @@ inline fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> = FXCollections.
  */
 fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
     if (pairs.isEmpty()) {
-        mutableObservableMapOf()
+      mutableObservableMapOf()
     } else {
-        FXCollections.observableMap(
-            HashMap<K, V>().apply {
-                for ((key, value) in pairs) put(key, value)
-            },
-        )
+      FXCollections.observableMap(
+          HashMap<K, V>().apply { for ((key, value) in pairs) put(key, value) },
+      )
     }
 
 /**
- * Builds a new read-only [ObservableMap] by populating a [MutableMap] using the
- * given [builderAction] and returning a read-only map with the same elements.
+ * Builds a new read-only [ObservableMap] by populating a [MutableMap] using the given
+ * [builderAction] and returning a read-only map with the same elements.
  *
  * @see buildMap
  */
 @ExperimentalStdlibApi
 inline fun <K, V> buildObservableMap(builderAction: MutableMap<K, V>.() -> Unit): Map<K, V> {
-    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
-    return buildMap(builderAction).toObservableMap()
+  contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+  return buildMap(builderAction).toObservableMap()
 }
 
 /**
@@ -79,8 +77,8 @@ inline fun <K, V> buildObservableMap(builderAction: MutableMap<K, V>.() -> Unit)
  */
 fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> =
     when (size) {
-        0 -> emptyObservableMap()
-        else -> FXCollections.unmodifiableObservableMap(this.toMutableObservableMap())
+      0 -> emptyObservableMap()
+      else -> FXCollections.unmodifiableObservableMap(this.toMutableObservableMap())
     }
 
 /**

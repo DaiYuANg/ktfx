@@ -20,23 +20,20 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * @see TableView.setOnSort
- */
-public fun <S> TableView<S>.onSort(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(SortEvent<TableView<S>>) -> Unit): Unit = setOnSort {
-        event -> GlobalScope.launch(context) { action(event) } }
+/** @see TableView.setOnSort */
+public fun <S> TableView<S>.onSort(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(SortEvent<TableView<S>>) -> Unit
+): Unit = setOnSort { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see TableView.setOnScrollTo
- */
-public fun <S> TableView<S>.onScrollTo(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit): Unit = setOnScrollTo {
-        event -> GlobalScope.launch(context) { action(event) } }
+/** @see TableView.setOnScrollTo */
+public fun <S> TableView<S>.onScrollTo(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
+): Unit = setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 
-/**
- * @see TableView.setOnScrollToColumn
- */
-public fun <S> TableView<S>.onScrollToColumn(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.(ScrollToEvent<TableColumn<S, *>>) -> Unit): Unit =
-        setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
+/** @see TableView.setOnScrollToColumn */
+public fun <S> TableView<S>.onScrollToColumn(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(ScrollToEvent<TableColumn<S, *>>) -> Unit
+): Unit = setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }

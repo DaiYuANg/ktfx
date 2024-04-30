@@ -8,15 +8,15 @@ import kotlin.test.assertEquals
 
 abstract class BaseAnimationTest {
 
-    abstract fun Animation.callOnFinished(action: (ActionEvent) -> Unit)
+  abstract fun Animation.callOnFinished(action: (ActionEvent) -> Unit)
 
-    @Test
-    fun onFinished() {
-        val scale = ScaleTransition()
-        scale.callOnFinished {
-            assertEquals(this, it.source)
-            assertEquals(FakeEventTarget, it.target)
-        }
-        scale.onFinished.handle(ActionEvent(this, FakeEventTarget))
+  @Test
+  fun onFinished() {
+    val scale = ScaleTransition()
+    scale.callOnFinished {
+      assertEquals(this, it.source)
+      assertEquals(FakeEventTarget, it.target)
     }
+    scale.onFinished.handle(ActionEvent(this, FakeEventTarget))
+  }
 }

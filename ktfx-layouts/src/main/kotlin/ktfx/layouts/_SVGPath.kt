@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun NodeContainer.svgPath(): SVGPath = svgPath() { }
+public fun NodeContainer.svgPath(): SVGPath = svgPath() {}
 
 /**
  * Create a [SVGPath] with configuration block.
@@ -29,10 +29,10 @@ public fun NodeContainer.svgPath(): SVGPath = svgPath() { }
  * @return the control created.
  */
 public inline fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit): SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SVGPath()
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SVGPath()
+  child.configuration()
+  return child
 }
 
 /**
@@ -41,12 +41,13 @@ public inline fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Un
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeContainer.svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit):
-        SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SVGPath()
-    child.configuration()
-    return addChild(child)
+public inline fun NodeContainer.svgPath(
+    configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit
+): SVGPath {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SVGPath()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -57,7 +58,7 @@ public inline fun NodeContainer.svgPath(configuration: (@KtfxLayoutDslMarker SVG
  * @return the styled control created.
  */
 public fun styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath =
-        styledSVGPath(styleClass = *styleClass, id = id) { }
+    styledSVGPath(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [SVGPath] to this container.
@@ -67,7 +68,7 @@ public fun styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath
  * @return the styled control added.
  */
 public fun NodeContainer.styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath =
-        styledSVGPath(styleClass = *styleClass, id = id) { }
+    styledSVGPath(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [SVGPath] with configuration block.
@@ -82,12 +83,12 @@ public inline fun styledSVGPath(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit,
 ): SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SVGPath()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SVGPath()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -103,10 +104,10 @@ public inline fun NodeContainer.styledSVGPath(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit,
 ): SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = SVGPath()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = SVGPath()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

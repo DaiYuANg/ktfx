@@ -17,8 +17,8 @@ inline fun tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return Tooltip(text).apply(configuration)
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return Tooltip(text).apply(configuration)
 }
 
 /** Set a [Tooltip] to this [Node]. */
@@ -29,8 +29,8 @@ inline fun Node.tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, configuration).also { Tooltip.install(this, it) }
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return ktfx.layouts.tooltip(text, configuration).also { Tooltip.install(this, it) }
 }
 
 /** Set a [Tooltip] to this [Control]. */
@@ -41,8 +41,8 @@ inline fun Control.tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }
 }
 
 /** Set a [Tooltip] to this [Tab]. */
@@ -53,6 +53,6 @@ inline fun Tab.tooltip(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit,
 ): Tooltip {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }
+  contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+  return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }
 }

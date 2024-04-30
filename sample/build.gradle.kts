@@ -1,14 +1,12 @@
 val releaseArtifact: String by project
 
 plugins {
-    application
-    kotlin("jvm")
+  application
 }
 
 application.mainClass.set("com.example.CalculatorApp")
 
 dependencies {
-    implementation(project(":$releaseArtifact"))
-    implementation(project(":thirdparty:controlsfx"))
-    implementation(project(":thirdparty:jfoenix"))
+  implementation(projects.ktfx)
+  implementation(projects.thirdparty.controlsfx)
 }

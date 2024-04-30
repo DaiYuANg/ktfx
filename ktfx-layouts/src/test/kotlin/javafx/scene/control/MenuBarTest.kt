@@ -7,24 +7,23 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class MenuBarTest : LayoutsTest<KtfxPane, MenuBar>() {
-    override fun manager(): KtfxPane = KtfxPane()
+  override fun manager(): KtfxPane = KtfxPane()
 
-    override fun KtfxPane.childCount(): Int = children.size
+  override fun KtfxPane.childCount(): Int = children.size
 
-    override fun child1(): MenuBar = menuBar { }
+  override fun child1(): MenuBar = menuBar {}
 
-    override fun KtfxPane.child2(): MenuBar = menuBar()
+  override fun KtfxPane.child2(): MenuBar = menuBar()
 
-    override fun KtfxPane.child3(): MenuBar = menuBar { }
+  override fun KtfxPane.child3(): MenuBar = menuBar {}
 
-    @Test
-    fun stringInvocation() {
-        menuBar {
-            assertThat(menus).isEmpty()
-            menu("Hello")
-            "World" {
-            }
-            assertEquals(2, menus.size)
-        }
+  @Test
+  fun stringInvocation() {
+    menuBar {
+      assertThat(menus).isEmpty()
+      menu("Hello")
+      "World" {}
+      assertEquals(2, menus.size)
     }
+  }
 }

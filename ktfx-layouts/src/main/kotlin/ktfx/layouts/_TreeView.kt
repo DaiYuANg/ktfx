@@ -21,69 +21,73 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.treeView(root: TreeItem<T>? = null): TreeView<T> = treeView(root =
-        root) { }
+public fun <T> NodeContainer.treeView(root: TreeItem<T>? = null): TreeView<T> =
+    treeView(root = root) {}
 
 /**
  * Create a [TreeView] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> treeView(root: TreeItem<T>? = null, configuration: (@KtfxLayoutDslMarker
-        TreeView<T>).() -> Unit): TreeView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = TreeView<T>(root)
-    child.configuration()
-    return child
+public inline fun <T> treeView(
+    root: TreeItem<T>? = null,
+    configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit
+): TreeView<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = TreeView<T>(root)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [TreeView] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.treeView(root: TreeItem<T>? = null,
-        configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit): TreeView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = TreeView<T>(root)
-    child.configuration()
-    return addChild(child)
+public inline fun <T> NodeContainer.treeView(
+    root: TreeItem<T>? = null,
+    configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit
+): TreeView<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = TreeView<T>(root)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [TreeView].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun <T> styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): TreeView<T> = styledTreeView(root = root, styleClass = *styleClass, id = id) { }
+): TreeView<T> = styledTreeView(root = root, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [TreeView] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun <T> NodeContainer.styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-): TreeView<T> = styledTreeView(root = root, styleClass = *styleClass, id = id) { }
+): TreeView<T> = styledTreeView(root = root, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [TreeView] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun <T> styledTreeView(
@@ -92,20 +96,20 @@ public inline fun <T> styledTreeView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit,
 ): TreeView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = TreeView<T>(root)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = TreeView<T>(root)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [TreeView] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun <T> NodeContainer.styledTreeView(
@@ -114,10 +118,10 @@ public inline fun <T> NodeContainer.styledTreeView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit,
 ): TreeView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = TreeView<T>(root)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = TreeView<T>(root)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

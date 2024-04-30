@@ -10,13 +10,13 @@ import javafx.scene.control.TableView
 import kotlinx.coroutines.Dispatchers
 
 class TableViewTest : BaseTableViewTest() {
-    override fun <S> TableView<S>.callOnSort(action: (SortEvent<TableView<S>>) -> Unit) =
-        onSort(Dispatchers.Unconfined) { action(it) }
+  override fun <S> TableView<S>.callOnSort(action: (SortEvent<TableView<S>>) -> Unit) =
+      onSort(Dispatchers.Unconfined) { action(it) }
 
-    override fun <S> TableView<S>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit) =
-        onScrollTo(Dispatchers.Unconfined) { action(it) }
+  override fun <S> TableView<S>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit) =
+      onScrollTo(Dispatchers.Unconfined) { action(it) }
 
-    override fun <S> TableView<S>.callOnScrollToColumn(
-        action: (ScrollToEvent<TableColumn<S, *>>) -> Unit,
-    ) = onScrollToColumn(Dispatchers.Unconfined) { action(it) }
+  override fun <S> TableView<S>.callOnScrollToColumn(
+      action: (ScrollToEvent<TableColumn<S, *>>) -> Unit,
+  ) = onScrollToColumn(Dispatchers.Unconfined) { action(it) }
 }

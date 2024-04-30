@@ -21,21 +21,21 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-public fun MenuItemContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text =
-        text, graphic = graphic) { }
+public fun MenuItemContainer.menu(text: String = "", graphic: Node? = null): Menu =
+    menu(text = text, graphic = graphic) {}
 
 /**
  * Add a [Menu] to this container.
  *
  * @return the control added.
  */
-public fun MenuContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text,
-        graphic = graphic) { }
+public fun MenuContainer.menu(text: String = "", graphic: Node? = null): Menu =
+    menu(text = text, graphic = graphic) {}
 
 /**
  * Create a [Menu] with configuration block.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control created.
  */
 public inline fun menu(
@@ -43,16 +43,16 @@ public inline fun menu(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
 ): Menu {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenu(text, graphic)
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenu(text, graphic)
+  child.configuration()
+  return child
 }
 
 /**
  * Add a [Menu] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun MenuItemContainer.menu(
@@ -60,16 +60,16 @@ public inline fun MenuItemContainer.menu(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
 ): Menu {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenu(text, graphic)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenu(text, graphic)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Add a [Menu] with configuration block to this container.
- * @param configuration the configuration block.
  *
+ * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun MenuContainer.menu(
@@ -77,17 +77,17 @@ public inline fun MenuContainer.menu(
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
 ): Menu {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenu(text, graphic)
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenu(text, graphic)
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Create a styled [Menu].
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control created.
  */
 public fun styledMenu(
@@ -95,13 +95,13 @@ public fun styledMenu(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Menu] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun MenuItemContainer.styledMenu(
@@ -109,13 +109,13 @@ public fun MenuItemContainer.styledMenu(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [Menu] to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
- *
  * @return the styled control added.
  */
 public fun MenuContainer.styledMenu(
@@ -123,14 +123,14 @@ public fun MenuContainer.styledMenu(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [Menu] with configuration block.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control created.
  */
 public inline fun styledMenu(
@@ -140,20 +140,20 @@ public inline fun styledMenu(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
 ): Menu {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenu(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenu(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
  * Add a styled [Menu] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun MenuItemContainer.styledMenu(
@@ -163,20 +163,20 @@ public inline fun MenuItemContainer.styledMenu(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
 ): Menu {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenu(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenu(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }
 
 /**
  * Add a styled [Menu] with configuration block to this container.
+ *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
- *
  * @return the styled control added.
  */
 public inline fun MenuContainer.styledMenu(
@@ -186,10 +186,10 @@ public inline fun MenuContainer.styledMenu(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
 ): Menu {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenu(text, graphic)
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = KtfxMenu(text, graphic)
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

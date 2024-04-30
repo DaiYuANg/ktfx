@@ -7,13 +7,13 @@ import javafx.concurrent.Task
  * Receiver in `ktfx.buildService`, invoke [call] to customize what this Task do in the background.
  */
 class TaskBuilder<V> internal constructor() : Task<V>() {
-    private var call: () -> V? = { null }
+  private var call: () -> V? = { null }
 
-    fun call(onCall: () -> V?) {
-        call = onCall
-    }
+  fun call(onCall: () -> V?) {
+    call = onCall
+  }
 
-    override fun call(): V? = call()
+  override fun call(): V? = call()
 }
 
 /**
@@ -22,5 +22,5 @@ class TaskBuilder<V> internal constructor() : Task<V>() {
  */
 fun <V> buildService(builderAction: TaskBuilder<V>.() -> Unit): Service<V> =
     object : Service<V>() {
-        override fun createTask(): Task<V> = TaskBuilder<V>().apply(builderAction)
+      override fun createTask(): Task<V> = TaskBuilder<V>().apply(builderAction)
     }

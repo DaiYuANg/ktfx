@@ -22,7 +22,7 @@ import org.controlsfx.control.ListSelectionView
  *
  * @return the control added.
  */
-public fun <T> NodeContainer.listSelectionView(): ListSelectionView<T> = listSelectionView() { }
+public fun <T> NodeContainer.listSelectionView(): ListSelectionView<T> = listSelectionView() {}
 
 /**
  * Create a [ListSelectionView] with configuration block.
@@ -30,12 +30,13 @@ public fun <T> NodeContainer.listSelectionView(): ListSelectionView<T> = listSel
  * @param configuration the configuration block.
  * @return the control created.
  */
-public inline fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
-        ListSelectionView<T>).() -> Unit): ListSelectionView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ListSelectionView<T>()
-    child.configuration()
-    return child
+public inline fun <T> listSelectionView(
+    configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit
+): ListSelectionView<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ListSelectionView<T>()
+  child.configuration()
+  return child
 }
 
 /**
@@ -44,12 +45,13 @@ public inline fun <T> listSelectionView(configuration: (@KtfxLayoutDslMarker
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeContainer.listSelectionView(configuration: (@KtfxLayoutDslMarker
-        ListSelectionView<T>).() -> Unit): ListSelectionView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ListSelectionView<T>()
-    child.configuration()
-    return addChild(child)
+public inline fun <T> NodeContainer.listSelectionView(
+    configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit
+): ListSelectionView<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ListSelectionView<T>()
+  child.configuration()
+  return addChild(child)
 }
 
 /**
@@ -59,8 +61,10 @@ public inline fun <T> NodeContainer.listSelectionView(configuration: (@KtfxLayou
  * @param id the CSS id.
  * @return the styled control created.
  */
-public fun <T> styledListSelectionView(vararg styleClass: String, id: String? = null):
-        ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
+public fun <T> styledListSelectionView(
+    vararg styleClass: String,
+    id: String? = null
+): ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) {}
 
 /**
  * Add a styled [ListSelectionView] to this container.
@@ -69,8 +73,10 @@ public fun <T> styledListSelectionView(vararg styleClass: String, id: String? = 
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeContainer.styledListSelectionView(vararg styleClass: String, id: String? = null):
-        ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
+public fun <T> NodeContainer.styledListSelectionView(
+    vararg styleClass: String,
+    id: String? = null
+): ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) {}
 
 /**
  * Create a styled [ListSelectionView] with configuration block.
@@ -85,12 +91,12 @@ public inline fun <T> styledListSelectionView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit,
 ): ListSelectionView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ListSelectionView<T>()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return child
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ListSelectionView<T>()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return child
 }
 
 /**
@@ -106,10 +112,10 @@ public inline fun <T> NodeContainer.styledListSelectionView(
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit,
 ): ListSelectionView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = ListSelectionView<T>()
-    child.styleClass += styleClass
-    child.id = id
-    child.configuration()
-    return addChild(child)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  val child = ListSelectionView<T>()
+  child.styleClass += styleClass
+  child.id = id
+  child.configuration()
+  return addChild(child)
 }

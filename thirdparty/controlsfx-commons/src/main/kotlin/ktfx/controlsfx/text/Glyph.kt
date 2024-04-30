@@ -11,8 +11,8 @@ import org.controlsfx.glyphfont.Glyph
  * Retrieve glyph by font name and glyph name using one string where font name an glyph name are
  * separated by pipe.
  *
- * @receiver font name.
  * @param glyph name.
+ * @receiver font name.
  */
 inline infix fun String.glyph(glyph: String): Glyph = Glyph.create("$this|$glyph")
 
@@ -31,13 +31,13 @@ inline infix fun Glyph.sizeFactor(factor: Int): Glyph = sizeFactor(factor)
 /** Enables/disables the hover effect style. */
 infix fun Glyph.useHoverEffect(useHoverEffect: Boolean): Glyph =
     when {
-        useHoverEffect -> useHoverEffect()
-        else -> apply { styleClass -= Glyph.STYLE_HOVER_EFFECT }
+      useHoverEffect -> useHoverEffect()
+      else -> apply { styleClass -= Glyph.STYLE_HOVER_EFFECT }
     }
 
 /** Enables/disables the gradient effect style. */
 infix fun Glyph.useGradientEffect(useGradientEffect: Boolean): Glyph =
     when {
-        useGradientEffect -> useGradientEffect()
-        else -> apply { styleClass -= Glyph.STYLE_GRADIENT }
+      useGradientEffect -> useGradientEffect()
+      else -> apply { styleClass -= Glyph.STYLE_GRADIENT }
     }

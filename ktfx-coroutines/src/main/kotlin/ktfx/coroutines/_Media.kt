@@ -16,9 +16,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * @see Media.setOnError
- */
-public fun Media.onError(context: CoroutineContext = Dispatchers.JavaFx,
-        action: suspend CoroutineScope.() -> Unit): Unit = setOnError { GlobalScope.launch(context)
-        { action() } }
+/** @see Media.setOnError */
+public fun Media.onError(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.() -> Unit
+): Unit = setOnError { GlobalScope.launch(context) { action() } }
