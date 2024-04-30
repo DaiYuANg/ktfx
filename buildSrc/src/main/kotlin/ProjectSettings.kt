@@ -10,6 +10,27 @@ val javafxModules =
         "javafx.web",
     )
 
+val devJvmArguments =
+  listOf(
+    "-XX:+UseZGC",
+    "-XX:+ZGenerational",
+    "-XX:+UseCompressedClassPointers",
+    "-Dcom.sun.management.jmxremote",
+    "-XX:+UseStringDeduplication",
+    "-XX:+OptimizeStringConcat",
+    "-Dcom.sun.management.jmxremote.port=9010",
+    "-Dcom.sun.management.jmxremote.ssl=false",
+    "-Dcom.sun.management.jmxremote.authenticate=false",
+    "-XX:+UseCompressedOops",
+    "-XX:MaxInlineLevel=32",
+    "-XX:+AlwaysPreTouch",
+    "-XX:+TieredCompilation",
+    "-XX:SoftRefLRUPolicyMSPerMB=50",
+    "-XX:+UseNUMA",
+    "-Xmx256M",
+    "-Dcom.sun.management.jmxremote",
+  )
+
 const val IMPLEMENTATION = "implementation"
 const val TEST_IMPLEMENTATION = "testImplementation"
 const val COMPILE_ONLY = "compileOnly"

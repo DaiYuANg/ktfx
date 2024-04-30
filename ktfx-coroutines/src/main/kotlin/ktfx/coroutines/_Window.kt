@@ -18,7 +18,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
 /** @see Window.setOnCloseRequest */
-public fun Window.onCloseRequest(
+fun Window.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WindowEvent) -> Unit
 ): Unit = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }

@@ -5,18 +5,19 @@ import org.openjfx.gradle.JavaFXOptions
 import org.openjfx.gradle.JavaFXPlugin
 
 class JavaFxSetting : Plugin<Project> {
+
   override fun apply(target: Project) {
     val rootLibs = rootLibs(target)
     target.plugins.apply(JavaFXPlugin::class.java)
     target.extensions.configure(JavaFXOptions::class.java) {
-      //      version = rootLibs.versions.get()
       modules(*javafxModules.toTypedArray())
       configurations =
-          arrayOf(
-              "implementation",
-              "testImplementation",
-          )
+        arrayOf(
+          IMPLEMENTATION,
+          TEST_IMPLEMENTATION,
+        )
     }
     target.dependencies { add(TEST_IMPLEMENTATION, rootLibs.javafxUnitTest) }
   }
+
 }

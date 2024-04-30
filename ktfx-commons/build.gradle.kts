@@ -7,6 +7,6 @@ plugins {
 
 dependencies {
   ktlintRuleset(libs.rulebook.ktlint)
-
-  testImplementation(project(":testing:commons"))
+  compileOnly(libs.kotlinx.coroutines.core)
+  testImplementation(projects.testing.commons)
 }

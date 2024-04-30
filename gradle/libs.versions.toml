@@ -5,23 +5,33 @@ ktlint = "1.0.0"
 controlsfx = "11.2.1"
 jfoenix = "8.0.10"
 javaFx = "21"
+kotlinxCoroutures = "1.8.0"
+asciidoctor = "4.0.2"
+slf4j = "2.1.0-alpha1"
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
-kotlinx-kover = "org.jetbrains.kotlinx.kover:0.7.4"
+kotlinx-kover = {id="org.jetbrains.kotlinx.kover",version="0.7.6"}
 ktlint = "org.jlleitschuh.gradle.ktlint:11.6.1"
 maven-publish = "com.vanniktech.maven.publish.base:0.22.0" # max for jdk8
 git-publish = "org.ajoberstar.git-publish:3.0.1" # max for jdk8
 pages = "com.hendraanggrian.pages:0.1"
 versionCheck = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 javafx = { id = "org.openjfx.javafxplugin", version = "0.1.0" }
+asciidoctorJvm = { id = "org.asciidoctor.jvm.convert", version.ref = "asciidoctor" }
+asciidoctorGem = { id = "org.asciidoctor.jvm.gems", version.ref = "asciidoctor" }
+asciidoctorEpub = { id = "org.asciidoctor.jvm.epub", version.ref = "asciidoctor" }
+asciidoctorPdf = { id = "org.asciidoctor.jvm.pdf", version.ref = "asciidoctor" }
+asciidoctorRevealjs = { id = "org.asciidoctor.jvm.revealjs", version = "4.0.0-alpha.1" }
+asciidoctorEditconfig = { id = "org.asciidoctor.editorconfig", version.ref = "asciidoctor" }
+
 
 [libraries]
 # lint
 rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.4"
 # main
-kotlinx-coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
-kotlinx-coroutines-javafx = "org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.7.3"
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutures" }
+kotlinx-coroutines-javafx = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-javafx", version.ref = "kotlinxCoroutures" }
 controlsfx = { module = "org.controlsfx:controlsfx", version.ref = "controlsfx" }
 jfoenix = { module = "com.jfoenix:jfoenix", version.ref = "jfoenix" }
 commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version = "3.13.0" }
@@ -31,8 +41,19 @@ kotlinpoet-dsl = "com.hendraanggrian:kotlinpoet-dsl:0.2-SNAPSHOT"
 truth = "com.google.truth:truth:1.1.5"
 testfx-junit = "org.testfx:testfx-junit:4.0.15-alpha"
 testfx-monocle = "org.testfx:openjfx-monocle:8u76-b04"
+jreleaserPlugin = { group = "org.jreleaser", name = "jreleaser-gradle-plugin", version = "1.1.0" }
 
+oshi = { group = "com.github.oshi", name = "oshi-core-java11", version = "6.5.0" }
 javafxUnitTest = { group = "org.testfx", name = "testfx-junit5", version = "4.0.18" }
+slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4j" }
+slf4jJdkPlatform = { group = "org.slf4j", name = "slf4j-jdk-platform-logging", version.ref = "slf4j" }
+slf4jJulBridage = { group = "org.slf4j", name = "jul-to-slf4j", version.ref = "slf4j" }
+
+apacheCommonIO = { group = "commons-io", name = "commons-io", version = "2.14.0" }
+apacheCommonLang3 = { group = "org.apache.commons", name = "commons-lang3", version = "3.14.0" }
+apacheCommonPool = { group = "org.apache.commons", name = "commons-pool2", version = "2.12.0" }
+apacheDBUtil = { group = "commons-dbutils", name = "commons-dbutils", version = "1.8.1" }
+dataFaker = { group = "net.datafaker", name = "datafaker", version = "2.1.0" }
 
 spotbugsPlugin = { group = "com.github.spotbugs.snom", name = "spotbugs-gradle-plugin", version = "6.0.8" }
 spotlessPlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version = "6.25.0" }

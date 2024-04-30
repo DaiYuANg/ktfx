@@ -5,4 +5,7 @@ module ktfx.sample {
   requires ktfx.commons;
   requires ktfx.layouts;
   requires ktfx.coroutines;
+  requires kotlinx.coroutines.core;
+
+  exports com.example to javafx.graphics;
 }

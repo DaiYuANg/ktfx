@@ -14,21 +14,14 @@ import ktfx.launchApplication
 import ktfx.layouts.*
 
 class CalculatorApp : Application() {
-  companion object {
-    private val OPERATORS = arrayOf("+", "-", "/", "*")
-
-    @JvmStatic
-    fun main(vararg args: String) = launchApplication<CalculatorApp>(*args)
-  }
+  private val operators = arrayOf("+", "-", "/", "*")
 
   private lateinit var calculationLabel: Label
   private lateinit var resultLabel: Label
 
   override fun start(stage: Stage) {
+    stage.isResizable = true
     stage.scene {
-      splitPane {
-        
-      }
       gridPane {
         vbox {
           padding = insetsOf(horizontal = 20)
@@ -176,11 +169,11 @@ class CalculatorApp : Application() {
   }
 
   private fun appendText(text: String) {
-    if (text in OPERATORS && endsWithOperator(text)) {
+    if (text in operators && endsWithOperator(text)) {
       calculationLabel.text = calculationLabel.text.substring(0, calculationLabel.text.length)
     }
     calculationLabel.text += text
   }
 
-  private fun endsWithOperator(text: String?): Boolean = OPERATORS.any { text!!.endsWith(it) }
+  private fun endsWithOperator(text: String?): Boolean = operators.any { text!!.endsWith(it) }
 }

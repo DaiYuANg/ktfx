@@ -7,7 +7,7 @@ plugins {
 
 dependencies {
   ktlintRuleset(libs.rulebook.ktlint)
-  implementation(libs.kotlinx.coroutines.javafx)
-
+  api(libs.kotlinx.coroutines.core)
+  api(libs.kotlinx.coroutines.javafx)
   testImplementation(projects.testing.listeners)
 }

@@ -19,4 +19,5 @@ dependencies {
   implementation(libs.kotlinGradleAllOpenPlugin)
   implementation(libs.spotlessPlugin)
   implementation(libs.javaFxPlugin)
+  implementation(libs.jreleaserPlugin)
 }

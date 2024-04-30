@@ -4,7 +4,8 @@ plugins {
   application
 }
 
-application.mainClass.set("com.example.CalculatorApp")
+application.mainClass.set("com.example.SampleApplication")
+application.applicationDefaultJvmArgs += devJvmArguments
 
 dependencies {
   implementation(projects.ktfx)
