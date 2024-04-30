@@ -1,3 +1,4 @@
+import com.coditory.gradle.manifest.ManifestPlugin
 import org.gradle.jvm.tasks.Jar
 
 val developerId: String by project
@@ -15,7 +16,8 @@ plugins {
   alias(libs.plugins.ktlint) apply false
   alias(libs.plugins.maven.publish) apply false
   alias(libs.plugins.versionCheck)
-  publishing
+  alias(libs.plugins.manifest)
+  alias(libs.plugins.gradleDotenv)
 }
 
 allprojects {
@@ -31,10 +33,26 @@ subprojects {
   if (project.name != "website") {
     apply<KotlinSetting>()
     apply<JavaFxSetting>()
+    apply<JavaLibraryPlugin>()
+    apply<ManifestPlugin>()
+    apply<PublishingPlugin>()
+
+    project.extensions.configure<JavaPluginExtension> {
+//      withJavadocJar()
+      withSourcesJar()
+    }
+
+    manifest {
+      buildAttributes = true
+      implementationAttributes = true
+      scmAttributes = true
+    }
+
     plugins.withType<org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper>().configureEach {
       the<org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension>()
         .jvmToolchain(rootProject.libs.versions.jdk.get().toInt())
     }
+
     plugins.withType<org.jlleitschuh.gradle.ktlint.KtlintPlugin>().configureEach {
       the<org.jlleitschuh.gradle.ktlint.KtlintExtension>()
         .version.set(rootProject.libs.versions.ktlint.get())

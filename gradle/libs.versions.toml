@@ -11,7 +11,7 @@ slf4j = "2.1.0-alpha1"
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
-kotlinx-kover = {id="org.jetbrains.kotlinx.kover",version="0.7.6"}
+kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.6" }
 ktlint = "org.jlleitschuh.gradle.ktlint:11.6.1"
 maven-publish = "com.vanniktech.maven.publish.base:0.22.0" # max for jdk8
 git-publish = "org.ajoberstar.git-publish:3.0.1" # max for jdk8
@@ -24,7 +24,10 @@ asciidoctorEpub = { id = "org.asciidoctor.jvm.epub", version.ref = "asciidoctor"
 asciidoctorPdf = { id = "org.asciidoctor.jvm.pdf", version.ref = "asciidoctor" }
 asciidoctorRevealjs = { id = "org.asciidoctor.jvm.revealjs", version = "4.0.0-alpha.1" }
 asciidoctorEditconfig = { id = "org.asciidoctor.editorconfig", version.ref = "asciidoctor" }
-
+manifest = { id = "com.coditory.manifest", version = "0.2.6" }
+gradleDotenv = { id = "co.uzzu.dotenv.gradle", version = "4.0.0" }
+lombok = { id = "name.remal.lombok", version = "2.2.5" }
+spotbugs = { id = "com.github.spotbugs", version = "6.0.12" }
 
 [libraries]
 # lint
@@ -64,3 +67,4 @@ kotlinGradleSerializationPlugin = { group = "org.jetbrains.kotlin", name = "kotl
 kotlinGradleNoArgPlugin = { group = "org.jetbrains.kotlin", name = "kotlin-noarg", version.ref = "kotlin" }
 kotlinGradleAllOpenPlugin = { group = "org.jetbrains.kotlin", name = "kotlin-allopen", version.ref = "kotlin" }
 kotlinLogging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version = "6.0.9" }
+manifestPlugin = { group = "com.coditory.gradle", name = "manifest-plugin", version = "0.2.6" }
