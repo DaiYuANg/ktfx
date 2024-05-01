@@ -39,7 +39,7 @@ open class CoroutinesFactory(
     ) {
   companion object override
 
-  fun ParameterSpecHandlerScope.action(vararg params: TypeName): ParameterSpec =
+  override fun ParameterSpecHandlerScope.action(vararg params: TypeName): ParameterSpec =
       parameter(
           "action",
           CoroutineScope::class.name.lambdaBy(*params, returns = UNIT).suspending(),

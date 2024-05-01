@@ -57,7 +57,7 @@ import javafx.stage.PopupWindow
 import javafx.stage.Window
 import javafx.stage.WindowEvent
 
-val CoroutinesFactory.Companion.JavaFx: CoroutinesFactory
+val CoroutinesFactory.JavaFx: CoroutinesFactory
   get() =
       CoroutinesFactory(
               "ktfx-coroutines/src/main/kotlin",

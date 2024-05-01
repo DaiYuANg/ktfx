@@ -15,7 +15,6 @@ dependencies {
   implementation(libs.kotlinx.coroutines.core)
   implementation(libs.kotlinpoet.dsl)
   implementation(libs.controlsfx)
-  implementation(libs.jfoenix)
 
   testImplementation(kotlin("test-junit", libs.versions.kotlin.get()))
 }

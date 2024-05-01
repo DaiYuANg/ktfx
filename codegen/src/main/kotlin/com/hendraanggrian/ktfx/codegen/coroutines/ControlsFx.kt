@@ -10,7 +10,7 @@ import org.controlsfx.control.HyperlinkLabel
 import org.controlsfx.control.NotificationPane
 import org.controlsfx.control.PlusMinusSlider
 
-val CoroutinesFactory.Companion.ControlsFx: CoroutinesFactory
+val CoroutinesFactory.ControlsFx: CoroutinesFactory
   get() =
       CoroutinesFactory(
               "thirdparty/controlsfx-coroutines/src/main/kotlin",

@@ -29,6 +29,7 @@ fun Stage.scene(width: Double = -1.0, height: Double = -1.0, fill: Paint = Color
     KtfxScene(Pane(), width, height, fill).also { scene = it }
 
 /** Add a [Scene] with configuration block to this window. */
+@OptIn(ExperimentalContracts::class)
 inline fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
