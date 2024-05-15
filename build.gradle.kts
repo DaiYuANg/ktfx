@@ -25,9 +25,9 @@ allprojects {
   version = releaseVersion
 }
 
-apply<ReleaseSetting>()
 apply<IdeaSetting>()
 apply<FormatSetting>()
+apply<ReleaseSetting>()
 
 subprojects {
   if (project.name != "website") {
